@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#e91e63">
+  <title>⚡ ឆ្នោត 10 នាទី - N98</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700;800&family=Noto+Sans+Khmer:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       RESET
+       ============================================================ */
+    * { box-sizing: border-box; font-family: 'Kantumruy Pro', 'Noto Sans Khmer', system-ui, sans-serif; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(135deg, #1a0f1f 0%, #2d1b3d 50%, #1a0f1f 100%);
+      background-attachment: fixed;
+      color: #e8eaf0;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+       ============================================================ */
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+    @keyframes shake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-8deg); } 75% { transform: rotate(8deg); } }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+    @keyframes glow { 0%, 100% { box-shadow: 0 0 5px rgba(233, 30, 99, 0.4); } 50% { box-shadow: 0 0 25px rgba(233, 30, 99, 0.9); } }
+    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes slideInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+    @keyframes winGlow { 0% { box-shadow: 0 0 5px rgba(40, 167, 69, 0.4); } 100% { box-shadow: 0 0 18px rgba(40, 167, 69, 0.9); } }
+    @keyframes particleFloat {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+    }
+    @keyframes ringSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .anim-bounce { animation: bounce 1.5s ease-in-out infinite; display: inline-block; }
+    .anim-pulse { animation: pulse 1.2s ease-in-out infinite; display: inline-block; }
+    .anim-shake { animation: shake 0.8s ease-in-out infinite; display: inline-block; }
+    .anim-spin { animation: spin 3s linear infinite; display: inline-block; }
+    .anim-float { animation: float 3s ease-in-out infinite; display: inline-block; }
+
+    /* ============================================================
+       PARTICLES
+       ============================================================ */
+    .particles-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .particle {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0;
+      animation: particleFloat 15s linear infinite;
+    }
+
+    /* ============================================================
+       HEADER
+       ============================================================ */
+    header {
+      background: linear-gradient(135deg, #e91e63 0%, #c2185b 50%, #880e4f 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 8s ease infinite;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(233, 30, 99, 0.4);
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+      animation: spin 20s linear infinite;
+    }
+    header h1 {
+      font-size: clamp(22px, 5vw, 36px);
+      font-weight: 800;
+      margin: 8px 0;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+    header p {
+      font-size: clamp(12px, 2vw, 15px);
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       LIVE BADGE
+       ============================================================ */
+    .live-badge {
+      display: inline-block;
+      background: #ff1744;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 800;
+      margin-top: 8px;
+      animation: badgePulse 1s ease-in-out infinite;
+      box-shadow: 0 0 15px rgba(255, 23, 68, 0.7);
+      position: relative;
+      z-index: 1;
+    }
+    .live-badge::before {
+      content: '●';
+      margin-right: 4px;
+      animation: blink 1s linear infinite;
+    }
+
+    /* ============================================================
+       NAV BAR
+       ============================================================ */
+    .nav-bar {
+      background: rgba(45, 27, 61, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+      border-bottom: 2px solid #e91e63;
+    }
+    .nav-bar a, .nav-bar button {
+      color: #e8eaf0;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: clamp(12px, 1.4vw, 13px);
+      cursor: pointer;
+      border: none;
+      background: rgba(255, 255, 255, 0.08);
+      transition: all 0.3s;
+    }
+    .nav-bar a:hover, .nav-bar button:hover {
+      background: linear-gradient(135deg, #e91e63, #c2185b);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(233, 30, 99, 0.4);
+    }
+    .btn-back {
+      background: linear-gradient(135deg, #0078D7, #005fa3) !important;
+      color: white !important;
+    }
+
+    /* ============================================================
+       SECTION
+       ============================================================ */
+    .section {
+      padding: 12px;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============================================================
+       COUNTDOWN BOX - LIVE
+       ============================================================ */
+    .countdown-live {
+      background: linear-gradient(135deg, #2d1b3d, #1a0f1f);
+      border: 3px solid #e91e63;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 12px 0;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(233, 30, 99, 0.4);
+      position: relative;
+      overflow: hidden;
+      animation: glow 2s ease-in-out infinite;
+    }
+    .countdown-live::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(233, 30, 99, 0.15) 0%, transparent 70%);
+      animation: spin 15s linear infinite;
+    }
+    .countdown-live .label {
+      color: #ff8bb5;
+      font-size: clamp(12px, 1.5vw, 14px);
+      font-weight: 800;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .countdown-live .time-display {
+      font-size: clamp(44px, 9vw, 72px);
+      color: #ff1744;
+      background: #1a0f1f;
+      padding: 12px 24px;
+      border-radius: 16px;
+      display: inline-block;
+      font-weight: 800;
+      font-family: 'Courier New', monospace;
+      text-shadow: 0 0 25px rgba(255, 23, 68, 0.7);
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .countdown-live .next-draw {
+      color: #e8eaf0;
+      font-size: clamp(12px, 1.4vw, 14px);
+      font-weight: 700;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .countdown-live .draw-number {
+      color: #ff8bb5;
+      font-weight: 800;
+    }
+
+    /* Ring Progress */
+    .ring-container {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin: 12px auto;
+      z-index: 1;
+    }
+    .ring-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+    .ring-bg { fill: none; stroke: rgba(255, 255, 255, 0.1); stroke-width: 8; }
+    .ring-progress {
+      fill: none;
+      stroke: url(#ringGradient);
+      stroke-width: 8;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s linear;
+    }
+    .ring-text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .ring-text .time {
+      font-size: 36px;
+      font-weight: 800;
+      color: #ff1744;
+      font-family: 'Courier New', monospace;
+      text-shadow: 0 0 15px rgba(255, 23, 68, 0.8);
+    }
+    .ring-text .label {
+      font-size: 11px;
+      color: #ff8bb5;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* ============================================================
+       RESULTS GRID (10 Latest Draws)
+       ============================================================ */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      margin: 12px 0;
+    }
+    .result-card {
+      background: linear-gradient(135deg, #2d1b3d, #1a0f1f);
+      border: 2px solid #e91e63;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 4px 14px rgba(233, 30, 99, 0.2);
+      transition: all 0.3s;
+      animation: slideInUp 0.4s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+    .result-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(233, 30, 99, 0.4);
+    }
+    .result-card .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(233, 30, 99, 0.3);
+    }
+    .result-card .draw-id {
+      color: #ff8bb5;
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .result-card .time {
+      color: #e8eaf0;
+      font-size: 11px;
+      font-weight: 700;
+      opacity: 0.85;
+    }
+    .result-card .numbers-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .result-card .num-cell {
+      background: rgba(233, 30, 99, 0.15);
+      border: 1px solid rgba(233, 30, 99, 0.4);
+      border-radius: 6px;
+      padding: 5px 2px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: #ff8bb5;
+    }
+    .result-card .num-cell .letter {
+      display: block;
+      font-size: 8px;
+      color: #e91e63;
+      margin-bottom: 1px;
+    }
+    .result-card .num-cell .value {
+      color: #ffffff;
+      font-size: 13px;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    }
+    .result-card .type-label {
+      font-size: 10px;
+      color: #ff8bb5;
+      font-weight: 800;
+      margin-top: 6px;
+      text-align: center;
+    }
+    .result-card.new-result {
+      animation: slideInDown 0.6s ease-out, glow 2s ease-in-out infinite;
+      border-color: #ffc107;
+    }
+    .result-card.new-result::after {
+      content: 'NEW';
+      position: absolute;
+      top: 6px; right: 6px;
+      background: #ffc107;
+      color: #000;
+      font-size: 8px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 6px;
+      animation: blink 1s linear infinite;
+    }
+
+    /* ============================================================
+       BET BOX
+       ============================================================ */
+    .bet-box {
+      background: linear-gradient(135deg, #2d1b3d, #1a0f1f);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 12px 0;
+      border: 2px solid #e91e63;
+      box-shadow: 0 4px 20px rgba(233, 30, 99, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .bet-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(90deg, #e91e63, #ffc107, #e91e63);
+      background-size: 200% 100%;
+      animation: gradientShift 3s ease infinite;
+    }
+    .bet-box h2 {
+      color: #ff8bb5;
+      font-size: clamp(16px, 2.2vw, 20px);
+      border-bottom: 2px solid rgba(233, 30, 99, 0.3);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+
+    /* Balance Display */
+    .balance-display {
+      background: linear-gradient(135deg, #1e3a2f, #163d29);
+      border: 2px solid #28a745;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 12px 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .balance-item {
+      flex: 1;
+      min-width: 120px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(40, 167, 69, 0.5);
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+    .balance-item .label {
+      font-size: 10px;
+      color: #7dd89a;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .balance-item .value {
+      color: #4ade80;
+      font-weight: 800;
+      font-family: 'Courier New', monospace;
+      font-size: clamp(16px, 2.4vw, 20px);
+      text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+    }
+
+    /* Time Selector */
+    .time-selector {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .time-btn {
+      flex: 1;
+      min-width: 80px;
+      padding: 10px 8px;
+      border: 2px solid rgba(233, 30, 99, 0.4);
+      background: rgba(255, 255, 255, 0.05);
+      color: #e8eaf0;
+      font-weight: 800;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: clamp(12px, 1.5vw, 14px);
+      transition: all 0.3s;
+    }
+    .time-btn:hover { transform: translateY(-2px); border-color: #e91e63; }
+    .time-btn.active {
+      border-color: #e91e63;
+      background: linear-gradient(135deg, #e91e63, #c2185b);
+      color: white;
+      box-shadow: 0 4px 14px rgba(233, 30, 99, 0.5);
+    }
+    .time-btn.closed {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Type Selector */
+    .type-selector {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .type-btn {
+      flex: 1;
+      min-width: 100px;
+      padding: 10px;
+      border: 2px solid rgba(233, 30, 99, 0.4);
+      background: rgba(255, 255, 255, 0.05);
+      color: #e8eaf0;
+      font-weight: 800;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: clamp(12px, 1.5vw, 14px);
+      transition: all 0.3s;
+    }
+    .type-btn.active {
+      border-color: #ffc107;
+      background: linear-gradient(135deg, #ffc107, #ff9800);
+      color: #000;
+      box-shadow: 0 4px 14px rgba(255, 193, 7, 0.4);
+    }
+
+    /* Letter Selector */
+    .letter-selector {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .letter-circle {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 3px solid rgba(233, 30, 99, 0.5);
+      background: rgba(255, 255, 255, 0.05);
+      color: #e8eaf0;
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.35s;
+    }
+    .letter-circle:hover {
+      border-color: #e91e63;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 16px rgba(233, 30, 99, 0.4);
+    }
+    .letter-circle.active {
+      background: linear-gradient(135deg, #e91e63, #880e4f);
+      color: white;
+      border-color: #e91e63;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(233, 30, 99, 0.7);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    /* Input */
+    .input-row {
+      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px dashed rgba(233, 30, 99, 0.4);
+    }
+    .input-row input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid rgba(233, 30, 99, 0.3);
+      border-radius: 8px;
+      font-size: clamp(14px, 1.5vw, 16px);
+      font-weight: 800;
+      letter-spacing: 3px;
+      background: rgba(0, 0, 0, 0.3);
+      color: #ffffff;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .input-row input:focus {
+      border-color: #e91e63;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.25);
+    }
+    .input-row input::placeholder { color: rgba(255, 255, 255, 0.4); }
+
+    /* Selected Numbers */
+    .selected-display {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 8px 0;
+      min-height: 40px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border: 2px dashed rgba(233, 30, 99, 0.4);
+      align-items: center;
+    }
+    .selected-tag {
+      background: linear-gradient(135deg, #e91e63, #880e4f);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 14px;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 800;
+      box-shadow: 0 2px 8px rgba(233, 30, 99, 0.5);
+      animation: fadeIn 0.3s ease-out;
+    }
+    .selected-tag .remove {
+      cursor: pointer;
+      font-weight: 800;
+      color: #ffcc00;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .selected-tag .remove:hover {
+      background: #ff1744;
+      color: white;
+      transform: rotate(90deg);
+    }
+
+    /* Amount Buttons */
+    .amount-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+    .btn-amount {
+      background: linear-gradient(135deg, #e91e63, #c2185b);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+      transition: all 0.3s;
+    }
+    .btn-amount:hover:not(:disabled) { transform: translateY(-2px) scale(1.05); box-shadow: 0 4px 14px rgba(233, 30, 99, 0.5); }
+
+    .custom-amount {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px;
+      border-radius: 10px;
+      border: 2px solid rgba(233, 30, 99, 0.4);
+      flex-wrap: wrap;
+    }
+    .custom-amount input {
+      flex: 2 1 100px;
+      padding: 8px 10px;
+      border: 2px solid rgba(233, 30, 99, 0.3);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      min-width: 70px;
+    }
+    .custom-amount select {
+      flex: 1 1 70px;
+      padding: 8px;
+      border: 2px solid rgba(233, 30, 99, 0.3);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.3);
+      color: #e91e63;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* Summary */
+    .bet-summary {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin: 10px 0;
+      border: 2px solid rgba(233, 30, 99, 0.5);
+    }
+    .bet-summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(233, 30, 99, 0.2);
+      font-size: 13px;
+      font-weight: 700;
+      color: #e8eaf0;
+    }
+    .bet-summary-item:last-child { border-bottom: none; }
+    .bet-summary .total { font-weight: 800; color: #ff1744; font-size: 16px; text-shadow: 0 0 10px rgba(255, 23, 68, 0.5); }
+
+    /* Submit Button */
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #e91e63, #880e4f);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 6px 20px rgba(233, 30, 99, 0.5);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-submit:hover:not(:disabled) {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(233, 30, 99, 0.7);
+    }
+    .btn-submit:disabled {
+      background: #4a4a4a !important;
+      color: #888 !important;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    /* Balance Status Box */
+    .balance-status-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 2px solid;
+      display: none;
+      animation: slideInUp 0.4s ease-out;
+    }
+    .balance-status-box.ok {
+      background: linear-gradient(135deg, #1e3a2f, #163d29);
+      border-color: #28a745;
+    }
+    .balance-status-box.warn {
+      background: linear-gradient(135deg, #3d1a1a, #2d1010);
+      border-color: #ff1744;
+    }
+    .balance-status-box .header-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .balance-status-box.ok .header-row { color: #4ade80; }
+    .balance-status-box.warn .header-row { color: #ff8b95; }
+    .balance-status-box .rows {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .balance-status-box .rows .label { color: #a0a8b8; }
+    .balance-status-box .rows .value { color: #ffffff; font-family: 'Courier New', monospace; }
+    .balance-status-box .rows .value.success { color: #4ade80; }
+    .balance-status-box .rows .value.danger { color: #ff1744; }
+    .balance-status-box .progress-bar {
+      margin-top: 10px;
+      height: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .balance-status-box .progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.6s ease;
+    }
+    .balance-status-box.ok .progress-fill { background: linear-gradient(90deg, #28a745, #4ade80); }
+    .balance-status-box.warn .progress-fill { background: linear-gradient(90deg, #ff1744, #d50000); }
+    .balance-status-box .hint {
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+      padding: 6px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Info Box */
+    .info-box {
+      background: linear-gradient(135deg, rgba(233, 30, 99, 0.15), rgba(136, 14, 79, 0.15));
+      border: 1px solid rgba(233, 30, 99, 0.4);
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-size: 12px;
+      color: #ff8bb5;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    /* User Info Bar */
+    .user-info-bar {
+      background: linear-gradient(135deg, rgba(233, 30, 99, 0.2), rgba(136, 14, 79, 0.2));
+      padding: 10px 14px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border: 2px solid #e91e63;
+      box-shadow: 0 4px 14px rgba(233, 30, 99, 0.2);
+    }
+    .user-info-bar .label { color: #ff8bb5; font-size: 12px; font-weight: 800; }
+    .user-info-bar .value {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+    }
+
+    /* Toast */
+    .toast-container {
+      position: fixed;
+      top: 20px; right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+    .toast {
+      background: #2d1b3d;
+      color: #e8eaf0;
+      padding: 14px 18px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 13px;
+      min-width: 260px;
+      max-width: 360px;
+      pointer-events: auto;
+      animation: slideInDown 0.4s ease-out;
+      border-left: 4px solid #e91e63;
+      position: relative;
+    }
+    .toast.success { border-left-color: #28a745; }
+    .toast.error { border-left-color: #ff1744; }
+    .toast.warning { border-left-color: #ffc107; }
+    .toast.info { border-left-color: #17a2b8; }
+    .toast .toast-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+    .toast .toast-text { flex: 1; line-height: 1.4; }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      overflow-y: auto;
+    }
+    .modal-content {
+      background: #2d1b3d;
+      color: #e8eaf0;
+      margin: 5% auto;
+      padding: 24px;
+      border-radius: 20px;
+      max-width: 480px;
+      width: 94%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      animation: slideInUp 0.4s ease-out;
+      border: 2px solid #e91e63;
+      position: relative;
+    }
+    .modal-content h2 {
+      color: #ff8bb5;
+      font-size: 20px;
+      margin-bottom: 14px;
+      text-align: center;
+      font-weight: 800;
+    }
+    .modal-content label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: 800;
+      font-size: 13px;
+      color: #ff8bb5;
+    }
+    .modal-content input, .modal-content select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid rgba(233, 30, 99, 0.4);
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+    }
+    .modal-content input:focus { border-color: #e91e63; outline: none; box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.25); }
+    .close {
+      position: absolute;
+      top: 12px; right: 16px;
+      font-size: 32px;
+      font-weight: 800;
+      cursor: pointer;
+      color: #ff8bb5;
+      line-height: 1;
+      transition: all 0.3s;
+      z-index: 10;
+    }
+    .close:hover { color: #ff1744; transform: rotate(90deg) scale(1.2); }
+
+    .alert-modal { text-align: center; padding: 28px 24px; }
+    .alert-icon { font-size: 60px; margin-bottom: 14px; display: block; animation: bounce 1.5s ease-in-out infinite; }
+    .alert-title { font-size: 20px; font-weight: 800; margin-bottom: 10px; color: #ff8bb5; }
+    .alert-message { font-size: 14px; color: #e8eaf0; margin-bottom: 20px; line-height: 1.6; font-weight: 600; white-space: pre-line; }
+
+    .btn {
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      margin: 3px;
+      font-weight: 800;
+      transition: all 0.3s;
+    }
+    .btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); }
+    .btn:disabled { background: #4a4a4a !important; color: #888 !important; cursor: not-allowed; }
+    .btn-primary { background: linear-gradient(135deg, #e91e63, #880e4f); }
+    .btn-success { background: linear-gradient(135deg, #28a745, #1e7e34); }
+
+    /* Footer */
+    .footer {
+      background: rgba(0, 0, 0, 0.4);
+      color: #a0a8b8;
+      text-align: center;
+      padding: 16px;
+      margin-top: 20px;
+      border-top: 3px solid #e91e63;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Loading */
+    .loading-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9998;
+    }
+    .loading-overlay.active { display: flex; }
+    .loading-spinner {
+      width: 60px; height: 60px;
+      border: 5px solid rgba(233, 30, 99, 0.3);
+      border-top-color: #e91e63;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .results-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+      .toast-container { top: 10px; right: 10px; left: 10px; }
+      .toast { min-width: auto; width: 100%; }
+      .letter-circle { width: 42px; height: 42px; font-size: 14px; }
+      .ring-container { width: 140px; height: 140px; }
+      .ring-text .time { font-size: 30px; }
+    }
+    @media (max-width: 480px) {
+      .countdown-live .time-display { font-size: 40px; padding: 8px 16px; }
+      .letter-circle { width: 38px; height: 38px; font-size: 13px; }
+      .ring-container { width: 120px; height: 120px; }
+      .ring-text .time { font-size: 26px; }
+      .result-card .num-cell .value { font-size: 11px; }
+    }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #1a0f1f; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #e91e63, #880e4f); border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+  <!-- PARTICLES -->
+  <div class="particles-bg" id="particlesBg"></div>
+
+  <!-- TOAST -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- LOADING -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <h1>⚡ ឆ្នោត 10 នាទី <span class="anim-pulse">🎰</span></h1>
+    <p>ប្រកាសលទ្ធផលរៀងរាល់ 10 នាទី — ដំណើរការ 24/7</p>
+    <div class="live-badge">LIVE NOW</div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav-bar">
+    <a href="index.html" class="btn-back">⬅️ ត្រឡប់ទៅ 12:00 / 16:00</a>
+    <button onclick="copyLink()">🔗 ចែករំលែក</button>
+    <button onclick="openGroup()">💬 ចូលក្រុម</button>
+    <button onclick="handleLogout()">🚪 ចាកចេញ</button>
+  </nav>
+
+  <div class="section">
+
+    <!-- USER INFO -->
+    <div class="user-info-bar">
+      <div>
+        <span class="label">🆔 ID: </span>
+        <span class="value" id="displayCurrentUserId">------</span>
+      </div>
+      <div>
+        <span class="label">📱 Phone: </span>
+        <span class="value" id="displayCurrentPhone">---</span>
+      </div>
+    </div>
+
+    <!-- COUNTDOWN LIVE -->
+    <div class="countdown-live">
+      <div class="label">⚡ ការប្រកាសលទ្ធផលបន្ទាប់</div>
+
+      <div class="ring-container">
+        <svg class="ring-svg" viewBox="0 0 160 160">
+          <defs>
+            <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#ff1744;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#e91e63;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#ffc107;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <circle class="ring-bg" cx="80" cy="80" r="70"></circle>
+          <circle class="ring-progress" id="ringProgress" cx="80" cy="80" r="70"
+                  stroke-dasharray="439.82" stroke-dashoffset="0"></circle>
+        </svg>
+        <div class="ring-text">
+          <div class="time" id="ringTime">10:00</div>
+          <div class="label">នាទី:វិនាទី</div>
+        </div>
+      </div>
+
+      <div class="next-draw">
+        🎯 លេខវគ្គបន្ទាប់៖ <span class="draw-number" id="nextDrawNumber">#------</span>
+      </div>
+    </div>
+
+    <!-- LATEST RESULTS GRID -->
+    <div class="bet-box" style="border-color:#ffc107;">
+      <h2>🎯 លទ្ធផល 10 វគ្គចុងក្រោយ</h2>
+      <div class="results-grid" id="resultsGrid">
+        <div style="grid-column: 1/-1; text-align:center; padding:20px; color:#a0a8b8;">
+          <span class="anim-spin">⏳</span> កំពុងផ្ទុក...
+        </div>
+      </div>
+    </div>
+
+    <!-- BET BOX -->
+    <div class="bet-box">
+      <h2>🎲 ចាក់លេខវគ្គបន្ទាប់</h2>
+
+      <!-- Balance -->
+      <div class="balance-display" id="balanceDisplay">
+        <div class="balance-item">
+          <div class="label">💵 USD</div>
+          <div class="value" id="balanceUSD">0.00$</div>
+        </div>
+        <div class="balance-item">
+          <div class="label">🇰🇭 KHR</div>
+          <div class="value" id="balanceKHR">0៛</div>
+        </div>
+      </div>
+
+      <!-- Guide -->
+      <div class="info-box">
+        💡 <strong>របៀបចាក់៖</strong><br>
+        ១. ជ្រើស <strong>ប្រភេទ</strong> (២ ឬ ៣ ខ្ទង់)<br>
+        ២. ចុច <strong>ប៉ុស្តិ៍ A, B, C, D, E</strong><br>
+        ៣. បញ្ចូលលេខ (ឧ. 01, 02, 03)<br>
+        ៤. ជ្រើសទឹកប្រាក់ → ចុច <strong>"ដាក់ភ្នាល់"</strong>
+      </div>
+
+      <!-- Reward Table -->
+      <table style="width:100%; border-collapse:collapse; margin-bottom:12px; border-radius:8px; overflow:hidden; font-size:12px;">
+        <thead>
+          <tr>
+            <th style="background:linear-gradient(135deg,#e91e63,#880e4f); color:white; padding:8px;">ប្រភេទ</th>
+            <th style="background:linear-gradient(135deg,#e91e63,#880e4f); color:white; padding:8px;">អត្រា</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="background:rgba(255,255,255,0.05); color:#e8eaf0; padding:8px; text-align:center; font-weight:700;">២ខ្ទង់ (A-E)</td>
+            <td style="background:rgba(255,255,255,0.05); color:#ff8bb5; padding:8px; text-align:center; font-weight:800;">1$ → 70$</td>
+          </tr>
+          <tr>
+            <td style="background:rgba(255,255,255,0.05); color:#e8eaf0; padding:8px; text-align:center; font-weight:700;">៣ខ្ទង់ (A-E)</td>
+            <td style="background:rgba(255,255,255,0.05); color:#ff8bb5; padding:8px; text-align:center; font-weight:800;">1$ → 500$</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Betting Closed -->
+      <div id="bettingClosedBox" style="display:none; background:linear-gradient(135deg,rgba(255,23,68,0.15),rgba(136,14,79,0.15)); border:2px solid #ff1744; border-radius:12px; padding:12px; margin-bottom:12px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="font-size:28px;" class="anim-shake">🔒</div>
+          <div>
+            <div style="color:#ff8b95; font-weight:800; font-size:13px;">ការចាក់ត្រូវបានបិទ!</div>
+            <div style="color:#ff8b95; font-size:12px; font-weight:700; margin-top:3px;">
+              ⏰ បើកវិញ <strong id="reopenTime" style="background:rgba(255,255,255,0.1); padding:2px 8px; border-radius:6px;">--:--:--</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Type Selector -->
+      <div style="color:#ff8bb5; font-weight:800; font-size:13px; margin-bottom:6px;">🔢 ប្រភេទ</div>
+      <div class="type-selector">
+        <button class="type-btn active" data-type="two" onclick="setType('two', event)">🔢 ២ខ្ទង់</button>
+        <button class="type-btn" data-type="three" onclick="setType('three', event)">🔢 ៣ខ្ទង់</button>
+      </div>
+
+      <!-- Letter Selector -->
+      <div style="color:#ff8bb5; font-weight:800; font-size:13px; margin-bottom:6px; text-align:center;">🎯 ជ្រើសប៉ុស្តិ៍ A-E</div>
+      <div class="letter-selector">
+        <div class="letter-circle" data-letter="A" onclick="selectLetter('A', event)">A</div>
+        <div class="letter-circle" data-letter="B" onclick="selectLetter('B', event)">B</div>
+        <div class="letter-circle" data-letter="C" onclick="selectLetter('C', event)">C</div>
+        <div class="letter-circle" data-letter="D" onclick="selectLetter('D', event)">D</div>
+        <div class="letter-circle" data-letter="E" onclick="selectLetter('E', event)">E</div>
+      </div>
+
+      <!-- Number Input -->
+      <div class="input-row">
+        <input type="text" id="numInput" placeholder="បញ្ចូលលេខ (ឧ. 01,02,03)" disabled inputmode="numeric" autocomplete="off">
+      </div>
+
+      <!-- Selected Display -->
+      <div class="selected-display" id="selectedDisplay">
+        <span style="color:#a0a8b8; font-size:12px; font-weight:600;">មិនទាន់មានលេខ</span>
+      </div>
+
+      <div style="color:#a0a8b8; font-size:12px; font-weight:700; margin-bottom:8px;">
+        ចំនួន៖ <strong id="countDisplay" style="color:#ff8bb5; font-size:14px;">0</strong> / 10
+      </div>
+
+      <!-- Amount -->
+      <label style="color:#ff8bb5; font-weight:800; font-size:13px;">💰 ចំនួនទឹកប្រាក់</label>
+      <div class="amount-buttons" style="margin-top:6px;">
+        <button class="btn-amount" onclick="setAmount(500,'៛')">500៛</button>
+        <button class="btn-amount" onclick="setAmount(1000,'៛')">1000៛</button>
+        <button class="btn-amount" onclick="setAmount(5000,'៛')">5000៛</button>
+        <button class="btn-amount" onclick="setAmount(10000,'៛')">10000៛</button>
+        <button class="btn-amount" onclick="setAmount(0.25,'$')">0.25$</button>
+        <button class="btn-amount" onclick="setAmount(1,'$')">1$</button>
+        <button class="btn-amount" onclick="setAmount(5,'$')">5$</button>
+        <button class="btn-amount" onclick="setAmount(10,'$')">10$</button>
+      </div>
+
+      <div class="custom-amount">
+        <input type="number" id="amountInput" placeholder="✍️ បញ្ចូលចំនួន" min="0.01" step="any" oninput="updateAmount()">
+        <select id="currencySelect" onchange="updateAmount()">
+          <option value="USD">ដុល្លារ ($)</option>
+          <option value="KHR">រៀល (៛)</option>
+        </select>
+      </div>
+
+      <!-- Summary -->
+      <div class="bet-summary">
+        <div class="bet-summary-item"><span>📊 ចំនួនលេខសរុប៖</span><span id="totalCount">0</span></div>
+        <div class="bet-summary-item total"><span>💵 សរុប៖</span><span id="totalAmount">0</span></div>
+      </div>
+
+      <!-- Submit -->
+      <button class="btn-submit" id="btnSubmit" onclick="submitBet()" disabled>
+        ⚡ ដាក់ភ្នាល់ឥឡូវ
+      </button>
+
+      <!-- Balance Status -->
+      <div class="balance-status-box" id="balanceStatusBox">
+        <div class="header-row">
+          <span id="balanceStatusIcon">💰</span>
+          <span id="balanceStatusTitle">ស្ថានភាពសមតុល្យ</span>
+        </div>
+        <div class="rows">
+          <span class="label">💰 សមតុល្យបច្ចុប្បន្ន៖</span>
+          <span class="value" id="balanceStatusCurrent">0៛</span>
+          <span class="label">💵 ត្រូវការ៖</span>
+          <span class="value" id="balanceStatusNeeded">0៛</span>
+          <span class="label">📊 ខ្វះ៖</span>
+          <span class="value danger" id="balanceStatusShort">0៛</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="balanceProgressFill" style="width:0%;"></div>
+        </div>
+        <div class="hint" id="balanceStatusHint">💡 សូមទាក់ទង Admin ដើម្បីបញ្ចូលប្រាក់</div>
+      </div>
+    </div>
+
+    <!-- USER HISTORY -->
+    <div class="bet-box">
+      <h2>📜 ប្រវត្តិចាក់របស់អ្នក (10 នាទី)</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:11px;">
+          <thead>
+            <tr style="background:linear-gradient(135deg,#e91e63,#880e4f);">
+              <th style="color:white; padding:8px 4px;">វគ្គ</th>
+              <th style="color:white; padding:8px 4px;">លេខ</th>
+              <th style="color:white; padding:8px 4px;">ចំនួន</th>
+              <th style="color:white; padding:8px 4px;">ស្ថានភាព</th>
+              <th style="color:white; padding:8px 4px;">រង្វាន់</th>
+            </tr>
+          </thead>
+          <tbody id="userHistoryBody">
+            <tr><td colspan="5" style="color:#a0a8b8; padding:12px; text-align:center;">កំពុងផ្ទុក...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    ⚡ © 2026 Khmer Lottery N98 — 10 Minute Edition 🎰
+  </div>
+
+  <!-- ALERT MODAL -->
+  <div class="modal" id="alertModal">
+    <div class="modal-content alert-modal">
+      <span class="alert-icon" id="alertIcon">🔔</span>
+      <h3 class="alert-title" id="alertTitle">ការជូនដំណឹង</h3>
+      <p class="alert-message" id="alertMessage">សារ...</p>
+      <button class="btn btn-primary" onclick="closeModal('alertModal')" style="padding:12px 32px; border-radius:22px; font-size:14px;">
+        យល់ព្រម
+      </button>
+    </div>
+  </div>
+
+  <!-- GROUP MODAL -->
+  <div class="modal" id="groupModal">
+    <div class="modal-content" style="text-align:center;">
+      <span class="close" onclick="closeModal('groupModal')">&times;</span>
+      <div style="font-size:60px;" class="anim-bounce">📢</div>
+      <h2>ចូលក្រុម និង Channel</h2>
+      <p style="font-size:13px; color:#a0a8b8; margin:12px 0; font-weight:600;">
+        ទទួលបានព័ត៌មានថ្មីៗ!
+      </p>
+      <a href="https://t.me/+ErJaYtpHWwE1YWI1" target="_blank" rel="noopener" style="display:block; text-decoration:none; padding:14px; border-radius:10px; text-align:center; font-weight:800; font-size:13px; color:white; margin-bottom:10px; background:linear-gradient(135deg,#0088cc,#006699);">
+        🎯 ចូលក្រុមចាក់/ទិញលេខឆ្នោត
+      </a>
+      <a href="https://t.me/lekhchhnaotN98" target="_blank" rel="noopener" style="display:block; text-decoration:none; padding:14px; border-radius:10px; text-align:center; font-weight:800; font-size:13px; color:white; margin-bottom:10px; background:linear-gradient(135deg,#28a745,#1e7e34);">
+        📢 ចូល Channel ប្រកាសលទ្ធផល
+      </a>
+      <a href="https://t.me/+UwX-YZZieXQ0N2E1" target="_blank" rel="noopener" style="display:block; text-decoration:none; padding:14px; border-radius:10px; text-align:center; font-weight:800; font-size:13px; color:white; background:linear-gradient(135deg,#6f42c1,#5a32a3);">
+        💰 ចូលក្រុមទទួលសំណើដកប្រាក់
+      </a>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    'use strict';
+
+    /* ============================================================
+       CONFIG
+       ============================================================ */
+    var WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzTHyAoGcSjaQbRlE3TttNwYSFUAA1L1s6MiNRSXl7sFqH6g5XFjADhbjOsFo2dP4k_/exec';
+
+    var CFG = {
+      REFRESH_MS: 15000,
+      CLOCK_MS: 1000,
+      MIN_USD: 0.25,
+      MAX_USD: 10,
+      MIN_KHR: 500,
+      MAX_KHR: 40000,
+      MAX_NUMBERS: 10,
+      FETCH_TIMEOUT: 20000,
+      DRAW_INTERVAL_MIN: 10,
+      TOAST_DURATION: 4000
+    };
+
+    /* ============================================================
+       STATE
+       ============================================================ */
+    var currentUser = null;
+    var betType = 'two';
+    var selectedLetter = '';
+    var numbers = [];
+    var amount = 0;
+    var currency = 'USD';
+    var balanceUSD = 0;
+    var balanceKHR = 0;
+    var latestResults = [];
+    var currentDrawNumber = '';
+    var intervals = { clock: null, refresh: null };
+    var lastSeenResultId = '';
+
+    /* ============================================================
+       HELPERS
+       ============================================================ */
+    function $(id) { return document.getElementById(id); }
+
+    function fixPhoneNumber(phone) {
+      var p = String(phone || '').trim().replace(/[^0-9]/g, '');
+      if (p.length >= 9 && p.charAt(0) !== '0') p = '0' + p;
+      return p;
+    }
+
+    function esc(str) {
+      return String(str == null ? '' : str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function fmtAmount(v, cur) {
+      if (cur === 'USD') return Number(v || 0).toFixed(2) + '$';
+      return Math.round(v || 0).toLocaleString() + '៛';
+    }
+
+    function getReqLen() { return betType === 'two' ? 2 : 3; }
+
+    /* ============================================================
+       TOAST
+       ============================================================ */
+    function showToast(message, type, icon) {
+      type = type || 'info';
+      var icons = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' };
+      if (!icon) icon = icons[type] || '🔔';
+
+      var container = $('toastContainer');
+      if (!container) return;
+
+      var toast = document.createElement('div');
+      toast.className = 'toast ' + type;
+      toast.innerHTML = '<span class="toast-icon">' + icon + '</span><span class="toast-text">' + esc(message) + '</span>';
+      container.appendChild(toast);
+
+      setTimeout(function() {
+        toast.style.animation = 'fadeIn 0.3s ease-out reverse';
+        setTimeout(function() {
+          if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }, 300);
+      }, CFG.TOAST_DURATION);
+    }
+
+    function showLoading(show) {
+      var el = $('loadingOverlay');
+      if (el) el.classList.toggle('active', show);
+    }
+
+    function showAlert(title, msg, icon) {
+      $('alertIcon').textContent = icon || '🔔';
+      $('alertTitle').textContent = title;
+      $('alertMessage').textContent = msg;
+      $('alertModal').style.display = 'block';
+    }
+
+    function closeModal(id) {
+      var el = $(id);
+      if (el) el.style.display = 'none';
+    }
+
+    /* ============================================================
+       PARTICLES
+       ============================================================ */
+    function initParticles() {
+      var container = $('particlesBg');
+      if (!container) return;
+      var emojis = ['⚡', '🎰', '💰', '🎲', '⭐', '🔥', '💎', '🎯', '✨', '🪙'];
+      var count = window.innerWidth < 768 ? 10 : 18;
+
+      for (var i = 0; i < count; i++) {
+        var p = document.createElement('div');
+        p.className = 'particle';
+        p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        p.style.left = Math.random() * 100 + '%';
+        p.style.fontSize = (14 + Math.random() * 22) + 'px';
+        p.style.animationDuration = (12 + Math.random() * 10) + 's';
+        p.style.animationDelay = (Math.random() * 15) + 's';
+        p.style.opacity = 0.15 + Math.random() * 0.25;
+        container.appendChild(p);
+      }
+    }
+
+    /* ============================================================
+       FETCH HELPER
+       ============================================================ */
+    function fetchWithTimeout(url, options, timeoutMs) {
+      timeoutMs = timeoutMs || CFG.FETCH_TIMEOUT;
+      return new Promise(function(resolve, reject) {
+        var timer = setTimeout(function() { reject(new Error('TIMEOUT')); }, timeoutMs);
+        fetch(url, options)
+          .then(function(res) { clearTimeout(timer); resolve(res); })
+          .catch(function(err) { clearTimeout(timer); reject(err); });
+      });
+    }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    function copyLink() {
+      var url = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() {
+          showToast('បានចម្លងតំណភ្ជាប់!', 'success', '🔗');
+        }).catch(function() { showAlert('ព័ត៌មាន', '🌐 ' + url, '🔗'); });
+      } else {
+        showAlert('ព័ត៌មាន', '🌐 ' + url, '🔗');
+      }
+    }
+
+    function openGroup() { $('groupModal').style.display = 'block'; }
+
+    function handleLogout() {
+      if (!confirm('តើអ្នកប្រាកដជាចង់ចាកចេញឬ?')) return;
+      localStorage.removeItem('lottery_user');
+      window.location.href = 'index.html';
+    }
+
+    /* ============================================================
+       SET TYPE / LETTER / AMOUNT
+       ============================================================ */
+    function setType(t, evt) {
+      betType = t;
+      var btns = document.querySelectorAll('.type-btn');
+      for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+      if (evt && evt.target) evt.target.classList.add('active');
+      numbers = [];
+      updateDisplay();
+      var inp = $('numInput');
+      if (selectedLetter) {
+        inp.placeholder = t === 'two' ? 'បញ្ចូល ២ខ្ទង់ (ឧ. 01,02)' : 'បញ្ចូល ៣ខ្ទង់ (ឧ. 123,456)';
+      }
+    }
+
+    function selectLetter(l, evt) {
+      selectedLetter = l;
+      var circles = document.querySelectorAll('.letter-circle');
+      for (var i = 0; i < circles.length; i++) circles[i].classList.remove('active');
+      if (evt && evt.target) evt.target.classList.add('active');
+      var inp = $('numInput');
+      inp.disabled = false;
+      inp.placeholder = betType === 'two'
+        ? 'បញ្ចូល ២ខ្ទង់សម្រាប់ ' + l
+        : 'បញ្ចូល ៣ខ្ទង់សម្រាប់ ' + l;
+      inp.focus();
+      showToast('បានជ្រើស ប៉ុស្តិ៍ ' + l, 'info', '🎯');
+    }
+
+    function autoAddNumbers() {
+      var inp = $('numInput');
+      var raw = inp.value.trim();
+      if (!selectedLetter || !raw) return;
+
+      var len = getReqLen();
+      var digitsOnly = raw.replace(/[^0-9]/g, '');
+
+      if (digitsOnly.length >= len && digitsOnly.length % len === 0) {
+        for (var i = 0; i < digitsOnly.length; i += len) {
+          var n = digitsOnly.substring(i, i + len);
+          if (n.length !== len) continue;
+          if (numbers.length >= CFG.MAX_NUMBERS) {
+            showToast('ចាក់បានត្រឹម ' + CFG.MAX_NUMBERS + ' លេខ', 'warning');
+            break;
+          }
+          var tag = selectedLetter + ':' + n;
+          if (numbers.indexOf(tag) === -1) numbers.push(tag);
+        }
+        inp.value = '';
+        updateDisplay();
+      }
+    }
+
+    function removeNum(idx) {
+      numbers.splice(idx, 1);
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      var container = $('selectedDisplay');
+      var countEl = $('countDisplay');
+      if (numbers.length === 0) {
+        container.innerHTML = '<span style="color:#a0a8b8; font-size:12px; font-weight:600;">មិនទាន់មានលេខ</span>';
+        countEl.textContent = '0';
+      } else {
+        var html = '';
+        for (var i = 0; i < numbers.length; i++) {
+          html += '<span class="selected-tag">' + esc(numbers[i]) +
+                  ' <span class="remove" onclick="M10.removeNum(' + i + ')">&times;</span></span>';
+        }
+        container.innerHTML = html;
+        countEl.textContent = numbers.length;
+      }
+      updateSummary();
+    }
+
+    function setAmount(val, sym) {
+      $('amountInput').value = val;
+      $('currencySelect').value = sym === '$' ? 'USD' : 'KHR';
+      updateAmount();
+    }
+
+    function updateAmount() {
+      var v = parseFloat($('amountInput').value);
+      var c = $('currencySelect').value;
+      amount = isNaN(v) || v <= 0 ? 0 : v;
+      currency = c;
+      updateSummary();
+    }
+
+    function updateSummary() {
+      var cnt = numbers.length;
+      $('totalCount').textContent = cnt;
+      $('totalAmount').textContent = fmtAmount(cnt * amount, currency);
+      updateSubmitButton();
+      updateBalanceStatusBox();
+    }
+
+    function updateBalanceStatusBox() {
+      var box = $('balanceStatusBox');
+      if (!box) return;
+
+      var cnt = numbers.length;
+      var total = cnt * amount;
+
+      if (cnt === 0 || amount <= 0) {
+        box.style.display = 'none';
+        return;
+      }
+      box.style.display = 'block';
+
+      var current = currency === 'USD' ? balanceUSD : balanceKHR;
+      var needed = total;
+      var short = Math.max(0, needed - current);
+      var isEnough = current >= needed;
+      var percent = needed > 0 ? Math.min(100, (current / needed) * 100) : 0;
+
+      var fmt = function(v) {
+        return currency === 'KHR'
+          ? Math.round(v).toLocaleString() + '៛'
+          : Number(v).toFixed(2) + '$';
+      };
+
+      $('balanceStatusCurrent').textContent = fmt(current);
+      $('balanceStatusNeeded').textContent = fmt(needed);
+
+      if (isEnough) {
+        box.className = 'balance-status-box ok';
+        $('balanceStatusIcon').textContent = '✅';
+        $('balanceStatusTitle').textContent = 'សមតុល្យគ្រប់គ្រាន់!';
+        $('balanceStatusShort').textContent = fmt(0);
+        $('balanceStatusShort').className = 'value success';
+        $('balanceStatusHint').textContent = '🎉 អ្នកអាចដាក់ភ្នាល់បាន!';
+        $('balanceProgressFill').style.width = '100%';
+      } else {
+        box.className = 'balance-status-box warn';
+        $('balanceStatusIcon').textContent = '⚠️';
+        $('balanceStatusTitle').textContent = 'សមតុល្យមិនគ្រប់គ្រាន់!';
+        $('balanceStatusShort').textContent = fmt(short);
+        $('balanceStatusShort').className = 'value danger';
+        $('balanceStatusHint').textContent = '💡 សូមទាក់ទង Admin ដើម្បីបញ្ចូលប្រាក់';
+        $('balanceProgressFill').style.width = percent + '%';
+      }
+    }
+
+    function updateSubmitButton() {
+      var btn = $('btnSubmit');
+      var cnt = numbers.length;
+      var validAmount = currency === 'USD'
+        ? (amount >= CFG.MIN_USD && amount <= CFG.MAX_USD)
+        : (amount >= CFG.MIN_KHR && amount <= CFG.MAX_KHR);
+      var total = cnt * amount;
+      var balanceOk = currency === 'USD' ? balanceUSD >= total : balanceKHR >= total;
+      var canSubmit = cnt > 0 && validAmount && amount > 0 && balanceOk;
+      btn.disabled = !canSubmit;
+    }
+
+    /* ============================================================
+       FETCH RESULTS (10-minute)
+       ============================================================ */
+    function fetchLatestResults() {
+      fetchWithTimeout(WEB_APP_URL + '?action=getResults10&limit=10&t=' + Date.now(), { cache: 'no-store' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.ok && Array.isArray(data.results)) {
+            var newId = data.results.length > 0 ? data.results[0].drawId : '';
+            if (newId && newId !== lastSeenResultId && lastSeenResultId !== '') {
+              showToast('លទ្ធផលថ្មីបានចេញ!', 'success', '🎉');
+              fetchBalance(currentUser.phone);
+              fetchUserBets();
+            }
+            lastSeenResultId = newId;
+            latestResults = data.results;
+            renderResultsGrid();
+          }
+        })
+        .catch(function(err) { console.error('fetchLatestResults:', err); });
+    }
+
+    function renderResultsGrid() {
+      var grid = $('resultsGrid');
+      if (!grid) return;
+
+      if (latestResults.length === 0) {
+        grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:20px; color:#a0a8b8;">មិនទាន់មានលទ្ធផល</div>';
+        return;
+      }
+
+      var html = '';
+      for (var i = 0; i < latestResults.length; i++) {
+        var r = latestResults[i];
+        var isNew = (i === 0 && lastSeenResultId === r.drawId && Date.now() - new Date(r.publishedAt || 0).getTime() < 60000);
+        html += '<div class="result-card' + (isNew ? ' new-result' : '') + '">' +
+          '<div class="header">' +
+            '<span class="draw-id">#' + esc(r.drawId || '-') + '</span>' +
+            '<span class="time">' + esc(r.time || '') + '</span>' +
+          '</div>' +
+          '<div class="type-label">🔢 ២ខ្ទង់</div>' +
+          '<div class="numbers-row">' +
+            '<div class="num-cell"><span class="letter">A</span><span class="value">' + esc(r.results2D ? r.results2D.A : '--') + '</span></div>' +
+            '<div class="num-cell"><span class="letter">B</span><span class="value">' + esc(r.results2D ? r.results2D.B : '--') + '</span></div>' +
+            '<div class="num-cell"><span class="letter">C</span><span class="value">' + esc(r.results2D ? r.results2D.C : '--') + '</span></div>' +
+            '<div class="num-cell"><span class="letter">D</span><span class="value">' + esc(r.results2D ? r.results2D.D : '--') + '</span></div>' +
+            '<div class="num-cell"><span class="letter">E</span><span class="value">' + esc(r.results2D ? r.results2D.E : '--') + '</span></div>' +
+          '</div>' +
+          '<div class="type-label" style="color:#ffc107;">🔢 ៣ខ្ទង់</div>' +
+          '<div class="numbers-row">' +
+            '<div class="num-cell"><span class="letter">A</span><span class="value">' + esc(r.results3D ? r.results3D.A : '--') + '</span></div>' +
+            '<div class="num-cell"><span class="letter">B</span><span class="value">' + esc(r.results3D ? r.results3D.B : '--') + '</span></div>' +
+            '<div class="num-cell"><span class="letter">C</span><span class="value">' + esc(r.results3D ? r.results3D.C : '--') + '</span></div>' +
+            '<div class="num-cell"><span class="letter">D</span><span class="value">' + esc(r.results3D ? r.results3D.D : '--') + '</span></div>' +
+            '<div class="num-cell"><span class="letter">E</span><span class="value">' + esc(r.results3D ? r.results3D.E : '--') + '</span></div>' +
+          '</div>' +
+        '</div>';
+      }
+      grid.innerHTML = html;
+    }
+
+    /* ============================================================
+       COUNTDOWN & RING
+       ============================================================ */
+    var RING_CIRCUMFERENCE = 2 * Math.PI * 70; // r=70
+
+    function updateCountdown() {
+      var now = new Date();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+
+      // Next draw at multiple of 10
+      var nextMinute = Math.ceil((minutes + 1) / 10) * 10;
+      if (nextMinute >= 60) nextMinute = 0;
+
+      var minutesLeft = nextMinute - minutes - 1;
+      if (minutesLeft < 0) minutesLeft += 60;
+
+      var secondsLeft = 60 - seconds;
+      if (secondsLeft === 60) { secondsLeft = 0; minutesLeft += 1; }
+      if (secondsLeft < 60) secondsLeft = secondsLeft;
+
+      // Calculate actual seconds remaining
+      var totalSecondsInCycle = 10 * 60;
+      var secondsIntoCycle = (minutes % 10) * 60 + seconds;
+      var secondsLeft2 = totalSecondsInCycle - secondsIntoCycle;
+
+      var mm = Math.floor(secondsLeft2 / 60);
+      var ss = secondsLeft2 % 60;
+
+      $('ringTime').textContent = String(mm).padStart(2, '0') + ':' + String(ss).padStart(2, '0');
+
+      // Update ring progress
+      var percent = secondsIntoCycle / totalSecondsInCycle;
+      var offset = RING_CIRCUMFERENCE * percent;
+      var ring = $('ringProgress');
+      if (ring) ring.style.strokeDashoffset = offset;
+
+      // Update draw number
+      var drawIdx = Math.floor(now.getTime() / (10 * 60 * 1000));
+      var drawNum = '10M-' + String(drawIdx % 1000000).padStart(6, '0');
+      if ($('nextDrawNumber')) $('nextDrawNumber').textContent = '#' + drawNum;
+      currentDrawNumber = drawNum;
+
+      // Reopen timer if betting closed
+      updateBettingClosed();
+    }
+
+    function isBettingClosed() {
+      var now = new Date();
+      var sec = now.getSeconds();
+      var min = now.getMinutes();
+      // Close betting in last 30 seconds of each 10-min cycle
+      var secondsIntoCycle = (min % 10) * 60 + sec;
+      return secondsIntoCycle >= (10 * 60 - 30);
+    }
+
+    function updateBettingClosed() {
+      var closed = isBettingClosed();
+      var box = $('bettingClosedBox');
+      if (box) box.style.display = closed ? 'block' : 'none';
+
+      if (closed) {
+        var now = new Date();
+        var min = now.getMinutes();
+        var sec = now.getSeconds();
+        var secondsIntoCycle = (min % 10) * 60 + sec;
+        var secondsLeft = (10 * 60) - secondsIntoCycle;
+        var mm = Math.floor(secondsLeft / 60);
+        var ss = secondsLeft % 60;
+        if ($('reopenTime')) $('reopenTime').textContent = String(mm).padStart(2, '0') + ':' + String(ss).padStart(2, '0');
+      }
+      updateSubmitButton();
+    }
+
+    /* ============================================================
+       FETCH BALANCE
+       ============================================================ */
+    function fetchBalance(phone) {
+      if (!phone) return;
+      var cleanPhone = fixPhoneNumber(phone);
+
+      fetchWithTimeout(WEB_APP_URL + '?action=getBalance&phone=' + encodeURIComponent(cleanPhone) + '&t=' + Date.now(), { cache: 'no-store' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.ok) {
+            balanceUSD = parseFloat(data.balanceUSD) || 0;
+            balanceKHR = parseFloat(data.balanceKHR) || 0;
+            $('balanceUSD').textContent = balanceUSD.toFixed(2) + '$';
+            $('balanceKHR').textContent = Math.round(balanceKHR).toLocaleString() + '៛';
+            updateSummary();
+          }
+        })
+        .catch(function(err) { console.error('fetchBalance:', err); });
+    }
+
+    /* ============================================================
+       FETCH USER BETS
+       ============================================================ */
+    function fetchUserBets() {
+      if (!currentUser || !currentUser.phone) return;
+      var cleanPhone = fixPhoneNumber(currentUser.phone);
+
+      fetchWithTimeout(WEB_APP_URL + '?action=getBets10&phone=' + encodeURIComponent(cleanPhone) + '&t=' + Date.now(), { cache: 'no-store' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.ok && Array.isArray(data.bets)) {
+            renderUserBets(data.bets);
+          }
+        })
+        .catch(function(err) { console.error('fetchUserBets:', err); });
+    }
+
+    function renderUserBets(bets) {
+      var tbody = $('userHistoryBody');
+      if (!tbody) return;
+
+      if (!bets || bets.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="color:#a0a8b8; padding:12px; text-align:center; font-weight:600;">មិនទាន់មានប្រវត្តិ</td></tr>';
+        return;
+      }
+
+      var html = '';
+      for (var i = 0; i < bets.length; i++) {
+        var b = bets[i];
+        var statusBadge = '<span style="background:#ffc107; color:#000; padding:3px 8px; border-radius:6px; font-size:10px; font-weight:800;">⏳ រង់ចាំ</span>';
+        var reward = '-';
+        if (b.status === 'win') {
+          if (b.paid === 'yes') {
+            statusBadge = '<span style="background:#cce5ff; color:#004085; padding:3px 8px; border-radius:6px; font-size:10px; font-weight:800;">✅ បានសង</span>';
+          } else {
+            statusBadge = '<span style="background:#d4edda; color:#155724; padding:3px 8px; border-radius:6px; font-size:10px; font-weight:800; animation:winGlow 1s infinite alternate;">🎉 ឈ្នះ</span>';
+          }
+          reward = '<strong style="color:#4ade80;">' + fmtAmount(b.payout || 0, b.currency) + '</strong>';
+        } else if (b.status === 'loss') {
+          statusBadge = '<span style="background:#f8d7da; color:#721c24; padding:3px 8px; border-radius:6px; font-size:10px; font-weight:800;">❌ មិនត្រូវ</span>';
+        }
+
+        var numCount = String(b.numbers).split(',').length;
+        var totalBet = b.amount * numCount;
+
+        html += '<tr style="border-bottom:1px solid rgba(233,30,99,0.2);">' +
+          '<td style="padding:8px 4px; font-size:10px; color:#ff8bb5; font-weight:800;">#' + esc(b.drawId || b.id) + '</td>' +
+          '<td style="padding:8px 4px; font-size:11px;"><strong style="color:#e91e63;">' + esc(b.numbers) + '</strong></td>' +
+          '<td style="padding:8px 4px; font-size:11px;"><div style="color:#e8eaf0;">' + fmtAmount(b.amount, b.currency) + '</div>' +
+            '<div style="background:#e91e63; color:white; padding:2px 6px; border-radius:6px; font-size:9px; font-weight:800; display:inline-block; margin-top:2px;">💰 ' + fmtAmount(totalBet, b.currency) + '</div></td>' +
+          '<td style="padding:8px 4px;">' + statusBadge + '</td>' +
+          '<td style="padding:8px 4px;">' + reward + '</td>' +
+        '</tr>';
+      }
+      tbody.innerHTML = html;
+    }
+
+    /* ============================================================
+       SUBMIT BET
+       ============================================================ */
+    function submitBet() {
+      if (isBettingClosed()) {
+        showToast('ការចាក់ត្រូវបានបិទ (ចុងក្រោយ 30 វិនាទី)!', 'warning', '🔒');
+        return;
+      }
+      if (numbers.length === 0) {
+        showToast('សូមជ្រើសរើសលេខយ៉ាងហោចណាស់មួយ!', 'warning');
+        return;
+      }
+      if (amount <= 0) {
+        showToast('សូមបញ្ចូលចំនួនទឹកប្រាក់!', 'warning');
+        return;
+      }
+
+      var validAmount = currency === 'USD'
+        ? (amount >= CFG.MIN_USD && amount <= CFG.MAX_USD)
+        : (amount >= CFG.MIN_KHR && amount <= CFG.MAX_KHR);
+
+      if (!validAmount) {
+        showToast('ចំនួនទឹកប្រាក់មិនត្រឹមត្រូវ!', 'warning');
+        return;
+      }
+
+      var total = numbers.length * amount;
+      if (currency === 'USD' && balanceUSD < total) {
+        showToast('សមតុល្យ USD មិនគ្រប់គ្រាន់!', 'error', '💰');
+        return;
+      }
+      if (currency === 'KHR' && balanceKHR < total) {
+        showToast('សមតុល្យ KHR មិនគ្រប់គ្រាន់!', 'error', '💰');
+        return;
+      }
+
+      if (!confirm('បញ្ជាក់ការចាក់?\n\nលេខ: ' + numbers.join(', ') + '\nសរុប: ' + fmtAmount(total, currency))) return;
+
+      var btn = $('btnSubmit');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="anim-spin">⏳</span> កំពុងបញ្ជូន...';
+      showLoading(true);
+
+      fetchWithTimeout(WEB_APP_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+          action: 'placeDirectBet10',
+          phone: fixPhoneNumber(currentUser.phone),
+          userId: currentUser.userId,
+          numbers: numbers,
+          type: betType,
+          amount: amount,
+          currency: currency,
+          total: total,
+          drawId: currentDrawNumber
+        }),
+        headers: { 'Content-Type': 'text/plain' }
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        btn.disabled = false;
+        btn.innerHTML = '⚡ ដាក់ភ្នាល់ឥឡូវ';
+        showLoading(false);
+
+        if (data.ok) {
+          showToast('ការចាក់ត្រូវបានទទួលយក!', 'success', '🎉');
+          resetForm();
+          fetchBalance(currentUser.phone);
+          fetchUserBets();
+        } else {
+          showToast(data.error || 'មានបញ្ហា!', 'error');
+        }
+      })
+      .catch(function(err) {
+        console.error(err);
+        btn.disabled = false;
+        btn.innerHTML = '⚡ ដាក់ភ្នាល់ឥឡូវ';
+        showLoading(false);
+        showToast('មានបញ្ហាតភ្ជាប់!', 'error');
+      });
+    }
+
+    function resetForm() {
+      numbers = [];
+      selectedLetter = '';
+      var circles = document.querySelectorAll('.letter-circle');
+      for (var i = 0; i < circles.length; i++) circles[i].classList.remove('active');
+      var inp = $('numInput');
+      if (inp) { inp.disabled = true; inp.value = ''; }
+      updateDisplay();
+      updateBalanceStatusBox();
+    }
+
+    /* ============================================================
+       INIT
+       ============================================================ */
+    function init() {
+      initParticles();
+
+      // Check auth
+      var saved = localStorage.getItem('lottery_user');
+      if (!saved) {
+        window.location.href = 'index.html';
+        return;
+      }
+      try {
+        var user = JSON.parse(saved);
+        if (!user || !user.verified) {
+          window.location.href = 'index.html';
+          return;
+        }
+        currentUser = user;
+        currentUser.phone = fixPhoneNumber(user.phone);
+      } catch (e) {
+        window.location.href = 'index.html';
+        return;
+      }
+
+      $('displayCurrentUserId').textContent = currentUser.userId;
+      $('displayCurrentPhone').textContent = currentUser.phone;
+
+      fetchBalance(currentUser.phone);
+      fetchLatestResults();
+      fetchUserBets();
+      updateCountdown();
+
+      intervals.clock = setInterval(updateCountdown, CFG.CLOCK_MS);
+      intervals.refresh = setInterval(function() {
+        fetchLatestResults();
+        fetchUserBets();
+      }, CFG.REFRESH_MS);
+
+      showToast('សូមស្វាគមន៍មកកាន់ឆ្នោត 10 នាទី!', 'success', '⚡');
+    }
+
+    /* ============================================================
+       START
+       ============================================================ */
+    function startApp() {
+      init();
+
+      var numInput = $('numInput');
+      if (numInput) numInput.addEventListener('input', autoAddNumbers);
+
+      window.addEventListener('click', function(e) {
+        if (e.target.classList && e.target.classList.contains('modal')) {
+          e.target.style.display = 'none';
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          var modals = document.querySelectorAll('.modal');
+          for (var i = 0; i < modals.length; i++) modals[i].style.display = 'none';
+        }
+      });
+    }
+
+    /* ============================================================
+       EXPOSE
+       ============================================================ */
+    window.M10 = {
+      setType: setType,
+      selectLetter: selectLetter,
+      removeNum: removeNum,
+      setAmount: setAmount,
+      updateAmount: updateAmount,
+      submitBet: submitBet,
+      copyLink: copyLink,
+      openGroup: openGroup,
+      handleLogout: handleLogout,
+      closeModal: closeModal,
+      showToast: showToast
+    };
+
+    window.setType = setType;
+    window.selectLetter = selectLetter;
+    window.removeNum = removeNum;
+    window.setAmount = setAmount;
+    window.updateAmount = updateAmount;
+    window.submitBet = submitBet;
+    window.copyLink = copyLink;
+    window.openGroup = openGroup;
+    window.handleLogout = handleLogout;
+    window.closeModal = closeModal;
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startApp);
+    } else {
+      startApp();
+    }
+
+  })();
+  </script>
+</body>
+</html>

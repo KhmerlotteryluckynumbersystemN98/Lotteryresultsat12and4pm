@@ -1,0 +1,4578 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#0078D7">
+  <meta name="description" content="ឆ្នោតខ្មែរ N98 - ប្រព័ន្ធចាក់ឆ្នោត និងទទួលបានរង្វាន់">
+  <title>🎲 ឆ្នោតខ្មែរ N98</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700;800&family=Noto+Sans+Khmer:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    * { box-sizing: border-box; font-family: 'Kantumruy Pro', 'Noto Sans Khmer', system-ui, sans-serif; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(135deg, #f0f4f8 0%, #e8f4fd 50%, #f0f4f8 100%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ============================================================
+       ANIMATIONS - ចលនា Emoji & Elements
+       ============================================================ */
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+    @keyframes shake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-8deg); } 75% { transform: rotate(8deg); } }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+    @keyframes glow { 0%, 100% { box-shadow: 0 0 5px rgba(0, 120, 215, 0.4); } 50% { box-shadow: 0 0 25px rgba(0, 120, 215, 0.9); } }
+    @keyframes glowGreen { 0%, 100% { box-shadow: 0 0 5px rgba(40, 167, 69, 0.4); } 50% { box-shadow: 0 0 25px rgba(40, 167, 69, 0.9); } }
+    @keyframes glowRed { 0%, 100% { box-shadow: 0 0 5px rgba(220, 53, 69, 0.4); } 50% { box-shadow: 0 0 25px rgba(220, 53, 69, 0.9); } }
+    @keyframes slideInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+    @keyframes winGlow { 0% { box-shadow: 0 0 5px rgba(40, 167, 69, 0.4); } 100% { box-shadow: 0 0 18px rgba(40, 167, 69, 0.9); } }
+    @keyframes rainbow { 0% { color: #ff1744; } 25% { color: #ff9800; } 50% { color: #28a745; } 75% { color: #0078D7; } 100% { color: #ff1744; } }
+    @keyframes coinFlip { 0% { transform: rotateY(0); } 100% { transform: rotateY(360deg); } }
+    @keyframes rocket { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px) rotate(-8deg); } }
+    @keyframes wiggle { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-12deg); } 75% { transform: rotate(12deg); } }
+    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes ripple { 0% { transform: scale(0); opacity: 1; } 100% { transform: scale(4); opacity: 0; } }
+    @keyframes progressBar { from { width: 0%; } }
+    @keyframes particleFloat {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* Classes សម្រាប់ animation */
+    .anim-bounce { animation: bounce 1.5s ease-in-out infinite; display: inline-block; }
+    .anim-pulse { animation: pulse 1.2s ease-in-out infinite; display: inline-block; }
+    .anim-shake { animation: shake 0.8s ease-in-out infinite; display: inline-block; }
+    .anim-spin { animation: spin 3s linear infinite; display: inline-block; }
+    .anim-float { animation: float 3s ease-in-out infinite; display: inline-block; }
+    .anim-glow { animation: glow 2s ease-in-out infinite; }
+    .anim-wiggle { animation: wiggle 1s ease-in-out infinite; display: inline-block; }
+    .anim-coin { animation: coinFlip 2s linear infinite; display: inline-block; }
+    .anim-rocket { animation: rocket 1.5s ease-in-out infinite; display: inline-block; }
+    .anim-rainbow { animation: rainbow 3s linear infinite; }
+    .anim-slide-down { animation: slideInDown 0.5s ease-out; }
+    .anim-slide-up { animation: slideInUp 0.5s ease-out; }
+    .anim-fade-in { animation: fadeIn 0.6s ease-in; }
+
+    /* Emoji ចលនាជាក់លាក់ */
+    .emoji-dice { animation: spin 4s linear infinite; display: inline-block; }
+    .emoji-money { animation: bounce 1.5s ease-in-out infinite; display: inline-block; }
+    .emoji-fire { animation: wiggle 0.6s ease-in-out infinite; display: inline-block; }
+    .emoji-star { animation: pulse 1.5s ease-in-out infinite; display: inline-block; }
+    .emoji-trophy { animation: bounce 1.2s ease-in-out infinite; display: inline-block; }
+    .emoji-rocket { animation: rocket 1.2s ease-in-out infinite; display: inline-block; }
+    .emoji-bell { animation: wiggle 1.2s ease-in-out infinite; display: inline-block; }
+    .emoji-clock { animation: spin 8s linear infinite; display: inline-block; }
+    .emoji-lock { animation: pulse 2s ease-in-out infinite; display: inline-block; }
+
+    /* ============================================================
+       THEME VARIABLES
+       ============================================================ */
+    :root {
+      --primary: #0078D7;
+      --primary-dark: #005fa3;
+      --success: #28a745;
+      --success-dark: #1e7e34;
+      --danger: #dc3545;
+      --warning: #ffc107;
+      --purple: #6f42c1;
+      --cyan: #17a2b8;
+      --orange: #ff9800;
+      --pink: #e91e63;
+      --bg-light: #f0f4f8;
+      --bg-white: #ffffff;
+      --text-dark: #2d3748;
+      --text-muted: #6c757d;
+      --border-light: #e9ecef;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.15);
+      --radius: 14px;
+      --radius-sm: 8px;
+      --radius-lg: 20px;
+    }
+
+    body.dark-mode {
+      --bg-light: #1a1f2e;
+      --bg-white: #252b3d;
+      --text-dark: #e8eaf0;
+      --text-muted: #a0a8b8;
+      --border-light: #3a4255;
+    }
+
+    body.dark-mode {
+      background: linear-gradient(135deg, #0f1420 0%, #1a1f2e 50%, #0f1420 100%);
+    }
+
+    body.dark-mode .lottery-box,
+    body.dark-mode .bet-box,
+    body.dark-mode .modal-content,
+    body.dark-mode .clock-box,
+    body.dark-mode .nav-bar {
+      background: var(--bg-white);
+      color: var(--text-dark);
+    }
+
+    body.dark-mode .numbers div,
+    body.dark-mode .input-row,
+    body.dark-mode .selected-display,
+    body.dark-mode .bet-summary {
+      background: #2f3548;
+      border-color: #4a5268;
+      color: var(--text-dark);
+    }
+
+    body.dark-mode .reward-table th { background: #2f3548; color: #7ab8f5; }
+    body.dark-mode .reward-table td { color: var(--text-dark); border-color: #4a5268; }
+    body.dark-mode .history-table td { color: var(--text-dark); border-color: #3a4255; }
+    body.dark-mode .guide-box { background: #1e2a3f; color: #a0c8e8; }
+    body.dark-mode .footer { background: #0a0e18; }
+
+    /* ============================================================
+       PARTICLES BACKGROUND
+       ============================================================ */
+    .particles-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .particle {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0;
+      animation: particleFloat 15s linear infinite;
+    }
+
+    /* ============================================================
+       HEADER
+       ============================================================ */
+    header {
+      background: linear-gradient(135deg, #0078D7 0%, #005fa3 50%, #6f42c1 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 8s ease infinite;
+      color: white;
+      padding: 20px 20px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 120, 215, 0.3);
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: spin 20s linear infinite;
+    }
+    header h1 {
+      font-size: clamp(24px, 5vw, 40px);
+      font-weight: 800;
+      margin: 8px 0;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+    header p {
+      font-size: clamp(13px, 2vw, 16px);
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============================================================
+       NAV BAR
+       ============================================================ */
+    .nav-bar {
+      background: white;
+      padding: 10px 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      border-bottom: 3px solid transparent;
+      border-image: linear-gradient(90deg, #0078D7, #28a745, #ff9800, #6f42c1, #0078D7) 1;
+    }
+    .nav-bar a, .nav-bar button {
+      color: #333;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: clamp(12px, 1.4vw, 14px);
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-bar a:hover, .nav-bar button:hover {
+      background: linear-gradient(135deg, #0078D7, #005fa3);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 120, 215, 0.3);
+    }
+    .nav-bar a.active {
+      background: linear-gradient(135deg, #0078D7, #005fa3);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 120, 215, 0.4);
+    }
+    .btn-share {
+      background: linear-gradient(135deg, #ff9800, #e65100) !important;
+      color: white !important;
+    }
+    .btn-share:hover { box-shadow: 0 4px 14px rgba(255, 152, 0, 0.5) !important; }
+    .btn-group {
+      background: linear-gradient(135deg, #0088cc, #006699) !important;
+      color: white !important;
+    }
+    .btn-logout {
+      background: linear-gradient(135deg, #dc3545, #a71d2a) !important;
+      color: white !important;
+    }
+    .btn-theme {
+      background: linear-gradient(135deg, #6f42c1, #5a32a3) !important;
+      color: white !important;
+    }
+
+    /* ============================================================
+       SECTION
+       ============================================================ */
+    .section {
+      padding: 12px;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============================================================
+       CLOCK BOX
+       ============================================================ */
+    .clock-box {
+      background: linear-gradient(135deg, #ffffff 0%, #e8f4fd 100%);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 2px solid var(--primary);
+      flex-wrap: wrap;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(0, 120, 215, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .clock-box::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, #0078D7, #28a745, #ff9800, #6f42c1);
+      background-size: 200% 100%;
+      animation: gradientShift 3s ease infinite;
+    }
+    .clock-title { color: #4a5568; font-size: clamp(11px, 1.3vw, 13px); font-weight: 700; }
+    .clock-time {
+      color: var(--primary);
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-weight: 800;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+      text-shadow: 0 0 12px rgba(0, 120, 215, 0.3);
+    }
+    .clock-date { color: var(--text-dark); font-size: clamp(11px, 1.3vw, 13px); font-weight: 700; }
+
+    /* ============================================================
+       USER INFO BAR
+       ============================================================ */
+    .user-info-bar {
+      background: linear-gradient(135deg, #d4edda, #a8e6c0);
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border: 2px solid var(--success);
+      box-shadow: 0 4px 14px rgba(40, 167, 69, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .user-info-bar .label { color: #155724; font-size: clamp(11px, 1.3vw, 13px); font-weight: 700; }
+    .user-info-bar .value {
+      color: var(--success);
+      font-size: clamp(13px, 1.5vw, 16px);
+      font-weight: 800;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+    }
+
+    /* ============================================================
+       LOTTERY BOX
+       ============================================================ */
+    .lottery-box {
+      background: white;
+      padding: 14px;
+      margin: 8px 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s;
+      animation: slideInUp 0.5s ease-out;
+    }
+    .lottery-box:hover { box-shadow: var(--shadow-md); }
+
+    .time-box {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: clamp(14px, 1.9vw, 17px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: linear-gradient(135deg, #0078D7, #005fa3);
+      color: white;
+      font-size: clamp(9px, 1vw, 11px);
+      padding: 3px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 120, 215, 0.3);
+    }
+    .badge-completed {
+      background: linear-gradient(135deg, #28a745, #1e7e34);
+      animation: glowGreen 2s ease-in-out infinite;
+    }
+    .badge-waiting {
+      background: linear-gradient(135deg, #ff9800, #e65100);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    /* ============================================================
+       NUMBERS DISPLAY
+       ============================================================ */
+    .numbers { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+    .numbers div {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      padding: 10px 4px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      flex: 1 1 calc(20% - 6px);
+      min-width: 52px;
+      border: 2px solid var(--border-light);
+      font-weight: 800;
+      font-size: clamp(13px, 1.7vw, 16px);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .numbers div:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+    .numbers div .letter { color: var(--primary); font-weight: 800; }
+    .number-result {
+      color: var(--success);
+      font-weight: 800;
+      text-shadow: 0 0 8px rgba(40, 167, 69, 0.4);
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    /* ============================================================
+       BET BOX
+       ============================================================ */
+    .bet-box {
+      background: white;
+      border-radius: var(--radius);
+      padding: 16px;
+      margin: 10px 0;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 20px rgba(0, 120, 215, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .bet-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(90deg, #0078D7, #28a745, #ff9800, #6f42c1, #e91e63);
+      background-size: 200% 100%;
+      animation: gradientShift 3s ease infinite;
+    }
+    .bet-box h2 {
+      color: var(--primary);
+      font-size: clamp(16px, 2.2vw, 20px);
+      border-bottom: 2px solid #f0f4f8;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    /* ============================================================
+       REWARD TABLE
+       ============================================================ */
+    .reward-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      font-size: clamp(11px, 1.3vw, 13px);
+    }
+    .reward-table th {
+      background: linear-gradient(135deg, #e8f4fd, #d4edda);
+      color: var(--primary);
+      padding: 8px 6px;
+      font-weight: 800;
+    }
+    .reward-table td {
+      padding: 7px 6px;
+      text-align: center;
+      font-weight: 700;
+      border: 1px solid var(--border-light);
+    }
+    .reward-table tbody tr { transition: background 0.3s; }
+    .reward-table tbody tr:hover { background: #f8f9fa; }
+    .text-respond { color: #d63000; font-weight: 800; }
+
+    /* ============================================================
+       SELECTORS (Mode, Type, Time)
+       ============================================================ */
+    .mode-selector, .type-selector, .time-selector {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .mode-btn, .type-btn, .time-btn {
+      flex: 1;
+      min-width: 80px;
+      padding: 10px 8px;
+      border: 2px solid var(--border-light);
+      background: white;
+      font-weight: 800;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: clamp(12px, 1.5vw, 14px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .mode-btn:hover, .type-btn:hover, .time-btn:hover:not(.closed) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 120, 215, 0.2);
+      border-color: var(--primary);
+    }
+    .mode-btn.active, .type-btn.active, .time-btn.active {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, #e8f4fd, #d4edda);
+      color: var(--primary);
+      box-shadow: 0 4px 14px rgba(0, 120, 215, 0.25);
+    }
+    .mode-btn.direct.active {
+      border-color: var(--success);
+      background: linear-gradient(135deg, #d4edda, #a8e6c0);
+      color: #155724;
+      animation: glowGreen 2s ease-in-out infinite;
+    }
+    .time-btn.closed {
+      opacity: 0.45;
+      cursor: not-allowed;
+      background: #f8f9fa !important;
+      color: #999 !important;
+      border-color: #ddd !important;
+    }
+
+    /* ============================================================
+       BALANCE BOX
+       ============================================================ */
+    .balance-box {
+      background: linear-gradient(135deg, #d4edda, #a8e6c0);
+      border: 2px solid var(--success);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin: 12px 0;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(40, 167, 69, 0.2);
+      animation: slideInDown 0.5s ease-out;
+    }
+
+    .balance-item {
+      flex: 1;
+      min-width: 130px;
+      background: linear-gradient(135deg, #ffffff, #d4edda);
+      border: 2px solid var(--success);
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .balance-item:hover { transform: scale(1.03); }
+
+    /* ============================================================
+       LETTER SELECTOR
+       ============================================================ */
+    .letter-selector {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .letter-circle {
+      width: clamp(42px, 6vw, 52px);
+      height: clamp(42px, 6vw, 52px);
+      border-radius: 50%;
+      border: 3px solid var(--border-light);
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      color: var(--text-dark);
+      font-size: clamp(15px, 2vw, 18px);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .letter-circle:hover {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, #e8f4fd, #d4edda);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 120, 215, 0.3);
+    }
+    .letter-circle.active {
+      background: linear-gradient(135deg, #0078D7, #6f42c1);
+      color: white;
+      border-color: var(--primary);
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 120, 215, 0.5);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    /* ============================================================
+       INPUT
+       ============================================================ */
+    .input-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px dashed var(--primary);
+      flex-wrap: wrap;
+    }
+    .input-row input {
+      flex: 1 1 120px;
+      padding: 12px 14px;
+      border: 2px solid var(--border-light);
+      border-radius: 8px;
+      font-size: clamp(14px, 1.5vw, 16px);
+      font-weight: 800;
+      min-width: 80px;
+      letter-spacing: 2px;
+      transition: all 0.3s;
+      background: white;
+    }
+    .input-row input:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(0, 120, 215, 0.15);
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       SELECTED DISPLAY
+       ============================================================ */
+    .selected-display {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 8px 0;
+      min-height: 36px;
+      padding: 8px;
+      background: #f8f9fa;
+      border-radius: var(--radius-sm);
+      border: 2px dashed var(--border-light);
+      align-items: center;
+    }
+    .selected-tag {
+      background: linear-gradient(135deg, #0078D7, #6f42c1);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 14px;
+      font-size: clamp(12px, 1.4vw, 13px);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 120, 215, 0.3);
+      animation: fadeIn 0.3s ease-out;
+      transition: all 0.3s;
+    }
+    .selected-tag:hover { transform: scale(1.05); }
+    .selected-tag .remove {
+      cursor: pointer;
+      font-weight: 800;
+      color: #ff6b6b;
+      font-size: clamp(14px, 1.6vw, 16px);
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .selected-tag .remove:hover {
+      background: #ff1744;
+      color: white;
+      transform: rotate(90deg);
+    }
+
+    /* ============================================================
+       COUNTDOWN
+       ============================================================ */
+    .countdown {
+      background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
+      padding: 16px;
+      border-radius: var(--radius);
+      margin: 10px 0;
+      border: 3px solid var(--danger);
+      text-align: center;
+      box-shadow: 0 4px 18px rgba(220, 53, 69, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .countdown::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, transparent, #dc3545, transparent);
+      background-size: 200% 100%;
+      animation: gradientShift 2s linear infinite;
+    }
+    .countdown .time-display {
+      font-size: clamp(32px, 6vw, 46px);
+      color: var(--danger);
+      background: #fff5f5;
+      padding: 6px 18px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 6px;
+      font-weight: 800;
+      font-family: 'Courier New', monospace;
+      text-shadow: 0 0 15px rgba(220, 53, 69, 0.4);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .countdown .next-time { font-size: clamp(12px, 1.4vw, 14px); color: #4a5568; margin-top: 6px; font-weight: 700; }
+    .countdown .status-time { font-size: clamp(11px, 1.3vw, 13px); color: var(--primary); margin-top: 4px; font-weight: 700; }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: clamp(12px, 1.4vw, 13px);
+      margin: 3px;
+      font-weight: 800;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 0; height: 0;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s, height 0.4s;
+    }
+    .btn:hover:not(:disabled)::before { width: 300px; height: 300px; }
+    .btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    .btn:active:not(:disabled) { transform: translateY(0); }
+    .btn:disabled {
+      background: #ced4da !important;
+      color: #6c757d !important;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .btn-success { background: linear-gradient(135deg, #28a745, #1e7e34); }
+    .btn-success:hover:not(:disabled) { box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4); }
+    .btn-withdraw { background: linear-gradient(135deg, #6f42c1, #5a32a3); }
+    .btn-withdraw:hover:not(:disabled) { box-shadow: 0 6px 20px rgba(111, 66, 193, 0.4); }
+    .btn-primary { background: linear-gradient(135deg, #0078D7, #005fa3); }
+    .btn-amount {
+      background: linear-gradient(135deg, #17a2b8, #117a8b);
+      padding: 5px 10px;
+      font-size: clamp(10px, 1.2vw, 12px);
+      animation: fadeIn 0.3s ease-out;
+    }
+    .btn-amount:hover:not(:disabled) { transform: translateY(-2px) scale(1.05); }
+    .btn-telegram { background: linear-gradient(135deg, #0088cc, #006699); }
+    .btn-ok {
+      background: linear-gradient(135deg, #28a745, #1e7e34);
+      padding: 4px 10px;
+      font-size: clamp(10px, 1.2vw, 12px);
+    }
+
+    /* ============================================================
+       AMOUNT
+       ============================================================ */
+    .amount-buttons { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 6px; }
+    .custom-amount {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      background: linear-gradient(135deg, #ffffff, #e8f4fd);
+      padding: 8px;
+      border-radius: 10px;
+      border: 2px solid var(--primary);
+      flex-wrap: wrap;
+    }
+    .custom-amount input {
+      flex: 2 1 100px;
+      padding: 8px 10px;
+      border: 2px solid var(--border-light);
+      border-radius: 8px;
+      font-size: clamp(13px, 1.5vw, 14px);
+      min-width: 70px;
+      font-weight: 700;
+    }
+    .custom-amount input:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 120, 215, 0.15);
+    }
+    .custom-amount select {
+      flex: 1 1 70px;
+      padding: 8px;
+      border: 2px solid var(--border-light);
+      border-radius: 8px;
+      background: #f8f9fa;
+      color: var(--primary);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       BET SUMMARY
+       ============================================================ */
+    .bet-summary {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin: 10px 0;
+      border: 2px solid var(--primary);
+    }
+    .bet-summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: clamp(12px, 1.4vw, 14px);
+      font-weight: 700;
+    }
+    .bet-summary-item:last-child { border-bottom: none; }
+    .bet-summary .total {
+      font-weight: 800;
+      color: #d63000;
+      font-size: clamp(15px, 1.8vw, 17px);
+      text-shadow: 0 0 8px rgba(214, 48, 0, 0.2);
+    }
+
+    /* ============================================================
+       BALANCE STATUS UNDER SUBMIT (ថ្មី!)
+       ============================================================ */
+    .balance-status-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 2px solid;
+      display: none;
+      animation: slideInUp 0.4s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+    .balance-status-box.ok {
+      background: linear-gradient(135deg, #d4edda, #a8e6c0);
+      border-color: var(--success);
+      box-shadow: 0 4px 14px rgba(40, 167, 69, 0.2);
+    }
+    .balance-status-box.warn {
+      background: linear-gradient(135deg, #fff5f5, #ffe0e0);
+      border-color: var(--danger);
+      box-shadow: 0 4px 14px rgba(220, 53, 69, 0.2);
+      animation: shake 0.5s ease-out;
+    }
+    .balance-status-box .header-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-weight: 800;
+      font-size: clamp(13px, 1.5vw, 14px);
+    }
+    .balance-status-box.ok .header-row { color: #155724; }
+    .balance-status-box.warn .header-row { color: #721c24; }
+    .balance-status-box .rows {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 10px;
+      font-size: clamp(12px, 1.3vw, 13px);
+      font-weight: 700;
+    }
+    .balance-status-box .rows .label { color: #4a5568; }
+    .balance-status-box .rows .value { color: var(--text-dark); font-family: 'Courier New', monospace; }
+    .balance-status-box .rows .value.success { color: var(--success); }
+    .balance-status-box .rows .value.danger { color: var(--danger); }
+    .balance-status-box .progress-bar {
+      margin-top: 10px;
+      height: 8px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .balance-status-box .progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.6s ease;
+      animation: progressBar 1s ease-out;
+    }
+    .balance-status-box.ok .progress-fill {
+      background: linear-gradient(90deg, #28a745, #1e7e34);
+    }
+    .balance-status-box.warn .progress-fill {
+      background: linear-gradient(90deg, #dc3545, #a71d2a);
+    }
+    .balance-status-box .hint {
+      margin-top: 8px;
+      font-size: clamp(11px, 1.2vw, 12px);
+      font-weight: 700;
+      text-align: center;
+      padding: 6px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+    .balance-status-box.warn .hint { color: #721c24; }
+
+    /* ============================================================
+       HISTORY TABS (ថ្មី!)
+       ============================================================ */
+    .history-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      padding: 6px;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: 12px;
+      border: 2px solid var(--border-light);
+    }
+    .history-tab {
+      flex: 1;
+      min-width: 100px;
+      padding: 10px 12px;
+      border: 2px solid transparent;
+      background: white;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: clamp(11px, 1.3vw, 13px);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+    }
+    .history-tab:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .history-tab.active {
+      color: white;
+      border-color: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    .history-tab[data-tab="bets"].active { background: linear-gradient(135deg, #0078D7, #005fa3); }
+    .history-tab[data-tab="withdrawals"].active { background: linear-gradient(135deg, #6f42c1, #5a32a3); }
+    .history-tab[data-tab="deposits"].active { background: linear-gradient(135deg, #28a745, #1e7e34); }
+    .history-tab[data-tab="results"].active { background: linear-gradient(135deg, #ff9800, #e65100); }
+
+    .history-panel { display: none; animation: fadeIn 0.4s ease-out; }
+    .history-panel.active { display: block; }
+
+    /* ============================================================
+       TABLE
+       ============================================================ */
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      font-size: clamp(10px, 1.2vw, 12px);
+    }
+    .history-table th {
+      background: linear-gradient(135deg, #0078D7, #005fa3);
+      color: white;
+      padding: 8px 5px;
+      text-align: center;
+      font-weight: 800;
+    }
+    .history-table td {
+      padding: 8px 5px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-light);
+      font-weight: 600;
+    }
+    .history-table tbody tr { transition: background 0.3s; }
+    .history-table tbody tr:hover { background: #f8f9fa; }
+    .history-table tbody tr.today {
+      background: #f0fdf4;
+      border-left: 4px solid var(--success);
+    }
+    .history-table tbody tr.yesterday {
+      background: linear-gradient(90deg, #fff9c4, #fff3cd);
+      border-left: 4px solid var(--warning);
+    }
+
+    /* ============================================================
+       STATUS BADGES
+       ============================================================ */
+    .status-badge {
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: clamp(9px, 1vw, 10px);
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .status-pending { background: #ffeeba; color: #856404; }
+    .status-win { background: #d4edda; color: #155724; animation: winGlow 1s infinite alternate; }
+    .status-loss { background: #f8d7da; color: #721c24; }
+    .status-paid { background: #cce5ff; color: #004085; }
+    .status-approved { background: #d4edda; color: #155724; }
+    .status-rejected { background: #f8d7da; color: #721c24; }
+
+    /* ============================================================
+       GUIDE BOX
+       ============================================================ */
+    .guide-box {
+      background: linear-gradient(135deg, #eef7ff, #e8f4fd);
+      border: 1px solid #b6d4fe;
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: clamp(11px, 1.3vw, 13px);
+      color: #084298;
+      line-height: 1.7;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       STATUS BAR / SYNC BAR
+       ============================================================ */
+    .status-bar, .data-sync-bar {
+      background: linear-gradient(135deg, #e8f4fd, #d4edda);
+      padding: 8px 12px;
+      border-radius: 10px;
+      margin: 6px 0;
+      border-left: 4px solid var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      box-shadow: var(--shadow-sm);
+    }
+    .data-sync-bar { border-color: var(--cyan); }
+    .status-bar .label, .data-sync-bar > span:first-child {
+      font-weight: 800;
+      color: #005fa3;
+      font-size: clamp(11px, 1.3vw, 13px);
+    }
+    .status-bar .value { font-weight: 800; color: var(--success); font-size: clamp(12px, 1.4vw, 14px); }
+    .status-bar .pending { color: var(--danger); animation: pulse 1.5s ease-in-out infinite; }
+    .sync-status { color: var(--success); font-weight: 800; }
+    .sync-pending { color: var(--orange); font-weight: 800; animation: blink 1s linear infinite; }
+
+    /* ============================================================
+       CONFIG CARD
+       ============================================================ */
+    .config-card {
+      background: linear-gradient(135deg, #e8f4fd, #ffffff);
+      border: 2px solid var(--primary);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      box-shadow: var(--shadow-sm);
+    }
+    .config-card .badge {
+      background: linear-gradient(135deg, #0078D7, #6f42c1);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: clamp(11px, 1.3vw, 13px);
+      font-weight: 800;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ============================================================
+       MODAL
+       ============================================================ */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      animation: fadeIn 0.3s ease-out;
+      overflow-y: auto;
+    }
+    .modal-content {
+      background: white;
+      margin: 4% auto;
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      max-width: 480px;
+      width: 94%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: slideInUp 0.4s ease-out;
+      position: relative;
+    }
+    .modal-content h2 {
+      color: var(--primary);
+      font-size: clamp(18px, 2.3vw, 22px);
+      margin-bottom: 14px;
+      text-align: center;
+      font-weight: 800;
+    }
+    .modal-content label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: 800;
+      font-size: clamp(12px, 1.4vw, 14px);
+      color: var(--text-dark);
+    }
+    .modal-content input, .modal-content select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid var(--border-light);
+      border-radius: 10px;
+      font-size: clamp(13px, 1.5vw, 14px);
+      margin-bottom: 6px;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+    .modal-content input:focus, .modal-content select:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(0, 120, 215, 0.15);
+      transform: translateY(-1px);
+    }
+    .close {
+      position: absolute;
+      top: 12px; right: 16px;
+      font-size: 32px;
+      font-weight: 800;
+      cursor: pointer;
+      color: #adb5bd;
+      line-height: 1;
+      transition: all 0.3s;
+      z-index: 10;
+    }
+    .close:hover { color: var(--danger); transform: rotate(90deg) scale(1.2); }
+
+    /* ============================================================
+       ALERT MODAL
+       ============================================================ */
+    .alert-modal {
+      text-align: center;
+      padding: 28px 24px;
+      max-width: 400px;
+      border-radius: 24px;
+    }
+    .alert-icon {
+      font-size: 60px;
+      margin-bottom: 14px;
+      display: block;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+    .alert-title {
+      font-size: clamp(18px, 2.3vw, 22px);
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+    .alert-message {
+      font-size: clamp(13px, 1.5vw, 15px);
+      color: #4a5568;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-weight: 600;
+      white-space: pre-line;
+    }
+
+    /* ============================================================
+       REGISTRATION MODAL
+       ============================================================ */
+    .reg-modal-content {
+      position: relative;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    }
+    .reg-step { display: none; animation: fadeIn 0.4s ease-out; }
+    .reg-step.active { display: block; }
+    .reg-header { text-align: center; margin-bottom: 20px; }
+    .reg-header .icon {
+      font-size: 70px;
+      margin-bottom: 10px;
+      display: inline-block;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .reg-header h2 {
+      color: var(--primary);
+      font-size: clamp(20px, 2.6vw, 26px);
+      margin-bottom: 6px;
+      font-weight: 800;
+    }
+    .reg-header p { color: #64748b; font-size: clamp(12px, 1.4vw, 14px); font-weight: 600; }
+    .reg-input-group { margin: 16px 0; }
+    .reg-input-group label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+      font-size: clamp(12px, 1.4vw, 14px);
+    }
+    .reg-input-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--border-light);
+      border-radius: 12px;
+      font-size: clamp(14px, 1.6vw, 16px);
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 3px;
+      transition: all 0.3s;
+    }
+    .reg-input-group input:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(0, 120, 215, 0.15);
+      transform: translateY(-1px);
+    }
+    .reg-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #0078D7, #6f42c1);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: clamp(14px, 1.6vw, 16px);
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 12px;
+      box-shadow: 0 6px 20px rgba(0, 120, 215, 0.35);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .reg-btn:hover:not(:disabled) {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0, 120, 215, 0.5);
+    }
+    .reg-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+    .reg-btn.success { background: linear-gradient(135deg, #28a745, #1e7e34); }
+
+    /* ID Display */
+    .id-display-box {
+      background: linear-gradient(135deg, #fff3cd, #ffe69c);
+      border: 3px solid var(--warning);
+      border-radius: 16px;
+      padding: 22px;
+      text-align: center;
+      margin: 16px 0;
+      box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+      animation: glow 2s ease-in-out infinite;
+    }
+    .id-display-box .label { color: #856404; font-size: clamp(12px, 1.4vw, 14px); font-weight: 800; margin-bottom: 10px; }
+    .id-display-box .id-value {
+      color: #856404;
+      font-size: clamp(34px, 6.5vw, 46px);
+      font-weight: 800;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 8px;
+      background: white;
+      padding: 14px;
+      border-radius: 12px;
+      margin: 10px 0;
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .id-display-box .warning {
+      color: #721c24;
+      font-size: clamp(11px, 1.3vw, 13px);
+      font-weight: 800;
+      margin-top: 12px;
+      padding: 10px;
+      background: #fff5f5;
+      border-radius: 8px;
+    }
+
+    .code-input {
+      width: 100%;
+      padding: 22px;
+      border: 3px solid var(--primary);
+      border-radius: 14px;
+      font-size: clamp(26px, 4.5vw, 34px);
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 12px;
+      font-family: 'Courier New', monospace;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .code-input:focus {
+      border-color: var(--success);
+      outline: none;
+      box-shadow: 0 0 0 5px rgba(40, 167, 69, 0.2);
+    }
+
+    .forgot-pin-box {
+      text-align: center;
+      margin-top: 16px;
+      padding: 12px;
+      background: #fff5f5;
+      border: 1px dashed #ffb3b3;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .forgot-pin-box a { color: var(--danger); font-weight: 800; text-decoration: none; }
+    .forgot-pin-box a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       GROUP BUTTONS BOX
+       ============================================================ */
+    .group-buttons-box {
+      margin-top: 18px;
+      padding: 16px;
+      background: linear-gradient(135deg, #e8f4fd, #d4edda);
+      border-radius: 14px;
+      border: 1px solid #b6d4fe;
+      box-shadow: var(--shadow-sm);
+    }
+    .group-buttons-box .title {
+      font-weight: 800;
+      color: #005fa3;
+      font-size: 14px;
+      margin-bottom: 12px;
+      text-align: center;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .group-btn {
+      display: block;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: white;
+      margin-bottom: 10px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      line-height: 1.5;
+      position: relative;
+      overflow: hidden;
+    }
+    .group-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .group-btn.main { background: linear-gradient(135deg, #0088cc, #006699); }
+    .group-btn.channel { background: linear-gradient(135deg, #28a745, #1e7e34); }
+    .group-btn.withdraw-group { background: linear-gradient(135deg, #6f42c1, #5a32a3); }
+    .group-btn small { display: block; font-size: 11px; opacity: 0.95; font-weight: 500; margin-top: 3px; }
+
+    /* ============================================================
+       BETTING CLOSED BOX
+       ============================================================ */
+    .betting-closed-box {
+      display: none;
+      background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+      border: 2px solid #EF4444;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 12px 0;
+      animation: slideInDown 0.4s ease-out;
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.15);
+    }
+    .betting-closed-box .header-row { display: flex; align-items: center; gap: 10px; }
+    .betting-closed-box .icon {
+      font-size: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      line-height: 1;
+      animation: wiggle 1.2s ease-in-out infinite;
+    }
+    .betting-closed-box .content { flex: 1; min-width: 0; }
+    .betting-closed-box .title {
+      color: #991B1B;
+      font-weight: 800;
+      font-size: clamp(12px, 1.4vw, 14px);
+      margin-bottom: 3px;
+    }
+    .betting-closed-box .open-time {
+      color: #991B1B;
+      font-size: clamp(11px, 1.3vw, 12.5px);
+      font-weight: 700;
+    }
+    .betting-closed-box .open-time strong {
+      background: #FFF;
+      padding: 2px 10px;
+      border-radius: 6px;
+      color: #991B1B;
+      border: 1px solid #FCA5A5;
+    }
+    .betting-closed-box .countdown-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #FFF;
+      border: 1.5px dashed #EF4444;
+      border-radius: 8px;
+      padding: 4px 10px;
+      margin-top: 6px;
+      font-size: clamp(10.5px, 1.2vw, 12px);
+    }
+    .betting-closed-box .countdown-inline .label {
+      color: #991B1B;
+      font-weight: 800;
+      font-size: clamp(9.5px, 1.1vw, 11px);
+    }
+    .betting-closed-box .countdown-inline .time {
+      color: #DC2626;
+      font-size: clamp(13px, 1.7vw, 15px);
+      font-weight: 800;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* ============================================================
+       WIN BADGE
+       ============================================================ */
+    .win-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff1744, #d50000);
+      color: white;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 10px;
+      margin-left: 6px;
+      animation: badgePulse 1.5s ease-in-out infinite;
+      box-shadow: 0 0 12px rgba(255, 23, 68, 0.7);
+      vertical-align: middle;
+    }
+    .btn-withdraw.has-win {
+      background: linear-gradient(135deg, #ff1744, #d50000) !important;
+      box-shadow: 0 0 20px rgba(255, 23, 68, 0.6) !important;
+      animation: glowRed 1.5s ease-in-out infinite;
+    }
+
+    /* ============================================================
+       AMOUNT TAG / DATE BADGE / NEW BADGE
+       ============================================================ */
+    .amount-tag {
+      background: linear-gradient(135deg, #28a745, #1e7e34);
+      color: white;
+      padding: 2px 10px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 800;
+      display: inline-block;
+      margin-top: 3px;
+    }
+    .date-badge {
+      background: linear-gradient(135deg, #e8f4fd, #d4edda);
+      color: #005fa3;
+      padding: 2px 10px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 800;
+      display: inline-block;
+      margin-top: 3px;
+    }
+    .new-win-badge {
+      background: linear-gradient(135deg, #ffc107, #ff9800);
+      color: #000;
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-size: 9px;
+      margin-left: 3px;
+      animation: blink 1s linear infinite;
+      font-weight: 800;
+    }
+
+    /* ============================================================
+       WARNING / INFO BOXES
+       ============================================================ */
+    .warning-box {
+      background: linear-gradient(135deg, #fff5f5, #ffe0e0);
+      border: 1px solid #ff8b8b;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-top: 12px;
+      font-size: 11.5px;
+      color: #721c24;
+      line-height: 1.7;
+      text-align: left;
+      font-weight: 600;
+    }
+    .withdraw-notice {
+      background: linear-gradient(135deg, #fff5f5, #ffe0e0);
+      border: 1px dashed #ff8b8b;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      font-size: clamp(11px, 1.3vw, 12.5px);
+      color: #721c24;
+      font-weight: 700;
+    }
+    .warning-text {
+      color: var(--danger);
+      font-size: clamp(11px, 1.3vw, 12px);
+      font-weight: 800;
+      display: block;
+      margin-top: 4px;
+    }
+    .info-message {
+      background: linear-gradient(135deg, #e8f4fd, #d4edda);
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-size: clamp(11px, 1.3vw, 13px);
+      color: #005fa3;
+      text-align: center;
+      font-weight: 700;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .balance-warning {
+      background: linear-gradient(135deg, #fff5f5, #ffe0e0);
+      border: 1px solid #ff8b8b;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      font-size: 11.5px;
+      color: #721c24;
+      display: none;
+      line-height: 1.6;
+      font-weight: 700;
+    }
+    .balance-warning.show { display: block; animation: slideInUp 0.3s ease-out; }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      background: linear-gradient(135deg, #1a2634, #0f1420);
+      color: #adb5bd;
+      text-align: center;
+      padding: 16px;
+      margin-top: 14px;
+      border-top: 3px solid transparent;
+      border-image: linear-gradient(90deg, #0078D7, #28a745, #ff9800, #6f42c1) 1;
+      font-size: clamp(11px, 1.3vw, 13px);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       ACTION GROUP
+       ============================================================ */
+    .action-group { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+
+    /* ============================================================
+       TOAST NOTIFICATION (ថ្មី!)
+       ============================================================ */
+    .toast-container {
+      position: fixed;
+      top: 20px; right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+    .toast {
+      background: white;
+      color: var(--text-dark);
+      padding: 14px 18px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 13px;
+      min-width: 260px;
+      max-width: 360px;
+      pointer-events: auto;
+      animation: slideInDown 0.4s ease-out;
+      border-left: 4px solid var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+    .toast.success { border-left-color: var(--success); }
+    .toast.error { border-left-color: var(--danger); }
+    .toast.warning { border-left-color: var(--warning); }
+    .toast.info { border-left-color: var(--cyan); }
+    .toast .toast-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+    .toast .toast-text { flex: 1; line-height: 1.4; }
+    .toast .toast-progress {
+      position: absolute;
+      bottom: 0; left: 0;
+      height: 3px;
+      background: var(--primary);
+      animation: progressBar 4s linear;
+    }
+    .toast.success .toast-progress { background: var(--success); }
+    .toast.error .toast-progress { background: var(--danger); }
+    .toast.warning .toast-progress { background: var(--warning); }
+    .toast.info .toast-progress { background: var(--cyan); }
+
+    /* ============================================================
+       LOADING SPINNER
+       ============================================================ */
+    .loading-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9998;
+    }
+    .loading-overlay.active { display: flex; animation: fadeIn 0.3s ease-out; }
+    .loading-spinner {
+      width: 60px; height: 60px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 768px) {
+      .numbers div { flex: 1 1 calc(33.33% - 5px); min-width: 44px; }
+      .clock-box { flex-direction: column; text-align: center; gap: 6px; }
+      .input-row { flex-direction: column; align-items: stretch; }
+      .type-selector, .time-selector { flex-direction: column; }
+      .type-btn, .time-btn { min-width: 100%; }
+      .history-tab { min-width: 80px; font-size: 11px; padding: 8px 6px; }
+      .toast-container { top: 10px; right: 10px; left: 10px; }
+      .toast { min-width: auto; width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .numbers div { flex: 1 1 calc(50% - 4px); min-width: 34px; padding: 8px 3px; }
+      .countdown .time-display { font-size: 28px; padding: 4px 12px; min-width: 96px; }
+      .nav-bar { padding: 8px 10px; }
+      .nav-bar a, .nav-bar button { padding: 6px 10px; font-size: 11px; }
+      .modal-content { margin: 2% auto; padding: 18px; }
+      .history-tab { min-width: 70px; font-size: 10px; padding: 7px 4px; flex-direction: column; gap: 2px; }
+    }
+
+    /* ============================================================
+       SCROLLBAR CUSTOM
+       ============================================================ */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f0f4f8; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #0078D7, #6f42c1);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(135deg, #005fa3, #5a32a3); }
+
+    /* ============================================================
+       PRINT
+       ============================================================ */
+    @media print {
+      .nav-bar, .btn, .btn-share, .btn-group, .btn-logout { display: none; }
+      body { background: white; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       PARTICLES BACKGROUND
+       ============================================================ -->
+  <div class="particles-bg" id="particlesBg"></div>
+
+  <!-- ============================================================
+       FLOATING SHAPES (សម្រាប់ Register/Login Screen)
+       ============================================================ -->
+  <div class="floating-shapes" id="floatingShapes" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:1;">
+    <div class="shape" style="position:absolute; opacity:0.15; color:#0078D7; font-size:60px; top:10%; left:10%; animation: float 4s ease-in-out infinite;">🎲</div>
+    <div class="shape" style="position:absolute; opacity:0.15; color:#28a745; font-size:60px; top:20%; right:15%; animation: float 5s ease-in-out infinite;">💰</div>
+    <div class="shape" style="position:absolute; opacity:0.15; color:#ff9800; font-size:60px; top:50%; left:5%; animation: float 3.5s ease-in-out infinite;">🎯</div>
+    <div class="shape" style="position:absolute; opacity:0.15; color:#ffc107; font-size:60px; top:70%; right:10%; animation: float 4.5s ease-in-out infinite;">⭐</div>
+    <div class="shape" style="position:absolute; opacity:0.15; color:#6f42c1; font-size:60px; bottom:15%; left:20%; animation: float 5.5s ease-in-out infinite;">🏆</div>
+    <div class="shape" style="position:absolute; opacity:0.15; color:#17a2b8; font-size:60px; bottom:20%; right:25%; animation: float 4.2s ease-in-out infinite;">💎</div>
+    <div class="shape" style="position:absolute; opacity:0.15; color:#e91e63; font-size:60px; top:35%; left:50%; animation: float 3.8s ease-in-out infinite;">🎁</div>
+    <div class="shape" style="position:absolute; opacity:0.15; color:#dc3545; font-size:60px; bottom:40%; left:45%; animation: float 4.8s ease-in-out infinite;">🎰</div>
+  </div>
+
+  <!-- ============================================================
+       TOAST CONTAINER
+       ============================================================ -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ============================================================
+       LOADING OVERLAY
+       ============================================================ -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- ============================================================
+       REGISTER / LOGIN MODAL
+       ============================================================ -->
+  <div class="modal" id="registerModal" style="display:block;">
+    <div class="modal-content reg-modal-content" style="max-width:520px;">
+
+      <!-- Step 1: Register -->
+      <div class="reg-step active" id="regStep1">
+        <div class="reg-header">
+          <div class="icon">🎲</div>
+          <h2>ឆ្នោតខ្មែរ N98</h2>
+          <p>សូមស្វាគមន៍! ចុះឈ្មោះដើម្បីចាប់ផ្តើម</p>
+        </div>
+
+        <div class="reg-input-group">
+          <label>📱 បញ្ចូលលេខទូរស័ព្ទ</label>
+          <input type="tel" id="regPhone" placeholder="012345678" maxlength="10" inputmode="numeric" autocomplete="off">
+        </div>
+
+        <div class="reg-input-group">
+          <label>🔐 កំណត់ PIN 4 ខ្ទង់</label>
+          <input type="tel" id="regPin" placeholder="----" maxlength="4" inputmode="numeric" autocomplete="off">
+        </div>
+
+        <div style="background:linear-gradient(135deg,#fff3cd,#ffe69c); border:1px solid #ffc107; border-radius:10px; padding:12px 14px; margin-top:10px; font-size:11.5px; color:#856404; line-height:1.7; font-weight:600;">
+          ⚠️ <b>ការព្រមាន!</b><br>
+          • អ្នកត្រូវចងចាំ <b>PIN 4 ខ្ទង់</b> ដើម្បីចូលប្រើ<br>
+          • <b>កុំប្រាប់អ្នកដទៃ</b> អំពី PIN
+        </div>
+
+        <button class="reg-btn" id="regNextBtn" onclick="handleRegister()">
+          បន្ត → <span class="anim-rocket">🚀</span>
+        </button>
+
+        <div class="group-buttons-box">
+          <div class="title">📢 ចូលក្រុម និង Channel — ទទួលបានព័ត៌មានថ្មីៗ!</div>
+          <a href="https://t.me/+ErJaYtpHWwE1YWI1" target="_blank" rel="noopener" class="group-btn main">
+            🎯 ចូលក្រុមចាក់/ទិញលេខឆ្នោត
+            <small>និងទទួល Code ចុះឈ្មោះ</small>
+          </a>
+          <a href="https://t.me/lekhchhnaotN98" target="_blank" rel="noopener" class="group-btn channel">
+            📢 ចូល Channel ប្រកាសលទ្ធផលឆ្នោត
+          </a>
+          <a href="https://t.me/+UwX-YZZieXQ0N2E1" target="_blank" rel="noopener" class="group-btn withdraw-group">
+            💰 ចូលក្រុមទទួលសំណើដកប្រាក់រង្វាន់
+            <small>សម្រាប់ស្នើសុំដកប្រាក់</small>
+          </a>
+        </div>
+
+        <div class="forgot-pin-box" style="background:#e8f4fd; border-color:#b6d4fe; margin-top:12px;">
+          <a href="#" onclick="contactAdmin(); return false;" style="color:#0078D7;">✉️ ទាក់ទង Admin</a>
+        </div>
+
+        <div style="text-align:center; margin-top:16px; font-size:12px; color:#64748b; font-weight:600;">
+          មានគណនីរួចហើយ? <a href="#" onclick="showLoginStep(); return false;" style="color:#0078D7; font-weight:800;">ចូលប្រើ</a>
+        </div>
+      </div>
+
+      <!-- Step 2: Show UserID -->
+      <div class="reg-step" id="regStep2">
+        <div class="reg-header">
+          <div class="icon">✅</div>
+          <h2>ចុះឈ្មោះជោគជ័យ!</h2>
+          <p>សូមចំណាំ ID នេះទុក</p>
+        </div>
+
+        <div class="id-display-box">
+          <div class="label">🆔 ID របស់អ្នក</div>
+          <div class="id-value" id="displayUserId">------</div>
+          <div class="warning">
+            ⚠️ សូមចំណាំ ID នេះ<br>
+            ប្រើសម្រាប់ចូលប្រើលើកក្រោយ
+          </div>
+        </div>
+
+        <button class="reg-btn success" onclick="showVerifyStep()" style="margin-top:12px;">
+          បញ្ជាក់ Code ឥឡូវ → <span class="anim-pulse">🔑</span>
+        </button>
+      </div>
+
+      <!-- Step 3: Verify Code -->
+      <div class="reg-step" id="regStep3">
+        <div class="reg-header">
+          <div class="icon">🔑</div>
+          <h2>បញ្ជាក់ Code</h2>
+          <p>វាយ Code 4 ខ្ទង់ដែលបានពី Channel</p>
+        </div>
+
+        <div class="reg-input-group">
+          <label>🔑 Code 4 ខ្ទង់</label>
+          <input type="text" class="code-input" id="regCode" placeholder="----" maxlength="4" autocomplete="off">
+        </div>
+
+        <button class="reg-btn" id="regVerifyBtn" onclick="handleVerify()">
+          បញ្ជាក់ ✓
+        </button>
+
+        <div style="text-align:center; margin-top:16px; font-size:12px; color:#64748b; font-weight:600;">
+          <a href="#" onclick="showLoginStep(); return false;" style="color:#0078D7;">← ត្រឡប់ក្រោយ</a>
+        </div>
+      </div>
+
+      <!-- Login Step -->
+      <div class="reg-step" id="regLoginStep">
+        <div class="reg-header">
+          <div class="icon">🔐</div>
+          <h2>ចូលប្រើប្រាស់</h2>
+          <p>បញ្ចូល ID និង PIN</p>
+        </div>
+
+        <div class="reg-input-group">
+          <label>🆔 ID របស់អ្នក</label>
+          <input type="text" id="loginUserId" placeholder="------" maxlength="6" inputmode="numeric" autocomplete="off">
+        </div>
+
+        <div class="reg-input-group">
+          <label>🔐 PIN 4 ខ្ទង់</label>
+          <input type="tel" id="loginPin" placeholder="----" maxlength="4" inputmode="numeric" autocomplete="off">
+        </div>
+
+        <button class="reg-btn" id="loginBtn" onclick="handleLogin()">
+          ចូលប្រើ → <span class="anim-rocket">🚀</span>
+        </button>
+
+        <div class="forgot-pin-box">
+          🔐 ភ្លេច PIN? <a href="#" onclick="contactAdmin(); return false;">ទាក់ទង Admin</a>
+        </div>
+
+        <div style="text-align:center; margin-top:16px; font-size:12px; color:#64748b; font-weight:600;">
+          មិនមានគណនី? <a href="#" onclick="showRegisterStep(); return false;" style="color:#0078D7; font-weight:800;">ចុះឈ្មោះ</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MAIN APP
+       ============================================================ -->
+  <div id="mainApp" style="display:none;">
+
+    <!-- HEADER -->
+    <header>
+      <h1><span class="emoji-dice">🎲</span> ឆ្នោតខ្មែរ N98 <span class="emoji-trophy">🏆</span></h1>
+      <p><span class="anim-pulse">✨</span> ប្រព័ន្ធចាក់ឆ្នោត និងទទួលបានរង្វាន់ <span class="anim-pulse">✨</span></p>
+    </header>
+
+    <!-- NAV BAR -->
+    <nav class="nav-bar">
+      <a href="#" class="active" onclick="showSection('home', event); return false;">
+        <span class="anim-pulse">🏠</span> ទំព័រដើម
+      </a>
+      <a href="#" onclick="showSection('history', event); return false;">
+        <span class="anim-pulse">📊</span> ប្រវត្តិ
+      </a>
+      <a href="#" onclick="showSection('rules', event); return false;">
+        <span class="anim-pulse">📋</span> ច្បាប់
+      </a>
+      <button class="btn-theme" onclick="toggleTheme()" id="themeBtn">
+        🌙 <span class="theme-label">Dark</span>
+      </button>
+      <button class="btn-share" onclick="copyLink()">
+        🔗 ចែករំលែក
+      </button>
+      <button class="btn-group" onclick="N98.openGroup()">
+        💬 ចូលក្រុម និង Channel
+      </button>
+      <button class="btn-logout" onclick="handleLogout()">
+        🚪 ចាកចេញ
+      </button>
+    </nav>
+
+    <div class="section">
+
+      <!-- USER INFO BAR -->
+      <div class="user-info-bar">
+        <div>
+          <span class="label"><span class="anim-pulse">🆔</span> ID: </span>
+          <span class="value" id="displayCurrentUserId">------</span>
+        </div>
+        <div>
+          <span class="label"><span class="anim-bounce">📱</span> Phone: </span>
+          <span class="value" id="displayCurrentPhone">---</span>
+        </div>
+      </div>
+
+      <!-- CLOCK BOX -->
+      <div class="clock-box">
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span style="font-size:clamp(22px,3.2vw,28px);" class="emoji-clock">⏰</span>
+          <div>
+            <div class="clock-title"><span class="anim-pulse">🕒</span> ម៉ោងបច្ចុប្បន្ន</div>
+            <div class="clock-time" id="widgetTime">00:00:00</div>
+          </div>
+        </div>
+        <div>
+          <div class="clock-date" id="widgetDate">កំពុងផ្ទុក...</div>
+        </div>
+      </div>
+
+      <!-- DATA SYNC BAR -->
+      <div class="data-sync-bar" id="syncBar">
+        <span><span class="anim-pulse">📡</span> ស្ថានភាពទិន្នន័យ</span>
+        <span class="sync-status" id="syncStatus">✅ រួចរាល់</span>
+      </div>
+
+      <!-- STATUS BAR -->
+      <div class="status-bar">
+        <span class="label"><span class="anim-pulse">📊</span> ស្ថានភាព</span>
+        <span class="value" id="resultStatusText">កំពុងផ្ទុក...</span>
+      </div>
+
+      <!-- COUNTDOWN -->
+      <div class="countdown">
+        <div style="display:flex; justify-content:center; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span style="font-size:clamp(22px,3.2vw,28px);" class="emoji-dice">🎲</span>
+          <span style="font-size:clamp(14px,1.9vw,17px); color:#dc3545; font-weight:800;">
+            <span class="anim-pulse">⏳</span> ម៉ោងទឹក
+          </span>
+        </div>
+        <div class="time-display" id="countdownDisplay">--:--:--</div>
+        <div class="next-time" id="nextTimeLabel">🎯 ពេលបន្ទាប់...</div>
+        <div class="status-time" id="statusTimeLabel"></div>
+      </div>
+
+      <!-- ========================================================
+           HOME SECTION
+           ======================================================== -->
+      <div id="homeSection">
+
+        <!-- LOTTERY RESULT 12:00 -->
+        <div class="lottery-box">
+          <div class="time-box">
+            <span class="anim-pulse">🕛</span> លទ្ធផល 12:00
+            <span class="badge" id="badge12">ព្រឹកពីរ</span>
+          </div>
+          <div style="font-weight:800;color:#0078D7;font-size:13px;margin-top:8px;">
+            <span class="anim-pulse">🔢</span> ២ខ្ទង់
+          </div>
+          <div class="numbers" id="box12">
+            <div><span class="letter">A:</span> <span id="r12_A">--</span></div>
+            <div><span class="letter">B:</span> <span id="r12_B">--</span></div>
+            <div><span class="letter">C:</span> <span id="r12_C">--</span></div>
+            <div><span class="letter">D:</span> <span id="r12_D">--</span></div>
+            <div><span class="letter">E:</span> <span id="r12_E">--</span></div>
+          </div>
+          <div style="font-weight:800;color:#6f42c1;font-size:13px;margin-top:10px;">
+            <span class="anim-pulse">🔢</span> ៣ខ្ទង់
+          </div>
+          <div class="numbers" id="box12_3d">
+            <div><span class="letter">A:</span> <span id="r12_3d_A">--</span></div>
+            <div><span class="letter">B:</span> <span id="r12_3d_B">--</span></div>
+            <div><span class="letter">C:</span> <span id="r12_3d_C">--</span></div>
+            <div><span class="letter">D:</span> <span id="r12_3d_D">--</span></div>
+            <div><span class="letter">E:</span> <span id="r12_3d_E">--</span></div>
+          </div>
+          <div style="margin-top:8px;" id="date12"></div>
+        </div>
+
+        <!-- LOTTERY RESULT 16:00 -->
+        <div class="lottery-box">
+          <div class="time-box">
+            <span class="anim-pulse">🕓</span> លទ្ធផល 16:00
+            <span class="badge" id="badge16">ល្ងាចបី</span>
+          </div>
+          <div style="font-weight:800;color:#0078D7;font-size:13px;margin-top:8px;">
+            <span class="anim-pulse">🔢</span> ២ខ្ទង់
+          </div>
+          <div class="numbers" id="box16">
+            <div><span class="letter">A:</span> <span id="r16_A">--</span></div>
+            <div><span class="letter">B:</span> <span id="r16_B">--</span></div>
+            <div><span class="letter">C:</span> <span id="r16_C">--</span></div>
+            <div><span class="letter">D:</span> <span id="r16_D">--</span></div>
+            <div><span class="letter">E:</span> <span id="r16_E">--</span></div>
+          </div>
+          <div style="font-weight:800;color:#6f42c1;font-size:13px;margin-top:10px;">
+            <span class="anim-pulse">🔢</span> ៣ខ្ទង់
+          </div>
+          <div class="numbers" id="box16_3d">
+            <div><span class="letter">A:</span> <span id="r16_3d_A">--</span></div>
+            <div><span class="letter">B:</span> <span id="r16_3d_B">--</span></div>
+            <div><span class="letter">C:</span> <span id="r16_3d_C">--</span></div>
+            <div><span class="letter">D:</span> <span id="r16_3d_D">--</span></div>
+            <div><span class="letter">E:</span> <span id="r16_3d_E">--</span></div>
+          </div>
+          <div style="margin-top:8px;" id="date16"></div>
+        </div>
+
+        <!-- BET BOX -->
+        <div class="bet-box">
+          <h2><span class="anim-pulse">🎯</span> ទិញលេខចាក់ (A, B, C, D, E)</h2>
+
+          <!-- Betting Closed Box -->
+          <div class="betting-closed-box" id="bettingClosedTop">
+            <div class="header-row">
+              <div class="icon">⏰</div>
+              <div class="content">
+                <div class="title" id="bettingClosedTitle">🔒 ការចាក់ត្រូវបានបិទ!</div>
+                <div class="open-time">⏰ បើកវិញ <strong>00:00 រំលងយប់នេះ</strong></div>
+                <div class="countdown-inline">
+                  <span class="label">⏳ នៅសល់៖</span>
+                  <span class="time" id="openCountdownTop">--:--:--</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mode Selector -->
+          <div class="mode-selector">
+            <button class="mode-btn direct active" id="modeDirect" onclick="setMode('direct', event)">
+              💵 ចាក់ផ្ទាល់
+            </button>
+            <button class="mode-btn online" id="modeOnline" onclick="setMode('online', event)">
+              🌐 ចាក់អនឡាញ
+            </button>
+          </div>
+
+          <!-- Balance Box -->
+          <div class="balance-box" id="balanceBox" style="display:none;">
+            <div class="label" style="margin-bottom:10px; font-weight:800; color:#155724; font-size:14px;">
+              <span class="anim-pulse">💰</span> សមតុល្យរបស់អ្នក
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <div class="balance-item">
+                <div style="font-size:11px; color:#155724; font-weight:800; margin-bottom:6px;">💵 USD</div>
+                <div id="balanceAmountUSD" style="font-size:clamp(20px,3vw,26px); color:#28a745; font-weight:800; font-family:'Courier New',monospace;">0.00$</div>
+              </div>
+              <div class="balance-item">
+                <div style="font-size:11px; color:#155724; font-weight:800; margin-bottom:6px;">🇰🇭 KHR</div>
+                <div id="balanceAmountKHR" style="font-size:clamp(20px,3vw,26px); color:#28a745; font-weight:800; font-family:'Courier New',monospace;">0៛</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guide -->
+          <div class="guide-box">
+            💡 <strong>របៀបប្រើ៖</strong><br>
+            ១. ជ្រើស <strong>ពេលវេលា</strong> និង <strong>ប្រភេទ</strong><br>
+            ២. ចុច <strong>ប៉ុស្តិ៍ A, B, C, D, E</strong><br>
+            ៣. បញ្ចូលលេខ (ឧ. 01,02,03)<br>
+            ៤. ជ្រើសទឹកប្រាក់ → ចុច <strong>"ដាក់ភ្នាល់"</strong>
+          </div>
+
+          <!-- Reward Table -->
+          <table class="reward-table">
+            <thead><tr><th>ប្រភេទ</th><th>ម៉ោង</th><th>អត្រា</th></tr></thead>
+            <tbody>
+              <tr><td>២ខ្ទង់ (A-E)</td><td>12:00 & 16:00</td><td>1$ → <span class="text-respond">70$</span></td></tr>
+              <tr><td>៣ខ្ទង់ (A-E)</td><td>12:00 & 16:00</td><td>1$ → <span class="text-respond">500$</span></td></tr>
+            </tbody>
+          </table>
+
+          <div style="background:linear-gradient(135deg,#fff5f5,#ffe0e0); border:1px solid #ffb3b3; padding:8px; border-radius:8px; margin-bottom:10px; text-align:center;">
+            <span style="color:#d63000; font-weight:800; font-size:clamp(11px,1.3vw,13px);">
+              <span class="anim-pulse">⚠️</span> ចាក់ពី 500៛/0.25$ ដល់ 40,000៛/10$
+            </span>
+          </div>
+
+          <div style="font-weight:800; color:#0078D7; font-size:clamp(12px,1.4vw,14px); margin-bottom:8px;">
+            <span class="anim-pulse">⏰</span> ជ្រើសរើស ពេលវេលា និង ប្រភេទ
+          </div>
+
+          <!-- Time Selector -->
+          <div class="time-selector">
+            <button class="time-btn active" data-time="12:00" onclick="setTime('12:00', event)">🕛 12:00</button>
+            <button class="time-btn" data-time="16:00" onclick="setTime('16:00', event)">🕓 16:00</button>
+          </div>
+
+          <!-- Type Selector -->
+          <div class="type-selector">
+            <button class="type-btn active" data-type="two" onclick="setType('two', event)">🔢 ២ខ្ទង់</button>
+            <button class="type-btn" data-type="three" onclick="setType('three', event)">🔢 ៣ខ្ទង់</button>
+          </div>
+
+          <!-- Config Card -->
+          <div class="config-card">
+            <span>📌 បច្ចុប្បន្ន៖</span>
+            <span class="badge" id="configBadge">12:00 | ២ខ្ទង់</span>
+          </div>
+
+          <!-- Letter Selector -->
+          <div style="font-weight:800; color:#0078D7; font-size:clamp(12px,1.4vw,14px); text-align:center; margin-bottom:8px;">
+            <span class="anim-pulse">🎯</span> ជ្រើសរើស ប៉ុស្តិ៍ A, B, C, D, E
+          </div>
+          <div class="letter-selector">
+            <div class="letter-circle" data-letter="A" onclick="selectLetter('A', event)">A</div>
+            <div class="letter-circle" data-letter="B" onclick="selectLetter('B', event)">B</div>
+            <div class="letter-circle" data-letter="C" onclick="selectLetter('C', event)">C</div>
+            <div class="letter-circle" data-letter="D" onclick="selectLetter('D', event)">D</div>
+            <div class="letter-circle" data-letter="E" onclick="selectLetter('E', event)">E</div>
+          </div>
+
+          <!-- Number Input -->
+          <div class="input-row" style="flex-direction:column; align-items:stretch;">
+            <input type="text" id="numInput" placeholder="បញ្ចូលលេខ (ឧ. 01,02,03)" disabled inputmode="numeric" autocomplete="off">
+          </div>
+
+          <!-- Selected Numbers Display -->
+          <div class="selected-display" id="selectedDisplay">
+            <span style="color:#6c757d; font-size:clamp(11px,1.3vw,12px); font-weight:600;">មិនទាន់មានលេខ</span>
+          </div>
+
+          <div style="display:flex; gap:6px; align-items:center; margin-bottom:8px; flex-wrap:wrap;">
+            <span style="font-size:clamp(11px,1.3vw,12px); color:#6c757d; font-weight:700;">
+              ចំនួន៖ <strong id="countDisplay" style="color:#0078D7; font-size:clamp(13px,1.5vw,15px);">0</strong> / 10
+            </span>
+          </div>
+
+          <!-- Amount Input -->
+          <div>
+            <label style="font-weight:800; color:#0078D7; font-size:clamp(11px,1.3vw,13px);">
+              <span class="anim-pulse">💰</span> ចំនួនទឹកប្រាក់
+            </label>
+            <div class="amount-buttons">
+              <button class="btn btn-amount" onclick="setAmount(500,'៛')">500៛</button>
+              <button class="btn btn-amount" onclick="setAmount(1000,'៛')">1000៛</button>
+              <button class="btn btn-amount" onclick="setAmount(5000,'៛')">5000៛</button>
+              <button class="btn btn-amount" onclick="setAmount(10000,'៛')">10000៛</button>
+              <button class="btn btn-amount" onclick="setAmount(0.25,'$')">0.25$</button>
+              <button class="btn btn-amount" onclick="setAmount(1,'$')">1$</button>
+              <button class="btn btn-amount" onclick="setAmount(5,'$')">5$</button>
+              <button class="btn btn-amount" onclick="setAmount(10,'$')">10$</button>
+            </div>
+            <div class="custom-amount">
+              <input type="number" id="amountInput" placeholder="✍️ បញ្ចូលចំនួន" min="0.01" step="any" oninput="updateAmount()">
+              <select id="currencySelect" onchange="updateAmount()">
+                <option value="USD">ដុល្លារ ($)</option>
+                <option value="KHR">រៀល (៛)</option>
+              </select>
+            </div>
+            <span class="warning-text" id="limitWarning" style="display:none;">
+              ⚠️ ត្រូវពី 500៛/0.25$ ដល់ 40,000៛/10$
+            </span>
+          </div>
+
+          <!-- Bet Summary -->
+          <div class="bet-summary">
+            <div class="bet-summary-item"><span>📊 ចំនួនលេខសរុប៖</span><span id="totalCount">0</span></div>
+            <div class="bet-summary-item total"><span>💵 សរុប៖</span><span id="totalAmountDisplay">0</span></div>
+          </div>
+
+          <!-- Submit Button -->
+          <button class="btn btn-success" id="btnSubmit" onclick="submitBet()" style="width:100%; padding:14px; font-size:clamp(13px,1.5vw,15px);" disabled>
+            💳 ដាក់ភ្នាល់ឥឡូវ
+          </button>
+
+          <!-- ⭐ BALANCE STATUS BOX (ថ្មី! — ក្រោមប៊ូតុងដាក់ភ្នាល់) -->
+          <div class="balance-status-box" id="balanceStatusBox">
+            <div class="header-row">
+              <span class="icon" id="balanceStatusIcon">💰</span>
+              <span id="balanceStatusTitle">ស្ថានភាពសមតុល្យ</span>
+            </div>
+            <div class="rows">
+              <span class="label">💰 សមតុល្យបច្ចុប្បន្ន៖</span>
+              <span class="value" id="balanceStatusCurrent">0៛</span>
+
+              <span class="label">💵 ត្រូវការ៖</span>
+              <span class="value" id="balanceStatusNeeded">0៛</span>
+
+              <span class="label">📊 ខ្វះ៖</span>
+              <span class="value danger" id="balanceStatusShort">0៛</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="balanceProgressFill" style="width:0%;"></div>
+            </div>
+            <div class="hint" id="balanceStatusHint">💡 សូមទាក់ទង Admin ដើម្បីបញ្ចូលប្រាក់</div>
+          </div>
+
+          <div class="info-message" id="infoMessage" style="display:none;">
+            ℹ️ អ្នកអាចដាក់ភ្នាល់បានបន្ទាប់ពី Admin អនុម័ត 🏦
+          </div>
+        </div>
+
+        <!-- ========================================================
+             HISTORY TABS (ថ្មី!)
+             ======================================================== -->
+        <div class="lottery-box">
+          <div class="time-box" style="color:#6f42c1; margin-bottom:12px;">
+            <span class="anim-pulse">📜</span> ប្រវត្តិរបស់អ្នក
+          </div>
+
+          <!-- History Tabs -->
+          <div class="history-tabs">
+            <button class="history-tab active" data-tab="bets" onclick="switchHistoryTab('bets', event)">
+              <span>📊</span> <span>ប្រវត្តិចាក់</span>
+            </button>
+            <button class="history-tab" data-tab="withdrawals" onclick="switchHistoryTab('withdrawals', event)">
+              <span>🏦</span> <span>ប្រវត្តិដកប្រាក់</span>
+            </button>
+            <button class="history-tab" data-tab="deposits" onclick="switchHistoryTab('deposits', event)">
+              <span>💰</span> <span>ប្រវត្តិដាក់ប្រាក់</span>
+            </button>
+            <button class="history-tab" data-tab="results" onclick="switchHistoryTab('results', event)">
+              <span>🎯</span> <span>ប្រវត្តិលទ្ធផល</span>
+            </button>
+          </div>
+
+          <!-- Panel: Bets -->
+          <div class="history-panel active" id="panel-bets">
+            <div style="overflow-x:auto;">
+              <table class="history-table">
+                <thead>
+                  <tr style="background:linear-gradient(135deg,#0078D7,#005fa3);">
+                    <th>កាលបរិច្ឆេទ</th>
+                    <th>លេខចាក់</th>
+                    <th>ប្រភេទ</th>
+                    <th>ចំនួន</th>
+                    <th>ស្ថានភាព</th>
+                    <th>រង្វាន់</th>
+                    <th>សកម្មភាព</th>
+                  </tr>
+                </thead>
+                <tbody id="userHistoryBody">
+                  <tr><td colspan="7" style="color:#6c757d; padding:12px;">កំពុងផ្ទុក...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Panel: Withdrawals -->
+          <div class="history-panel" id="panel-withdrawals">
+            <div style="overflow-x:auto;">
+              <table class="history-table">
+                <thead>
+                  <tr style="background:linear-gradient(135deg,#6f42c1,#5a32a3);">
+                    <th>កាលបរិច្ឆេទ</th>
+                    <th>លេខសំណើ</th>
+                    <th>ចំនួន</th>
+                    <th>ស្ថានភាព</th>
+                  </tr>
+                </thead>
+                <tbody id="userWithdrawBody">
+                  <tr><td colspan="4" style="color:#6c757d; padding:12px;">កំពុងផ្ទុក...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Panel: Deposits -->
+          <div class="history-panel" id="panel-deposits">
+            <div style="overflow-x:auto;">
+              <table class="history-table">
+                <thead>
+                  <tr style="background:linear-gradient(135deg,#28a745,#1e7e34);">
+                    <th>កាលបរិច្ឆេទ</th>
+                    <th>ចំនួន</th>
+                    <th>រូបិយប័ណ្ណ</th>
+                    <th>សមតុល្យក្រោយ</th>
+                    <th>កំណត់សម្គាល់</th>
+                  </tr>
+                </thead>
+                <tbody id="userDepositBody">
+                  <tr><td colspan="5" style="color:#6c757d; padding:12px;">កំពុងផ្ទុក...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Panel: Results -->
+          <div class="history-panel" id="panel-results">
+            <div style="overflow-x:auto;">
+              <table class="history-table">
+                <thead>
+                  <tr style="background:linear-gradient(135deg,#ff9800,#e65100);">
+                    <th>កាលបរិច្ឆេទ</th>
+                    <th>ម៉ោង</th>
+                    <th>២ខ្ទង់</th>
+                    <th>៣ខ្ទង់</th>
+                    <th>ចេញលទ្ធផលនៅ</th>
+                  </tr>
+                </thead>
+                <tbody id="historyBody">
+                  <tr><td colspan="5" style="color:#6c757d; padding:12px;">កំពុងផ្ទុក...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- WITHDRAW SECTION -->
+        <div class="lottery-box">
+          <div class="time-box">
+            <span class="anim-pulse">🏦</span> ដកប្រាក់
+          </div>
+          <p style="font-size:clamp(11px,1.3vw,13px); color:#4a5568; margin:6px 0; font-weight:600;">
+            ដកបានបន្ទាប់ពី 12:00 និង 16:00
+          </p>
+          <div class="action-group">
+            <button class="btn btn-withdraw" onclick="N98.openWithdraw('normal')" id="btnWithdrawNormal">
+              🏦 ដកប្រាក់រង្វាន់
+              <span id="withdrawBadge" class="win-badge" style="display:none;">NEW</span>
+            </button>
+            <button class="btn btn-withdraw" onclick="N98.openWithdraw('late')">
+              ⏰ ដកប្រាក់យឺត
+            </button>
+            <button class="btn btn-telegram" onclick="N98.contactAdmin()">
+              ✉️ ទាក់ទង Admin
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ========================================================
+           HISTORY SECTION (ទំព័រដាច់ដោយឡែក)
+           ======================================================== -->
+      <div id="historySection" style="display:none;">
+        <div class="lottery-box">
+          <div class="time-box"><span class="anim-pulse">📊</span> ប្រវត្តិលទ្ធផលពេញលេញ</div>
+          <div style="overflow-x:auto; margin-top:6px;">
+            <table class="history-table">
+              <thead>
+                <tr style="background:linear-gradient(135deg,#0078D7,#005fa3);">
+                  <th>កាលបរិច្ឆេទ</th>
+                  <th>ម៉ោង</th>
+                  <th>២ខ្ទង់</th>
+                  <th>៣ខ្ទង់</th>
+                  <th>ចេញលទ្ធផលនៅ</th>
+                </tr>
+              </thead>
+              <tbody id="fullHistoryBody">
+                <tr><td colspan="5" style="color:#6c757d; padding:12px;">កំពុងផ្ទុក...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================
+           RULES SECTION
+           ======================================================== -->
+      <div id="rulesSection" style="display:none;">
+        <div class="bet-box">
+          <h2><span class="anim-pulse">📋</span> ច្បាប់ និងរបៀបប្រើប្រាស់</h2>
+          <div style="padding:8px; font-size:clamp(12px,1.4vw,13px); line-height:1.9; font-weight:600;">
+
+            <h4 style="color:#005fa3; background:linear-gradient(135deg,#e8f4fd,#d4edda); padding:8px 12px; border-radius:8px;">
+              <span class="anim-pulse">🎯</span> ១. របៀបចាក់ឆ្នោត
+            </h4>
+            <p>១. ជ្រើសរើសពេលវេលា (12:00 ឬ 16:00)</p>
+            <p>២. ជ្រើសរើសប្រភេទ (២ ឬ ៣ ខ្ទង់)</p>
+            <p>៣. ចុចជ្រើសរើស ប៉ុស្តិ៍ A, B, C, D, ឬ E</p>
+            <p>៤. បញ្ចូលលេខ (ឧ. 01, 02, 03) — លេខនឹងបន្ថែមស្វ័យប្រវត្តិ</p>
+            <p>៥. ជ្រើសរើសចំនួនទឹកប្រាក់ក្នុងមួយលេខ</p>
+            <p>៦. ចុច "ដាក់ភ្នាល់"</p>
+
+            <h4 style="color:#005fa3; background:linear-gradient(135deg,#e8f4fd,#d4edda); padding:8px 12px; border-radius:8px; margin-top:14px;">
+              <span class="anim-pulse">💰</span> ២. អត្រារង្វាន់
+            </h4>
+            <p>• <strong>២ខ្ទង់ (ប៉ុស្តិ៍ A-E)</strong> ម៉ោង 12:00 & 16:00 – 1$ → 70$</p>
+            <p>• <strong>៣ខ្ទង់ (ប៉ុស្តិ៍ A-E)</strong> ម៉ោង 12:00 & 16:00 – 1$ → 500$</p>
+            <p>• ចាក់ពី 500៛/0.25$ ដល់ 40,000៛/10$</p>
+
+            <h4 style="color:#005fa3; background:linear-gradient(135deg,#e8f4fd,#d4edda); padding:8px 12px; border-radius:8px; margin-top:14px;">
+              <span class="anim-pulse">💳</span> ៣. មធ្យោបាយចាក់
+            </h4>
+            <p><strong>💵 ចាក់ផ្ទាល់៖</strong></p>
+            <p>• ត្រូវមានសមតុល្យ (Admin បញ្ចូលជូន)</p>
+            <p>• ទឹកប្រាក់កាត់ដោយស្វ័យប្រវត្តិ</p>
+            <p><strong>🌐 ចាក់អនឡាញ៖</strong></p>
+            <p>• ត្រូវចុច 🏦 ABA Bank ជាមុន</p>
+            <p>• ថតរូបបញ្ជាក់ (Screenshot)</p>
+            <p>• បញ្ជូនជូន Admin ដើម្បីអនុម័ត</p>
+
+            <h4 style="color:#005fa3; background:linear-gradient(135deg,#e8f4fd,#d4edda); padding:8px 12px; border-radius:8px; margin-top:14px;">
+              <span class="anim-pulse">🏦</span> ៤. របៀបដកប្រាក់
+            </h4>
+            <p>• ដកបានបន្ទាប់ពី 12:00 និង 16:00</p>
+            <p>• សុពលភាព 24 ម៉ោង</p>
+            <p>• បញ្ជូនរូបភាព QR Code ទៅ Admin</p>
+
+            <h4 style="color:#005fa3; background:linear-gradient(135deg,#e8f4fd,#d4edda); padding:8px 12px; border-radius:8px; margin-top:14px;">
+              <span class="anim-pulse">🔐</span> ៥. PIN និងសុវត្ថិភាព
+            </h4>
+            <p>• PIN 4 ខ្ទង់ ត្រូវចងចាំឲ្យបាន</p>
+            <p>• ភ្លេច PIN → ទាក់ទង Admin</p>
+            <p>• កុំប្រាប់ PIN អ្នកដទៃ</p>
+
+            <h4 style="color:#005fa3; background:linear-gradient(135deg,#e8f4fd,#d4edda); padding:8px 12px; border-radius:8px; margin-top:14px;">
+              <span class="anim-pulse">🎁</span> ៦. គម្រោងឆ្នោត 10 នាទី
+            </h4>
+            <p>• មានគម្រោងឆ្នោតបន្ថែម ដែលប្រកាសលទ្ធផលរៀងរាល់ <strong>10 នាទីម្តង</strong></p>
+            <p>• ដំណើរការពេញ ២៤ ម៉ោង</p>
+            <p>• ចុចប៊ូតុងខាងក្រោមដើម្បីចូលទៅកាន់គម្រោងថ្មី</p>
+
+            <a href="index2.html" target="_blank" style="display:block; margin-top:12px; padding:14px; background:linear-gradient(135deg,#e91e63,#c2185b); color:white; text-decoration:none; border-radius:12px; text-align:center; font-weight:800; font-size:14px; box-shadow:0 6px 18px rgba(233,30,99,0.4); transition:all 0.3s;">
+              <span class="anim-rocket">🚀</span> ចូលទៅកាន់ឆ្នោត 10 នាទី
+              <small style="display:block; font-size:11px; opacity:0.95; font-weight:500; margin-top:3px;">ប្រកាសលទ្ធផលរៀងរាល់ 10 នាទី</small>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <span class="emoji-dice">🎲</span> © 2026 Khmer Lottery N98 | ប្រព័ន្ធចាក់ឆ្នោត <span class="emoji-trophy">🏆</span>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       DEPOSIT MODAL
+       ============================================================ -->
+  <div class="modal" id="depositModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('depositModal')">&times;</span>
+      <h2>💳 បញ្ជាក់ការទូទាត់</h2>
+      <form id="depositForm">
+        <div class="bet-summary">
+          <div class="bet-summary-item"><span>🔢 លេខ៖</span><span id="confirmNumbers">-</span></div>
+          <div class="bet-summary-item total"><span>💰 សរុប៖</span><span id="confirmTotal">-</span></div>
+        </div>
+        <label>លេខទូរស័ព្ទ *</label>
+        <input type="tel" id="depPhone" required placeholder="បញ្ចូលលេខទូរស័ព្ទ" minlength="9" maxlength="10" inputmode="numeric">
+
+        <div style="background:linear-gradient(135deg,#e8f4fd,#d4edda); border:2px dashed #0078D7; padding:16px; border-radius:12px; text-align:center; margin-top:12px;">
+          <div style="font-weight:800; color:#005fa3; font-size:clamp(13px,1.5vw,15px); margin-bottom:12px;">
+            👇 ចុចខាងក្រោមដើម្បីបង់ប្រាក់
+          </div>
+          <a href="https://pay.ababank.com/oRF8/yhtm93ei" target="_blank" rel="noopener" id="abaBankBtn" onclick="handleAbaClick(event)" style="font-size:clamp(14px,1.6vw,16px); padding:16px; display:flex; align-items:center; justify-content:center; gap:10px; background:linear-gradient(135deg,#005fa3,#0078D7); color:white; text-decoration:none; border-radius:10px; font-weight:800; box-shadow:0 6px 18px rgba(0,120,215,0.3); transition:all 0.3s;">
+            <span style="font-size:22px;">🏦</span>
+            <span>បង់ប្រាក់តាម ABA Bank</span>
+            <span style="background:rgba(255,255,255,0.25); padding:3px 10px; border-radius:8px; font-size:11px;">KHQR</span>
+          </a>
+          <div style="font-size:11.5px; color:#005fa3; margin-top:12px; font-weight:700;">
+            ⚡ បង់រួច សូមថតរូប (Screenshot)
+          </div>
+        </div>
+
+        <label id="depScreenshotLabel" style="opacity:0.5; pointer-events:none; margin-top:14px;">
+          ភស្តុតាង (Screenshot) *
+          <span style="font-size:11px; color:#dc3545; font-weight:normal;"> (ត្រូវចុច ABA Bank ជាមុន)</span>
+        </label>
+        <input type="file" id="depScreenshot" accept="image/*" required disabled>
+
+        <button type="submit" class="btn btn-success" id="depSubmitBtn" disabled style="width:100%; margin-top:12px; padding:14px; font-size:14px;">
+          <span class="anim-rocket">🚀</span> បញ្ជាក់ការទូទាត់
+        </button>
+
+        <div class="warning-box">
+          <span class="anim-shake">⚠️</span>
+          <strong>ការព្រមាន!</strong><br>
+          • ការបង់ប្រាក់ត្រូវធ្វើតាម ABA Bank ជាមុន<br>
+          • បញ្ជូនរូបភាព Screenshot ជូន Admin<br>
+          • ប្រសិនបើមិនបង់ → Admin នឹងមិនអនុម័ត
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       DIRECT BET MODAL
+       ============================================================ -->
+  <div class="modal" id="directBetModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('directBetModal')">&times;</span>
+      <h2 style="color:#28a745;">💵 បញ្ជាក់ការចាក់ផ្ទាល់</h2>
+      <form id="directBetForm">
+        <div class="bet-summary">
+          <div class="bet-summary-item"><span>🔢 លេខ៖</span><span id="directConfirmNumbers">-</span></div>
+          <div class="bet-summary-item total"><span>💰 សរុប៖</span><span id="directConfirmTotal">-</span></div>
+        </div>
+        <label>លេខទូរស័ព្ទ *</label>
+        <input type="tel" id="directPhone" required placeholder="បញ្ចូលលេខទូរស័ព្ទ" inputmode="numeric">
+
+        <div style="margin-top:14px;">
+          <div style="font-weight:800; color:#155724; font-size:13px; margin-bottom:8px;">
+            💰 សមតុល្យរបស់អ្នក
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <div class="balance-item">
+              <div style="font-size:11px; color:#155724; font-weight:800; margin-bottom:4px;">💵 USD</div>
+              <div id="directBalanceUSD" style="font-size:clamp(18px,2.5vw,22px); color:#28a745; font-weight:800; font-family:'Courier New',monospace;">0.00$</div>
+            </div>
+            <div class="balance-item">
+              <div style="font-size:11px; color:#155724; font-weight:800; margin-bottom:4px;">🇰🇭 KHR</div>
+              <div id="directBalanceKHR" style="font-size:clamp(18px,2.5vw,22px); color:#28a745; font-weight:800; font-family:'Courier New',monospace;">0៛</div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success" style="width:100%; margin-top:14px; padding:14px; font-size:14px;">
+          <span class="anim-pulse">✅</span> បញ្ជាក់ការចាក់
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       WITHDRAW MODAL
+       ============================================================ -->
+  <div class="modal" id="withdrawModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('withdrawModal')">&times;</span>
+      <h2 id="withdrawTitle">🏦 ស្នើសុំដកប្រាក់រង្វាន់</h2>
+      <div class="withdraw-notice" id="withdrawNotice">...</div>
+      <form id="withdrawForm">
+        <label>លេខឈ្នះ (ស្វ័យប្រវត្តិ) *</label>
+        <div id="winListContainer" style="max-height:220px; overflow-y:auto; margin-bottom:12px;"></div>
+
+        <div style="background:linear-gradient(135deg,#e8f4fd,#d4edda); border:2px dashed #0078D7; padding:14px; border-radius:12px; margin:10px 0; text-align:center;">
+          <span style="font-weight:800; color:#005fa3;">💰 រង្វាន់សរុប៖</span>
+          <span id="payoutDisplay" style="font-size:clamp(22px,3.2vw,28px); color:#28a745; font-weight:800; display:block; margin-top:6px; font-family:'Courier New',monospace;">0.00</span>
+        </div>
+
+        <label>លេខទូរស័ព្ទ *</label>
+        <input type="tel" id="wdPhone" required placeholder="បញ្ចូលលេខទូរស័ព្ទ" inputmode="numeric">
+
+        <label>📷 បញ្ចូលរូបភាព QR Code របស់អ្នក *</label>
+        <input type="file" id="wdQrCode" accept="image/*" required>
+
+        <button type="submit" class="btn btn-withdraw" style="width:100%; margin-top:12px; padding:14px; font-size:14px;">
+          <span class="anim-rocket">🚀</span> បញ្ជាក់ដកប្រាក់
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       GROUP MODAL
+       ============================================================ -->
+  <div class="modal" id="groupModal">
+    <div class="modal-content" style="text-align:center;">
+      <span class="close" onclick="N98.closeModal('groupModal')">&times;</span>
+      <div style="font-size:60px;" class="anim-bounce">📢</div>
+      <h2>ចូលក្រុម និង Channel</h2>
+      <p style="font-size:clamp(12px,1.4vw,14px); color:#4a5568; margin:12px 0; font-weight:600;">
+        ទទួលបានព័ត៌មានថ្មីៗ!
+      </p>
+
+      <a href="https://t.me/+ErJaYtpHWwE1YWI1" target="_blank" rel="noopener" class="group-btn main">
+        🎯 ចូលក្រុមចាក់/ទិញលេខឆ្នោត
+        <small>និងទទួល Code ចុះឈ្មោះ</small>
+      </a>
+
+      <a href="https://t.me/lekhchhnaotN98" target="_blank" rel="noopener" class="group-btn channel">
+        📢 ចូល Channel ប្រកាសលទ្ធផលឆ្នោត
+      </a>
+
+      <a href="https://t.me/+UwX-YZZieXQ0N2E1" target="_blank" rel="noopener" class="group-btn withdraw-group">
+        💰 ចូលក្រុមទទួលសំណើដកប្រាក់រង្វាន់
+        <small>សម្រាប់ស្នើសុំដកប្រាក់</small>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       ALERT MODAL
+       ============================================================ -->
+  <div class="modal" id="alertModal">
+    <div class="modal-content alert-modal">
+      <span class="alert-icon" id="alertIcon">🔔</span>
+      <h3 class="alert-title" id="alertTitle">ការជូនដំណឹង</h3>
+      <p class="alert-message" id="alertMessage">សារ...</p>
+      <button class="btn btn-primary" onclick="closeModal('alertModal')" style="padding:12px 32px; border-radius:22px; font-size:14px;">
+        យល់ព្រម
+      </button>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    'use strict';
+
+    /* ============================================================
+       CONFIG
+       ============================================================ */
+    var WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzTHyAoGcSjaQbRlE3TttNwYSFUAA1L1s6MiNRSXl7sFqH6g5XFjADhbjOsFo2dP4k_/exec';
+
+    var CFG = {
+      REFRESH_MS: 30000,
+      CLOCK_MS: 1000,
+      STATUS_MS: 1000,
+      MIN_USD: 0.25,
+      MAX_USD: 10,
+      MIN_KHR: 500,
+      MAX_KHR: 40000,
+      MAX_NUMBERS: 10,
+      FETCH_TIMEOUT: 20000,
+      TOAST_DURATION: 4000,
+      THEME_KEY: 'n98_theme'
+    };
+
+    /* ============================================================
+       STATE
+       ============================================================ */
+    var currentUser = null;
+    var selectedTime = '12:00';
+    var betType = 'two';
+    var selectedLetter = '';
+    var numbers = [];
+    var amount = 0;
+    var currency = 'USD';
+    var betMode = 'direct';
+    var cachedResults = [];
+    var isSyncing = false;
+    var balanceUSD = 0;
+    var balanceKHR = 0;
+    var selectedWinIds = [];
+    var intervals = { clock: null, refresh: null, status: null };
+    var currentHistoryTab = 'bets';
+
+    /* ============================================================
+       HELPERS
+       ============================================================ */
+    function $(id) { return document.getElementById(id); }
+
+    function fixPhoneNumber(phone) {
+      var p = String(phone || '').trim().replace(/[^0-9]/g, '');
+      if (p.length >= 9 && p.charAt(0) !== '0') p = '0' + p;
+      return p;
+    }
+
+    function esc(str) {
+      return String(str == null ? '' : str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function fmtAmount(v, cur) {
+      if (cur === 'USD') return Number(v || 0).toFixed(2) + '$';
+      return Math.round(v || 0).toLocaleString() + '៛';
+    }
+
+    function fmtTotal(v, cur) {
+      if (cur === 'USD') return Number(v || 0).toFixed(2) + '$';
+      return Number(v || 0).toLocaleString() + '៛';
+    }
+
+    function getReqLen() { return betType === 'two' ? 2 : 3; }
+
+    function buildDateFormats(d) {
+      return [
+        d.toLocaleDateString('km-KH'),
+        d.toLocaleDateString('en-GB'),
+        String(d.getDate()).padStart(2, '0') + '/' +
+          String(d.getMonth() + 1).padStart(2, '0') + '/' + d.getFullYear(),
+        d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear()
+      ];
+    }
+
+    /* ============================================================
+       TOAST NOTIFICATIONS (ថ្មី!)
+       ============================================================ */
+    function showToast(message, type, icon) {
+      type = type || 'info';
+      icon = icon || 'ℹ️';
+      var container = $('toastContainer');
+      if (!container) return;
+
+      var icons = {
+        success: '✅',
+        error: '❌',
+        warning: '⚠️',
+        info: 'ℹ️'
+      };
+      if (!icon || icon === 'ℹ️') icon = icons[type] || '🔔';
+
+      var toast = document.createElement('div');
+      toast.className = 'toast ' + type;
+      toast.innerHTML =
+        '<span class="toast-icon">' + icon + '</span>' +
+        '<span class="toast-text">' + esc(message) + '</span>' +
+        '<div class="toast-progress"></div>';
+
+      container.appendChild(toast);
+
+      setTimeout(function() {
+        toast.style.animation = 'fadeOut 0.3s ease-out forwards';
+        setTimeout(function() {
+          if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }, 300);
+      }, CFG.TOAST_DURATION);
+    }
+
+    function showLoading(show) {
+      var el = $('loadingOverlay');
+      if (!el) return;
+      if (show) el.classList.add('active');
+      else el.classList.remove('active');
+    }
+
+    /* ============================================================
+       THEME TOGGLE (ថ្មី!)
+       ============================================================ */
+    function toggleTheme() {
+      var body = document.body;
+      var isDark = body.classList.toggle('dark-mode');
+      try {
+        localStorage.setItem(CFG.THEME_KEY, isDark ? 'dark' : 'light');
+      } catch (e) {}
+
+      var btn = $('themeBtn');
+      if (btn) {
+        var label = btn.querySelector('.theme-label');
+        if (label) label.textContent = isDark ? 'Light' : 'Dark';
+        btn.childNodes[0].nodeValue = isDark ? '☀️ ' : '🌙 ';
+      }
+      showToast(isDark ? 'បានបើក Dark Mode' : 'បានបើក Light Mode', 'info', isDark ? '🌙' : '☀️');
+    }
+
+    function initTheme() {
+      try {
+        var saved = localStorage.getItem(CFG.THEME_KEY);
+        if (saved === 'dark') {
+          document.body.classList.add('dark-mode');
+          var btn = $('themeBtn');
+          if (btn) {
+            var label = btn.querySelector('.theme-label');
+            if (label) label.textContent = 'Light';
+            btn.childNodes[0].nodeValue = '☀️ ';
+          }
+        }
+      } catch (e) {}
+    }
+
+    /* ============================================================
+       PARTICLES BACKGROUND (ថ្មី!)
+       ============================================================ */
+    function initParticles() {
+      var container = $('particlesBg');
+      if (!container) return;
+      var emojis = ['🎲', '💰', '🎯', '⭐', '🏆', '💎', '🎁', '🎰', '✨', '💵', '🪙', '🎉'];
+      var count = window.innerWidth < 768 ? 10 : 18;
+
+      for (var i = 0; i < count; i++) {
+        var p = document.createElement('div');
+        p.className = 'particle';
+        p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        p.style.left = Math.random() * 100 + '%';
+        p.style.fontSize = (14 + Math.random() * 22) + 'px';
+        p.style.animationDuration = (12 + Math.random() * 10) + 's';
+        p.style.animationDelay = (Math.random() * 15) + 's';
+        p.style.opacity = 0.15 + Math.random() * 0.2;
+        container.appendChild(p);
+      }
+    }
+
+    /* ============================================================
+       FETCH WITH TIMEOUT
+       ============================================================ */
+    function fetchWithTimeout(url, options, timeoutMs) {
+      timeoutMs = timeoutMs || CFG.FETCH_TIMEOUT;
+      return new Promise(function(resolve, reject) {
+        var timer = setTimeout(function() {
+          reject(new Error('TIMEOUT'));
+        }, timeoutMs);
+
+        fetch(url, options)
+          .then(function(res) {
+            clearTimeout(timer);
+            resolve(res);
+          })
+          .catch(function(err) {
+            clearTimeout(timer);
+            reject(err);
+          });
+      });
+    }
+
+    /* ============================================================
+       ALERT & MODAL
+       ============================================================ */
+    function showAlert(title, msg, icon) {
+      $('alertIcon').textContent = icon || '🔔';
+      $('alertTitle').textContent = title;
+      $('alertMessage').textContent = msg;
+      $('alertModal').style.display = 'block';
+    }
+
+    function closeModal(id) {
+      var el = $(id);
+      if (el) el.style.display = 'none';
+    }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    function showSection(name, evt) {
+      $('homeSection').style.display = name === 'home' ? 'block' : 'none';
+      $('historySection').style.display = name === 'history' ? 'block' : 'none';
+      $('rulesSection').style.display = name === 'rules' ? 'block' : 'none';
+
+      var links = document.querySelectorAll('.nav-bar a');
+      for (var i = 0; i < links.length; i++) links[i].classList.remove('active');
+      if (evt && evt.target) {
+        var t = evt.target;
+        if (t.tagName !== 'A') t = t.closest('a');
+        if (t) t.classList.add('active');
+      }
+    }
+
+    function copyLink() {
+      var url = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() {
+          showToast('បានចម្លងតំណភ្ជាប់!', 'success', '🔗');
+        }).catch(function() {
+          showAlert('ព័ត៌មាន', '🌐 ' + url, '🔗');
+        });
+      } else {
+        showAlert('ព័ត៌មាន', '🌐 ' + url, '🔗');
+      }
+    }
+
+    function contactAdmin() {
+      window.open('https://t.me/Khmer_lottery_N98', '_blank', 'noopener');
+    }
+
+    function openGroup() { $('groupModal').style.display = 'block'; }
+
+    /* ============================================================
+       HISTORY TAB SWITCHER (ថ្មី!)
+       ============================================================ */
+    function switchHistoryTab(tabName, evt) {
+      currentHistoryTab = tabName;
+
+      var tabs = document.querySelectorAll('.history-tab');
+      for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
+      if (evt && evt.target) {
+        var t = evt.target;
+        if (!t.classList.contains('history-tab')) t = t.closest('.history-tab');
+        if (t) t.classList.add('active');
+      }
+
+      var panels = document.querySelectorAll('.history-panel');
+      for (var j = 0; j < panels.length; j++) panels[j].classList.remove('active');
+      var panel = $('panel-' + tabName);
+      if (panel) panel.classList.add('active');
+
+      // Load data for the selected tab
+      if (tabName === 'bets') fetchUserBets();
+      else if (tabName === 'withdrawals') fetchUserWithdrawals();
+      else if (tabName === 'deposits') fetchUserDeposits();
+      else if (tabName === 'results') renderHistoryTable();
+    }
+
+    /* ============================================================
+       REGISTRATION
+       ============================================================ */
+    function showRegStep(stepId) {
+      var steps = document.querySelectorAll('.reg-step');
+      for (var i = 0; i < steps.length; i++) steps[i].classList.remove('active');
+      var s = $(stepId);
+      if (s) s.classList.add('active');
+    }
+
+    function showLoginStep() {
+      showRegStep('regLoginStep');
+      $('loginUserId').value = '';
+      $('loginPin').value = '';
+    }
+
+    function showRegisterStep() {
+      showRegStep('regStep1');
+      $('regPhone').value = '';
+      $('regPin').value = '';
+    }
+
+    function showVerifyStep() {
+      showRegStep('regStep3');
+      var c = $('regCode');
+      c.value = '';
+      c.focus();
+    }
+
+    function showIdStep(userId) {
+      $('displayUserId').textContent = userId;
+      showRegStep('regStep2');
+    }
+
+    function handleRegister() {
+      var phone = fixPhoneNumber($('regPhone').value);
+      var pin = $('regPin').value.trim();
+      var btn = $('regNextBtn');
+
+      if (!phone) { showToast('សូមបំពេញលេខទូរស័ព្ទ!', 'warning'); return; }
+      if (!/^(0[1-9][0-9]{7,8})$/.test(phone)) {
+        showToast('លេខទូរស័ព្ទមិនត្រឹមត្រូវ', 'warning');
+        return;
+      }
+      if (!pin || pin.length !== 4 || !/^[0-9]{4}$/.test(pin)) {
+        showToast('PIN ត្រូវមាន ៤ ខ្ទង់', 'warning');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="anim-spin">⏳</span> កំពុងចុះឈ្មោះ...';
+      showLoading(true);
+
+      fetchWithTimeout(WEB_APP_URL, {
+        method: 'POST',
+        body: JSON.stringify({ action: 'register', phone: phone, pin: pin }),
+        headers: { 'Content-Type': 'text/plain' }
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        btn.disabled = false;
+        btn.innerHTML = 'បន្ត → <span class="anim-rocket">🚀</span>';
+        showLoading(false);
+
+        if (data.ok) {
+          showToast('ចុះឈ្មោះជោគជ័យ!', 'success', '🎉');
+          showIdStep(data.userId);
+        } else if (data.userId) {
+          if (data.verified) {
+            showToast('មានគណនីរួចហើយ — សូមចូលប្រើ', 'info', 'ℹ️');
+            showLoginStep();
+            $('loginUserId').value = data.userId;
+          } else {
+            showToast('មានគណនីរួចហើយ — សូមបញ្ជាក់ Code', 'info', 'ℹ️');
+            showIdStep(data.userId);
+          }
+        } else {
+          showToast(data.error || 'មានបញ្ហា!', 'error');
+        }
+      })
+      .catch(function(err) {
+        console.error(err);
+        btn.disabled = false;
+        btn.innerHTML = 'បន្ត → <span class="anim-rocket">🚀</span>';
+        showLoading(false);
+        showToast('មានបញ្ហាក្នុងការតភ្ជាប់!', 'error');
+      });
+    }
+
+    function handleVerify() {
+      var userId = $('displayUserId').textContent;
+      var code = $('regCode').value.trim().toUpperCase();
+      var btn = $('regVerifyBtn');
+
+      if (!code || code.length !== 4) {
+        showToast('សូមបំពេញ Code ៤ ខ្ទង់!', 'warning');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="anim-spin">⏳</span> កំពុងផ្ទៀងផ្ទាត់...';
+      showLoading(true);
+
+      fetchWithTimeout(WEB_APP_URL, {
+        method: 'POST',
+        body: JSON.stringify({ action: 'verifyCode', userId: userId, code: code }),
+        headers: { 'Content-Type': 'text/plain' }
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        btn.disabled = false;
+        btn.innerHTML = 'បញ្ជាក់ ✓';
+        showLoading(false);
+
+        if (data.ok) {
+          currentUser = {
+            userId: data.userId,
+            phone: fixPhoneNumber(data.phone),
+            verified: true
+          };
+          localStorage.setItem('lottery_user', JSON.stringify(currentUser));
+          showToast('ការចុះឈ្មោះជោគជ័យ!', 'success', '🎉');
+          setTimeout(enterApp, 1000);
+        } else {
+          showToast(data.error || 'Code មិនត្រឹមត្រូវ!', 'error');
+        }
+      })
+      .catch(function(err) {
+        console.error(err);
+        btn.disabled = false;
+        btn.innerHTML = 'បញ្ជាក់ ✓';
+        showLoading(false);
+        showToast('មានបញ្ហាក្នុងការតភ្ជាប់!', 'error');
+      });
+    }
+
+    function handleLogin() {
+      var userId = $('loginUserId').value.trim();
+      var pin = $('loginPin').value.trim();
+      var btn = $('loginBtn');
+
+      if (!userId || !pin) {
+        showToast('សូមបំពេញ ID និង PIN!', 'warning');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="anim-spin">⏳</span> កំពុងចូល...';
+      showLoading(true);
+
+      fetchWithTimeout(WEB_APP_URL, {
+        method: 'POST',
+        body: JSON.stringify({ action: 'loginWithPin', userId: userId, pin: pin }),
+        headers: { 'Content-Type': 'text/plain' }
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        btn.disabled = false;
+        btn.innerHTML = 'ចូលប្រើ → <span class="anim-rocket">🚀</span>';
+        showLoading(false);
+
+        if (data.ok) {
+          currentUser = {
+            userId: data.userId,
+            phone: fixPhoneNumber(data.phone),
+            verified: true
+          };
+          localStorage.setItem('lottery_user', JSON.stringify(currentUser));
+          showToast('ចូលប្រើជោគជ័យ!', 'success', '🎉');
+          setTimeout(enterApp, 800);
+        } else {
+          showToast(data.error || 'ID ឬ PIN មិនត្រឹមត្រូវ!', 'error');
+        }
+      })
+      .catch(function(err) {
+        console.error(err);
+        btn.disabled = false;
+        btn.innerHTML = 'ចូលប្រើ → <span class="anim-rocket">🚀</span>';
+        showLoading(false);
+        showToast('មានបញ្ហាក្នុងការតភ្ជាប់!', 'error');
+      });
+    }
+
+    function handleLogout() {
+      if (!confirm('តើអ្នកប្រាកដជាចង់ចាកចេញឬ?')) return;
+      localStorage.removeItem('lottery_user');
+      localStorage.removeItem('telegram_results_cache');
+      currentUser = null;
+      numbers = [];
+      clearIntervals();
+      $('mainApp').style.display = 'none';
+      $('registerModal').style.display = 'block';
+      $('floatingShapes').style.display = 'block';
+      showLoginStep();
+      showToast('បានចាកចេញ', 'info', '👋');
+    }
+
+    function clearIntervals() {
+      if (intervals.clock) clearInterval(intervals.clock);
+      if (intervals.refresh) clearInterval(intervals.refresh);
+      if (intervals.status) clearInterval(intervals.status);
+      intervals = { clock: null, refresh: null, status: null };
+    }
+
+    /* ============================================================
+       ENTER APP
+       ============================================================ */
+    function enterApp() {
+      $('registerModal').style.display = 'none';
+      $('floatingShapes').style.display = 'none';
+      $('mainApp').style.display = 'block';
+
+      $('displayCurrentUserId').textContent = currentUser.userId;
+      var phoneDisplay = fixPhoneNumber(currentUser.phone);
+      $('displayCurrentPhone').textContent = phoneDisplay;
+      $('directPhone').value = phoneDisplay;
+      $('depPhone').value = phoneDisplay;
+      $('wdPhone').value = phoneDisplay;
+
+      fetchBalance(phoneDisplay);
+      checkResults();
+      fetchUserBets();
+      updateClock();
+      updateBettingStatus();
+
+      clearIntervals();
+      intervals.clock = setInterval(updateClock, CFG.CLOCK_MS);
+      intervals.refresh = setInterval(function() {
+        checkResults();
+        fetchUserBets();
+      }, CFG.REFRESH_MS);
+      intervals.status = setInterval(updateBettingStatus, CFG.STATUS_MS);
+
+      showToast('សូមស្វាគមន៍! រីករាយការចាក់ឆ្នោត', 'success', '🎲');
+    }
+
+    /* ============================================================
+       API CALLS
+       ============================================================ */
+    function checkResults() {
+      if (isSyncing) return;
+      isSyncing = true;
+
+      var syncEl = $('syncStatus');
+      if (syncEl) {
+        syncEl.innerHTML = '<span class="anim-spin">⏳</span> កំពុងទាញទិន្នន័យ...';
+        syncEl.className = 'sync-pending';
+      }
+
+      fetchWithTimeout(
+        WEB_APP_URL + '?action=getResults&limit=30&t=' + Date.now(),
+        { cache: 'no-store' }
+      )
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.ok && Array.isArray(data.results)) {
+            cachedResults = data.results;
+            try {
+              localStorage.setItem('telegram_results_cache', JSON.stringify(cachedResults));
+            } catch (e) {}
+            updateResultsUI();
+            renderHistoryTable();
+            if (syncEl) {
+              syncEl.innerHTML = '✅ រួចរាល់ (' + cachedResults.length + ')';
+              syncEl.className = 'sync-status';
+            }
+          } else {
+            if (syncEl) {
+              syncEl.innerHTML = '⚠️ មិនមានទិន្នន័យ';
+              syncEl.className = 'sync-pending';
+            }
+          }
+          isSyncing = false;
+        })
+        .catch(function(err) {
+          console.error('checkResults:', err);
+          var cached = localStorage.getItem('telegram_results_cache');
+          if (cached) {
+            try {
+              cachedResults = JSON.parse(cached);
+              updateResultsUI();
+              renderHistoryTable();
+              if (syncEl) {
+                syncEl.innerHTML = '📦 ប្រើ Cache';
+                syncEl.className = 'sync-status';
+              }
+            } catch (e) {}
+          } else {
+            if (syncEl) {
+              syncEl.innerHTML = '❌ កំហុសតភ្ជាប់';
+              syncEl.className = 'sync-pending';
+            }
+          }
+          isSyncing = false;
+        });
+    }
+
+    function fetchBalance(phone) {
+      if (!phone) return;
+      var cleanPhone = fixPhoneNumber(phone);
+
+      fetchWithTimeout(WEB_APP_URL + '?action=getBalance&phone=' + encodeURIComponent(cleanPhone))
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.ok) {
+            balanceUSD = parseFloat(data.balanceUSD) || 0;
+            balanceKHR = parseFloat(data.balanceKHR) || 0;
+            updateBalanceUI();
+          }
+        })
+        .catch(function(err) { console.error('fetchBalance:', err); });
+    }
+
+    function fetchUserBets() {
+      if (!currentUser || !currentUser.phone) return;
+      var cleanPhone = fixPhoneNumber(currentUser.phone);
+
+      fetchWithTimeout(
+        WEB_APP_URL + '?action=getBets&phone=' + encodeURIComponent(cleanPhone) + '&t=' + Date.now(),
+        { cache: 'no-store' }
+      )
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.ok && Array.isArray(data.bets)) {
+            renderUserBetsFromServer(data.bets);
+            checkWinBadge(data.bets);
+          }
+        })
+        .catch(function(err) { console.error('fetchUserBets:', err); });
+    }
+
+    /* ============================================================
+       ថ្មី! FETCH WITHDRAWALS
+       ============================================================ */
+    function fetchUserWithdrawals() {
+      if (!currentUser || !currentUser.phone) return;
+      var cleanPhone = fixPhoneNumber(currentUser.phone);
+      var tbody = $('userWithdrawBody');
+      if (!tbody) return;
+
+      tbody.innerHTML = '<tr><td colspan="4" style="color:#6c757d; padding:12px;"><span class="anim-spin">⏳</span> កំពុងផ្ទុក...</td></tr>';
+
+      fetchWithTimeout(
+        WEB_APP_URL + '?action=getWithdrawals&phone=' + encodeURIComponent(cleanPhone) + '&t=' + Date.now(),
+        { cache: 'no-store' }
+      )
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (!data.ok || !Array.isArray(data.withdrawals) || data.withdrawals.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="4" style="color:#6c757d; padding:12px; font-weight:600;">មិនទាន់មានប្រវត្តិដកប្រាក់</td></tr>';
+            return;
+          }
+
+          var html = '';
+          for (var i = 0; i < data.withdrawals.length; i++) {
+            var w = data.withdrawals[i];
+            var statusBadge = '<span class="status-badge status-pending">⏳ រង់ចាំ</span>';
+            if (w.status === 'approved' || w.status === 'paid') {
+              statusBadge = '<span class="status-badge status-approved">✅ បានសង</span>';
+            } else if (w.status === 'rejected') {
+              statusBadge = '<span class="status-badge status-rejected">❌ បដិសេធ</span>';
+            }
+
+            html += '<tr>' +
+              '<td style="font-size:11px; font-weight:700;">' + esc(w.date || '-') + '</td>' +
+              '<td style="font-size:10px; color:#6f42c1; font-weight:800;">' + esc(w.id || '-') + '</td>' +
+              '<td style="font-weight:800; color:#28a745;">' + esc(w.reward || '0') + '</td>' +
+              '<td>' + statusBadge + '</td>' +
+            '</tr>';
+          }
+          tbody.innerHTML = html;
+        })
+        .catch(function(err) {
+          console.error('fetchUserWithdrawals:', err);
+          tbody.innerHTML = '<tr><td colspan="4" style="color:#dc3545; padding:12px; font-weight:600;">មានបញ្ហាទាញទិន្នន័យ</td></tr>';
+        });
+    }
+
+    /* ============================================================
+       ថ្មី! FETCH DEPOSITS
+       ============================================================ */
+    function fetchUserDeposits() {
+      if (!currentUser || !currentUser.phone) return;
+      var cleanPhone = fixPhoneNumber(currentUser.phone);
+      var tbody = $('userDepositBody');
+      if (!tbody) return;
+
+      tbody.innerHTML = '<tr><td colspan="5" style="color:#6c757d; padding:12px;"><span class="anim-spin">⏳</span> កំពុងផ្ទុក...</td></tr>';
+
+      fetchWithTimeout(
+        WEB_APP_URL + '?action=getDeposits&phone=' + encodeURIComponent(cleanPhone) + '&t=' + Date.now(),
+        { cache: 'no-store' }
+      )
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (!data.ok || !Array.isArray(data.deposits) || data.deposits.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" style="color:#6c757d; padding:12px; font-weight:600;">មិនទាន់មានប្រវត្តិដាក់ប្រាក់</td></tr>';
+            return;
+          }
+
+          var html = '';
+          for (var i = 0; i < data.deposits.length; i++) {
+            var d = data.deposits[i];
+            var curLabel = d.currency === 'KHR' ? '៛' : '$';
+            var amtStr = d.currency === 'KHR'
+              ? Math.round(d.amount || 0).toLocaleString() + '៛'
+              : Number(d.amount || 0).toFixed(2) + '$';
+            var balStr = d.currency === 'KHR'
+              ? Math.round(d.balanceAfter || 0).toLocaleString() + '៛'
+              : Number(d.balanceAfter || 0).toFixed(2) + '$';
+
+            html += '<tr>' +
+              '<td style="font-size:11px; font-weight:700;">' + esc(d.date || '-') + '</td>' +
+              '<td style="font-weight:800; color:#28a745;">+' + amtStr + '</td>' +
+              '<td style="font-weight:700;">' + curLabel + '</td>' +
+              '<td style="font-family:Courier New,monospace; font-weight:700;">' + balStr + '</td>' +
+              '<td style="font-size:11px; color:#4a5568; font-weight:600;">' + esc(d.note || '-') + '</td>' +
+            '</tr>';
+          }
+          tbody.innerHTML = html;
+        })
+        .catch(function(err) {
+          console.error('fetchUserDeposits:', err);
+          tbody.innerHTML = '<tr><td colspan="5" style="color:#dc3545; padding:12px; font-weight:600;">មានបញ្ហាទាញទិន្នន័យ</td></tr>';
+        });
+    }
+
+    function checkWinBadge(bets) {
+      if (!bets || !Array.isArray(bets)) return;
+      var winCount = 0;
+      for (var i = 0; i < bets.length; i++) {
+        if (bets[i].status === 'win' && bets[i].paid !== 'yes') winCount++;
+      }
+      var badge = $('withdrawBadge');
+      var btn = $('btnWithdrawNormal');
+      if (winCount > 0) {
+        if (badge) {
+          badge.textContent = winCount > 9 ? '9+' : winCount;
+          badge.style.display = 'inline-block';
+        }
+        if (btn) btn.classList.add('has-win');
+      } else {
+        if (badge) badge.style.display = 'none';
+        if (btn) btn.classList.remove('has-win');
+      }
+    }
+
+    function updateBalanceUI() {
+      var usd = balanceUSD || 0;
+      var khr = balanceKHR || 0;
+      var e1 = $('balanceAmountUSD'); if (e1) e1.textContent = usd.toFixed(2) + '$';
+      var e2 = $('balanceAmountKHR'); if (e2) e2.textContent = Math.round(khr).toLocaleString() + '៛';
+      var e3 = $('directBalanceUSD'); if (e3) e3.textContent = usd.toFixed(2) + '$';
+      var e4 = $('directBalanceKHR'); if (e4) e4.textContent = Math.round(khr).toLocaleString() + '៛';
+      if ($('balanceBox')) $('balanceBox').style.display = 'block';
+      updateSummary();
+    }
+
+    /* ============================================================
+       MODE / TIME / TYPE / LETTER
+       ============================================================ */
+    function setMode(mode, evt) {
+      betMode = mode;
+      var btns = document.querySelectorAll('.mode-btn');
+      for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+      if (evt && evt.target) evt.target.classList.add('active');
+      $('balanceBox').style.display = mode === 'direct' ? 'block' : 'none';
+      updateSummary();
+      showToast(mode === 'direct' ? 'របៀបចាក់ផ្ទាល់' : 'របៀបចាក់អនឡាញ', 'info', mode === 'direct' ? '💵' : '🌐');
+    }
+
+    function setTime(t, evt) {
+      if (isBettingClosed(t)) {
+        showToast('ការចាក់ម៉ោង ' + t + ' ត្រូវបានបិទ!', 'warning', '🔒');
+        return;
+      }
+      selectedTime = t;
+      var btns = document.querySelectorAll('.time-selector .time-btn');
+      for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+      if (evt && evt.target) evt.target.classList.add('active');
+      updateConfig();
+      updateBettingStatus();
+    }
+
+    function setType(t, evt) {
+      betType = t;
+      var btns = document.querySelectorAll('.type-selector .type-btn');
+      for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+      if (evt && evt.target) evt.target.classList.add('active');
+      numbers = [];
+      updateDisplay();
+      updateConfig();
+      var inp = $('numInput');
+      if (selectedLetter) {
+        inp.placeholder = t === 'two' ? 'បញ្ចូល ២ខ្ទង់ (ឧ. 01,02)' : 'បញ្ចូល ៣ខ្ទង់ (ឧ. 123,456)';
+      }
+    }
+
+    function updateConfig() {
+      var label = betType === 'two' ? '២ខ្ទង់' : '៣ខ្ទង់';
+      var el = $('configBadge');
+      if (el) el.textContent = selectedTime + ' | ' + label;
+    }
+
+    function selectLetter(l, evt) {
+      if (isBettingClosed(selectedTime)) {
+        showToast('ការចាក់ត្រូវបានបិទ', 'warning', '🔒');
+        return;
+      }
+      selectedLetter = l;
+      var circles = document.querySelectorAll('.letter-circle');
+      for (var i = 0; i < circles.length; i++) circles[i].classList.remove('active');
+      if (evt && evt.target) evt.target.classList.add('active');
+
+      var inp = $('numInput');
+      inp.disabled = false;
+      inp.placeholder = betType === 'two'
+        ? 'បញ្ចូល ២ខ្ទង់សម្រាប់ ' + l
+        : 'បញ្ចូល ៣ខ្ទង់សម្រាប់ ' + l;
+      inp.focus();
+      showToast('បានជ្រើស ប៉ុស្តិ៍ ' + l, 'info', '🎯');
+    }
+
+    /* ============================================================
+       NUMBER INPUT
+       ============================================================ */
+    function autoAddNumbers() {
+      var inp = $('numInput');
+      var raw = inp.value.trim();
+      if (!selectedLetter || !raw) return;
+
+      var len = getReqLen();
+      var digitsOnly = raw.replace(/[^0-9]/g, '');
+
+      if (digitsOnly.length >= len && digitsOnly.length % len === 0) {
+        for (var i = 0; i < digitsOnly.length; i += len) {
+          var n = digitsOnly.substring(i, i + len);
+          if (n.length !== len) continue;
+          if (numbers.length >= CFG.MAX_NUMBERS) {
+            showToast('ចាក់បានត្រឹម ' + CFG.MAX_NUMBERS + ' លេខ', 'warning');
+            break;
+          }
+          var tag = selectedLetter + ':' + n;
+          if (numbers.indexOf(tag) === -1) numbers.push(tag);
+        }
+        inp.value = '';
+        updateDisplay();
+      }
+    }
+
+    function removeNum(idx) {
+      numbers.splice(idx, 1);
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      var container = $('selectedDisplay');
+      var countEl = $('countDisplay');
+
+      if (numbers.length === 0) {
+        container.innerHTML = '<span style="color:#6c757d; font-size:clamp(11px,1.3vw,12px); font-weight:600;">មិនទាន់មានលេខ</span>';
+        countEl.textContent = '0';
+      } else {
+        var html = '';
+        for (var i = 0; i < numbers.length; i++) {
+          html += '<span class="selected-tag">' + esc(numbers[i]) +
+                  ' <span class="remove" onclick="N98.removeNum(' + i + ')">&times;</span></span>';
+        }
+        container.innerHTML = html;
+        countEl.textContent = numbers.length;
+      }
+      updateSummary();
+    }
+
+    /* ============================================================
+       AMOUNT
+       ============================================================ */
+    function setAmount(val, sym) {
+      $('amountInput').value = val;
+      $('currencySelect').value = sym === '$' ? 'USD' : 'KHR';
+      updateAmount();
+    }
+
+    function updateAmount() {
+      var v = parseFloat($('amountInput').value);
+      var c = $('currencySelect').value;
+      amount = isNaN(v) || v <= 0 ? 0 : v;
+      currency = c;
+
+      var warn = $('limitWarning');
+      if (amount > 0) {
+        if (currency === 'USD') {
+          warn.style.display = (amount < CFG.MIN_USD || amount > CFG.MAX_USD) ? 'block' : 'none';
+        } else {
+          warn.style.display = (amount < CFG.MIN_KHR || amount > CFG.MAX_KHR) ? 'block' : 'none';
+        }
+      } else {
+        warn.style.display = 'none';
+      }
+      updateSummary();
+    }
+
+    /* ============================================================
+       SUMMARY & BALANCE STATUS BOX (ថ្មី!)
+       ============================================================ */
+    function updateSummary() {
+      var cnt = numbers.length;
+      $('totalCount').textContent = cnt;
+      var total = cnt * amount;
+      $('totalAmountDisplay').textContent = fmtTotal(total, currency);
+      updateSubmitButtonColor();
+      updateBalanceStatusBox();
+    }
+
+    function updateBalanceStatusBox() {
+      var box = $('balanceStatusBox');
+      if (!box) return;
+
+      var cnt = numbers.length;
+      var total = cnt * amount;
+
+      // បង្ហាញតែពេលមានលេខ និង amount
+      if (cnt === 0 || amount <= 0 || betMode !== 'direct') {
+        box.style.display = 'none';
+        return;
+      }
+
+      box.style.display = 'block';
+
+      var current = currency === 'USD' ? balanceUSD : balanceKHR;
+      var needed = total;
+      var short = Math.max(0, needed - current);
+      var isEnough = current >= needed;
+      var percent = needed > 0 ? Math.min(100, (current / needed) * 100) : 0;
+
+      var iconEl = $('balanceStatusIcon');
+      var titleEl = $('balanceStatusTitle');
+      var currentEl = $('balanceStatusCurrent');
+      var neededEl = $('balanceStatusNeeded');
+      var shortEl = $('balanceStatusShort');
+      var fillEl = $('balanceProgressFill');
+      var hintEl = $('balanceStatusHint');
+
+      var curLabel = currency === 'KHR' ? '៛' : '$';
+      var fmt = function(v) {
+        return currency === 'KHR'
+          ? Math.round(v).toLocaleString() + '៛'
+          : Number(v).toFixed(2) + '$';
+      };
+
+      if (currentEl) currentEl.textContent = fmt(current);
+      if (neededEl) neededEl.textContent = fmt(needed);
+
+      if (isEnough) {
+        box.className = 'balance-status-box ok';
+        if (iconEl) iconEl.textContent = '✅';
+        if (titleEl) titleEl.textContent = 'សមតុល្យគ្រប់គ្រាន់!';
+        if (shortEl) {
+          shortEl.textContent = fmt(0);
+          shortEl.className = 'value success';
+        }
+        if (hintEl) hintEl.textContent = '🎉 អ្នកអាចដាក់ភ្នាល់បាន!';
+        if (fillEl) fillEl.style.width = '100%';
+      } else {
+        box.className = 'balance-status-box warn';
+        if (iconEl) iconEl.textContent = '⚠️';
+        if (titleEl) titleEl.textContent = 'សមតុល្យមិនគ្រប់គ្រាន់!';
+        if (shortEl) {
+          shortEl.textContent = fmt(short);
+          shortEl.className = 'value danger';
+        }
+        if (hintEl) hintEl.textContent = '💡 សូមទាក់ទង Admin ដើម្បីបញ្ចូលប្រាក់';
+        if (fillEl) fillEl.style.width = percent + '%';
+      }
+    }
+
+    function updateSubmitButtonColor() {
+      var btn = $('btnSubmit');
+      var warnBox = $('balanceWarning');
+      if (!btn) return;
+
+      var isClosed = isBettingClosed(selectedTime);
+      var cnt = numbers.length;
+
+      var validAmount = false;
+      if (currency === 'USD') {
+        validAmount = (amount >= CFG.MIN_USD && amount <= CFG.MAX_USD);
+      } else {
+        validAmount = (amount >= CFG.MIN_KHR && amount <= CFG.MAX_KHR);
+      }
+
+      var total = cnt * amount;
+      var balanceOk = true;
+
+      if (betMode === 'direct') {
+        if (currency === 'USD') balanceOk = (balanceUSD >= total);
+        else balanceOk = (balanceKHR >= total);
+      }
+
+      var canSubmit = (cnt > 0 && validAmount && amount > 0 && balanceOk && !isClosed);
+
+      if (canSubmit) {
+        btn.disabled = false;
+        btn.classList.remove('btn-submit-disabled');
+        btn.style.background = 'linear-gradient(135deg,#28a745,#1e7e34)';
+        btn.style.color = 'white';
+        btn.style.cursor = 'pointer';
+        btn.style.opacity = '1';
+        btn.style.animation = 'glowGreen 2s ease-in-out infinite';
+        if (warnBox) warnBox.classList.remove('show');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('btn-submit-disabled');
+        btn.style.animation = 'none';
+        if (warnBox && !balanceOk && cnt > 0 && amount > 0) {
+          var needed = total;
+          var current = currency === 'USD' ? balanceUSD : balanceKHR;
+          warnBox.innerHTML = '⚠️ <strong>សមតុល្យមិនគ្រប់គ្រាន់!</strong><br>ត្រូវការ: ' + fmtTotal(needed, currency) + '<br>សមតុល្យ: ' + fmtTotal(current, currency);
+          warnBox.classList.add('show');
+        } else if (warnBox) {
+          warnBox.classList.remove('show');
+        }
+      }
+    }
+
+    /* ============================================================
+       SUBMIT BET
+       ============================================================ */
+    function submitBet() {
+      if (isBettingClosed(selectedTime)) {
+        showToast('ការចាក់ត្រូវបានបិទ!', 'warning', '🔒');
+        return;
+      }
+      if (numbers.length === 0) {
+        showToast('សូមជ្រើសរើសលេខយ៉ាងហោចណាស់មួយ!', 'warning');
+        return;
+      }
+      if (amount <= 0) {
+        showToast('សូមបញ្ចូលចំនួនទឹកប្រាក់!', 'warning');
+        return;
+      }
+
+      var validAmount = false;
+      if (currency === 'USD') validAmount = (amount >= CFG.MIN_USD && amount <= CFG.MAX_USD);
+      else validAmount = (amount >= CFG.MIN_KHR && amount <= CFG.MAX_KHR);
+
+      if (!validAmount) {
+        var minStr = currency === 'USD' ? CFG.MIN_USD + '$' : CFG.MIN_KHR + '៛';
+        var maxStr = currency === 'USD' ? CFG.MAX_USD + '$' : CFG.MAX_KHR.toLocaleString() + '៛';
+        showToast('ចំនួនត្រូវពី ' + minStr + ' ដល់ ' + maxStr, 'warning');
+        return;
+      }
+
+      var total = numbers.length * amount;
+      var display = fmtTotal(total, currency);
+
+      if (betMode === 'direct') {
+        if (currency === 'USD' && balanceUSD < total) {
+          showToast('សមតុល្យ USD មិនគ្រប់គ្រាន់!', 'error', '💰');
+          return;
+        }
+        if (currency === 'KHR' && balanceKHR < total) {
+          showToast('សមតុល្យ KHR មិនគ្រប់គ្រាន់!', 'error', '💰');
+          return;
+        }
+
+        $('directConfirmNumbers').textContent = numbers.join(', ');
+        $('directConfirmTotal').textContent = display;
+        $('directPhone').value = fixPhoneNumber(currentUser.phone);
+        $('directBalanceUSD').textContent = balanceUSD.toFixed(2) + '$';
+        $('directBalanceKHR').textContent = Math.round(balanceKHR).toLocaleString() + '៛';
+        $('directBetModal').style.display = 'block';
+      } else {
+        $('confirmNumbers').textContent = numbers.join(', ');
+        $('confirmTotal').textContent = display;
+        $('depPhone').value = fixPhoneNumber(currentUser.phone);
+
+        var fileInput = $('depScreenshot');
+        var label = $('depScreenshotLabel');
+        fileInput.value = '';
+        fileInput.disabled = true;
+
+        if (label) {
+          label.style.opacity = '0.5';
+          label.style.pointerEvents = 'none';
+          label.innerHTML = 'ភស្តុតាង (Screenshot) * <span style="font-size:11px; color:#dc3545;"> (ត្រូវចុច ABA Bank ជាមុន)</span>';
+        }
+        $('depositModal').style.display = 'block';
+        setTimeout(checkOnlineFormValidity, 100);
+      }
+    }
+
+    function handleAbaClick() {
+      window.open('https://pay.ababank.com/oRF8/yhtm93ei', '_blank', 'noopener');
+      setTimeout(function() {
+        var fileInput = $('depScreenshot');
+        var label = $('depScreenshotLabel');
+        if (fileInput) fileInput.disabled = false;
+        if (label) {
+          label.style.opacity = '1';
+          label.style.pointerEvents = 'auto';
+          label.innerHTML = 'ភស្តុតាង (Screenshot) * <span style="font-size:11px; color:#28a745;"> ✅ អាចភ្ជាប់បាន</span>';
+        }
+        checkOnlineFormValidity();
+        showToast('អាចភ្ជាប់រូបភាពបានហើយ!', 'info', '📷');
+      }, 500);
+    }
+
+    function checkOnlineFormValidity() {
+      var phone = fixPhoneNumber($('depPhone').value);
+      var fileInput = $('depScreenshot');
+      var file = fileInput.files[0];
+      var btn = $('depSubmitBtn');
+      if (!btn) return;
+
+      var hasPhone = phone && phone.length >= 9;
+      var hasFile = file && file.size > 0;
+      var isAbaEnabled = !fileInput.disabled;
+      var isValid = hasPhone && hasFile && isAbaEnabled;
+
+      if (isValid) {
+        btn.disabled = false;
+        btn.classList.remove('btn-submit-disabled');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('btn-submit-disabled');
+      }
+    }
+
+    /* ============================================================
+       BETTING CLOSED
+       ============================================================ */
+    function isBettingClosed(timeSlot) {
+      var h = new Date().getHours();
+      if (timeSlot === '12:00') return h >= 12;
+      if (timeSlot === '16:00') return h >= 16;
+      return false;
+    }
+
+    function updateBettingStatus() {
+      var isClosed = isBettingClosed(selectedTime);
+      var topBox = $('bettingClosedTop');
+      var titleEl = $('bettingClosedTitle');
+
+      if (topBox && titleEl) {
+        if (isClosed) {
+          topBox.style.display = 'block';
+          var h = new Date().getHours();
+          if (h >= 16) {
+            titleEl.innerHTML = '🔒 ការចាក់ម៉ោង <strong style="color:#dc2626;">12:00</strong> និង <strong style="color:#dc2626;">16:00</strong> បានបិទ!';
+          } else if (h >= 12) {
+            titleEl.innerHTML = '🔒 ការចាក់ម៉ោង <strong style="color:#dc2626;">12:00</strong> បានបិទ!';
+          }
+        } else {
+          topBox.style.display = 'none';
+        }
+      }
+      updateTimeButtons();
+      updateOpenCountdown();
+      updateSubmitButtonColor();
+      updateBalanceStatusBox();
+    }
+
+    function updateTimeButtons() {
+      var btns = document.querySelectorAll('.time-selector .time-btn');
+      for (var i = 0; i < btns.length; i++) {
+        var dt = btns[i].getAttribute('data-time') || btns[i].textContent;
+        var slot = '';
+        if (dt.indexOf('12:00') !== -1) slot = '12:00';
+        else if (dt.indexOf('16:00') !== -1) slot = '16:00';
+        if (slot && isBettingClosed(slot)) btns[i].classList.add('closed');
+        else btns[i].classList.remove('closed');
+      }
+    }
+
+    function updateOpenCountdown() {
+      var now = new Date();
+      var openTime = new Date(now);
+      openTime.setDate(openTime.getDate() + 1);
+      openTime.setHours(0, 0, 0, 0);
+      var diff = Math.floor((openTime - now) / 1000);
+      var el = $('openCountdownTop');
+      if (!el) return;
+      if (diff <= 0) { el.textContent = '00:00:00'; return; }
+      var hrs = String(Math.floor(diff / 3600)).padStart(2, '0');
+      var mins = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
+      var secs = String(diff % 60).padStart(2, '0');
+      el.textContent = hrs + ':' + mins + ':' + secs;
+    }
+
+    /* ============================================================
+       RENDER USER BETS
+       ============================================================ */
+    function renderUserBetsFromServer(serverBets) {
+      var tbody = $('userHistoryBody');
+      if (!tbody) return;
+
+      if (!serverBets || serverBets.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="color:#6c757d; padding:12px; font-weight:600;">មិនទាន់មានប្រវត្តិ</td></tr>';
+        return;
+      }
+
+      var now = new Date();
+      var today = new Date(now);
+      var yesterday = new Date(now);
+      yesterday.setDate(yesterday.getDate() - 1);
+      var todayFormats = buildDateFormats(today);
+      var yesterdayFormats = buildDateFormats(yesterday);
+
+      var html = '';
+      for (var i = 0; i < serverBets.length; i++) {
+        var b = serverBets[i];
+        var amt = fmtAmount(b.amount, b.currency);
+        var numCount = String(b.numbers).split(',').length;
+        var totalBet = b.amount * numCount;
+        var totalAmt = fmtTotal(totalBet, b.currency);
+
+        var badge = '<span class="status-badge status-pending">⏳ រង់ចាំ</span>';
+        var reward = '-';
+        var actionBtn = '-';
+
+        if (b.status === 'win') {
+          if (b.paid === 'yes') {
+            badge = '<span class="status-badge status-paid">✅ បានសង</span>';
+          } else {
+            badge = '<span class="status-badge status-win">🎉 ឈ្នះ</span>';
+            if (b.payMethod === 'direct') {
+              actionBtn = '<button class="btn btn-ok" onclick="N98.markPaid(\'' + esc(b.id) + '\')">✅ បានសង</button>';
+            }
+          }
+          var rate = b.type === 'two' ? 70 : 500;
+          var payout = b.payout || (b.amount * rate);
+          reward = '<strong style="color:#28a745;">' + fmtAmount(payout, b.currency) + '</strong>';
+        } else if (b.status === 'loss') {
+          badge = '<span class="status-badge status-loss">❌ មិនត្រូវ</span>';
+        }
+
+        var modeBadge = '';
+        if (b.payMethod === 'direct') {
+          modeBadge = '<span style="color:#28a745; font-size:10px; font-weight:800;">💵 ផ្ទាល់</span>';
+        } else if (b.payMethod === 'online') {
+          modeBadge = '<span style="color:#0078D7; font-size:10px; font-weight:800;">🌐 អនឡាញ</span>';
+        }
+
+        var dateDisplay = '';
+        var timeDisplay = '';
+        var betDateStr = '';
+
+        if (b.date) {
+          var dateStr = String(b.date).trim();
+          if (dateStr.indexOf('/') !== -1) {
+            var parts = dateStr.split(' ');
+            dateDisplay = parts[0] || dateStr;
+            betDateStr = parts[0];
+            timeDisplay = parts[1] ? parts[1].substring(0, 5) : '';
+          } else {
+            dateDisplay = dateStr;
+          }
+        }
+        if (b.drawTime) {
+          var dt = String(b.drawTime).trim();
+          if (/^\d{1,2}:\d{2}$/.test(dt)) timeDisplay = dt.length === 4 ? '0' + dt : dt;
+        }
+
+        var rowStyle = '';
+        var dateBadge = '';
+        if (todayFormats.indexOf(betDateStr) !== -1) {
+          rowStyle = 'background:#f0fdf4; border-left:4px solid #28a745;';
+          dateBadge = ' <span style="background:#28a745; color:#fff; padding:2px 6px; border-radius:8px; font-size:9px; font-weight:800;">✅ ថ្ងៃនេះ</span>';
+        } else if (yesterdayFormats.indexOf(betDateStr) !== -1) {
+          rowStyle = 'background:linear-gradient(90deg,#fff9c4,#fff3cd); border-left:4px solid #ffc107;';
+          dateBadge = ' <span style="background:#ffc107; color:#000; padding:2px 6px; border-radius:8px; font-size:9px; font-weight:800;">🟡 ម្សិលមិញ</span>';
+        }
+
+        html += '<tr style="' + rowStyle + '">' +
+          '<td style="text-align:left; font-size:10px;">' +
+            '<div style="font-weight:800; color:#6f42c1;">🆔 ' + esc(b.id) + '</div>' +
+            '<div style="font-weight:700;">' + esc(dateDisplay) + dateBadge + '</div>' +
+            '<div style="color:#6c757d;">' + esc(timeDisplay) + '</div>' +
+          '</td>' +
+          '<td><div style="margin-bottom:2px;">' + modeBadge + '</div><strong style="color:#0078D7;">' + esc(b.numbers) + '</strong></td>' +
+          '<td>' + (b.type === 'two' ? '២ខ្ទង់' : '៣ខ្ទង់') + '</td>' +
+          '<td><div>' + amt + '</div><div class="amount-tag">💰 ' + totalAmt + '</div></td>' +
+          '<td>' + badge + '</td>' +
+          '<td>' + reward + '</td>' +
+          '<td>' + actionBtn + '</td>' +
+        '</tr>';
+      }
+      tbody.innerHTML = html;
+    }
+
+    function markPaid(betId) {
+      if (!confirm('តើអ្នកប្រាកដជាបានទទួលប្រាក់រង្វាន់រួចហើយឬ?')) return;
+      showLoading(true);
+      fetchWithTimeout(WEB_APP_URL, {
+        method: 'POST',
+        body: JSON.stringify({ action: 'markPaid', betId: betId }),
+        headers: { 'Content-Type': 'text/plain' }
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        showLoading(false);
+        if (data.ok) {
+          fetchUserBets();
+          showToast('បានសម្គាល់ថាទទួលប្រាក់រួច!', 'success');
+        } else {
+          showToast(data.error || 'មានបញ្ហា!', 'error');
+        }
+      })
+      .catch(function(err) {
+        console.error(err);
+        showLoading(false);
+        showToast('មានបញ្ហាតភ្ជាប់!', 'error');
+      });
+    }
+
+    /* ============================================================
+       WITHDRAW
+       ============================================================ */
+    function openWithdraw(mode) {
+      var modal = $('withdrawModal');
+      var title = $('withdrawTitle');
+      var notice = $('withdrawNotice');
+
+      var badge = $('withdrawBadge');
+      if (badge) badge.style.display = 'none';
+
+      if (mode === 'late') {
+        title.textContent = '🏦 ដកប្រាក់រង្វាន់ / ⏰ ដកយឺត';
+        notice.innerHTML = '⚠️ <strong>យឺតពេល</strong> សូមពិនិត្យ ១–២ ម៉ោង';
+      } else {
+        title.textContent = '🏦 ដកប្រាក់រង្វាន់';
+        notice.innerHTML = '✅ ដកបានបន្ទាប់ពី 12:00 និង 16:00';
+      }
+      $('wdPhone').value = fixPhoneNumber(currentUser.phone);
+      populateWinList();
+      modal.style.display = 'block';
+    }
+
+    function populateWinList() {
+      var container = $('winListContainer');
+      var cleanPhone = fixPhoneNumber(currentUser.phone);
+
+      container.innerHTML = '<div style="text-align:center; padding:20px; color:#6c757d;"><span class="anim-spin">⏳</span> កំពុងផ្ទុក...</div>';
+
+      fetchWithTimeout(WEB_APP_URL + '?action=getBets&phone=' + encodeURIComponent(cleanPhone) + '&t=' + Date.now(), { cache: 'no-store' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (!data.ok || !Array.isArray(data.bets)) {
+            container.innerHTML = '<div style="text-align:center; padding:20px; color:#6c757d; font-weight:700;">មិនមានលេខឈ្នះ</div>';
+            $('payoutDisplay').textContent = '0.00';
+            return;
+          }
+
+          var wins = data.bets.filter(function(b) { return b.status === 'win' && b.paid !== 'yes'; });
+          selectedWinIds = [];
+
+          if (wins.length === 0) {
+            container.innerHTML = '<div style="text-align:center; padding:20px; color:#6c757d; font-weight:700;">🎯 មិនមានលេខឈ្នះ</div>';
+            $('payoutDisplay').textContent = '0.00';
+            return;
+          }
+
+          for (var i = 0; i < wins.length; i++) selectedWinIds.push(wins[i].id);
+
+          var html = '';
+          for (var j = 0; j < wins.length; j++) {
+            var b = wins[j];
+            var rate = b.type === 'two' ? 70 : 500;
+            var payout = b.payout || (b.amount * rate);
+            var payoutStr = fmtAmount(payout, b.currency);
+            html += '<div style="background:linear-gradient(135deg,#d4edda,#a8e6c0); border:2px solid #28a745; border-radius:10px; padding:10px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">' +
+              '<div><strong style="color:#155724; font-size:14px;">' + esc(b.numbers) + '</strong>' +
+              '<div style="font-size:11px; color:#155724; font-weight:700;">' + esc(b.id) + '</div></div>' +
+              '<div style="color:#28a745; font-weight:800; font-size:15px;">' + payoutStr + '</div>' +
+            '</div>';
+          }
+          container.innerHTML = html;
+          updateTotalPayout(data.bets);
+        })
+        .catch(function(err) {
+          console.error(err);
+          container.innerHTML = '<div style="text-align:center; padding:20px; color:#dc3545; font-weight:700;">មានបញ្ហាទាញទិន្នន័យ</div>';
+        });
+    }
+
+    function updateTotalPayout(allBets) {
+      var totalUSD = 0, totalKHR = 0;
+      for (var i = 0; i < selectedWinIds.length; i++) {
+        var id = selectedWinIds[i];
+        for (var j = 0; j < allBets.length; j++) {
+          if (allBets[j].id === id) {
+            var bet = allBets[j];
+            var rate = bet.type === 'two' ? 70 : 500;
+            var payout = bet.payout || (bet.amount * rate);
+            if (bet.currency === 'USD') totalUSD += payout;
+            else totalKHR += payout;
+            break;
+          }
+        }
+      }
+      var display;
+      if (totalUSD > 0 && totalKHR > 0) display = totalUSD.toFixed(2) + '$ + ' + totalKHR.toLocaleString() + '៛';
+      else if (totalUSD > 0) display = totalUSD.toFixed(2) + '$';
+      else if (totalKHR > 0) display = totalKHR.toLocaleString() + '៛';
+      else display = '0.00';
+      $('payoutDisplay').textContent = display;
+    }
+
+    /* ============================================================
+       RESULTS UI
+       ============================================================ */
+    function updateResultsUI() {
+      var now = new Date();
+      var h = now.getHours();
+      var today = new Date(now);
+      var yesterday = new Date(now);
+      yesterday.setDate(yesterday.getDate() - 1);
+      var todayFormats = buildDateFormats(today);
+      var yesterdayFormats = buildDateFormats(yesterday);
+
+      var todayResults = cachedResults.filter(function(r) {
+        return r.date && todayFormats.indexOf(String(r.date).trim()) !== -1;
+      });
+      var yesterdayResults = cachedResults.filter(function(r) {
+        return r.date && yesterdayFormats.indexOf(String(r.date).trim()) !== -1;
+      });
+
+      var posts = ['A', 'B', 'C', 'D', 'E'];
+
+      function resetSlot(prefix) {
+        for (var i = 0; i < posts.length; i++) {
+          var el = $(prefix + posts[i]);
+          if (el) { el.textContent = '--'; el.className = ''; }
+        }
+      }
+      function fillSlot(prefix, r) {
+        for (var i = 0; i < posts.length; i++) {
+          var el = $(prefix + posts[i]);
+          if (el && r && r.results && r.results[posts[i]] !== undefined) {
+            el.textContent = r.results[posts[i]];
+            el.className = 'number-result';
+          } else if (el) {
+            el.textContent = '--';
+            el.className = '';
+          }
+        }
+      }
+
+      var today12 = todayResults.filter(function(r) { return r.time && String(r.time).indexOf('12:00') !== -1; });
+      var today16 = todayResults.filter(function(r) { return r.time && String(r.time).indexOf('16:00') !== -1; });
+      var yesterday12 = yesterdayResults.filter(function(r) { return r.time && String(r.time).indexOf('12:00') !== -1; });
+      var yesterday16 = yesterdayResults.filter(function(r) { return r.time && String(r.time).indexOf('16:00') !== -1; });
+
+      var hasToday12 = today12.length > 0;
+      var hasToday16 = today16.length > 0;
+      var hasYesterday12 = yesterday12.length > 0;
+      var hasYesterday16 = yesterday16.length > 0;
+
+      var show12 = false, show16 = false, resultSource = '';
+
+      if (h >= 0 && h < 12) {
+        if (hasYesterday16) { show16 = true; resultSource = 'yesterday'; }
+        else if (hasYesterday12) { show12 = true; resultSource = 'yesterday'; }
+        else if (hasToday12) { show12 = true; resultSource = 'today'; }
+      } else if (h >= 12 && h < 16) {
+        if (hasToday12) { show12 = true; resultSource = 'today'; }
+        else if (hasYesterday16) { show16 = true; resultSource = 'yesterday'; }
+        else if (hasYesterday12) { show12 = true; resultSource = 'yesterday'; }
+      } else {
+        if (hasToday16) { show16 = true; resultSource = 'today'; }
+        else if (hasToday12) { show12 = true; resultSource = 'today'; }
+        else if (hasYesterday16) { show16 = true; resultSource = 'yesterday'; }
+        else if (hasYesterday12) { show12 = true; resultSource = 'yesterday'; }
+      }
+
+      var badge12 = $('badge12');
+      if (show12) {
+        badge12.textContent = '✅ ចេញហើយ';
+        badge12.className = 'badge badge-completed';
+        var results12 = (resultSource === 'today') ? today12 : yesterday12;
+        var r12two = results12.find(function(r) { return String(r.type).toLowerCase() === 'two'; });
+        fillSlot('r12_', r12two);
+        var r12three = results12.find(function(r) { return String(r.type).toLowerCase() === 'three'; });
+        fillSlot('r12_3d_', r12three);
+        if (r12two && r12two.publishedAt) {
+          var lbl = (resultSource === 'yesterday') ? 'ពីម្សិលមិញ' : 'ថ្ងៃនេះ';
+          $('date12').innerHTML = '<span class="date-badge">📅 ' + lbl + ': ' + esc(r12two.publishedAt) + '</span>';
+        } else {
+          $('date12').innerHTML = '';
+        }
+      } else {
+        badge12.textContent = '⏳ រង់ចាំ';
+        badge12.className = 'badge badge-waiting';
+        resetSlot('r12_');
+        resetSlot('r12_3d_');
+        $('date12').innerHTML = '';
+      }
+
+      var badge16 = $('badge16');
+      if (show16) {
+        badge16.textContent = '✅ ចេញហើយ';
+        badge16.className = 'badge badge-completed';
+        var results16 = (resultSource === 'today') ? today16 : yesterday16;
+        var r16two = results16.find(function(r) { return String(r.type).toLowerCase() === 'two'; });
+        fillSlot('r16_', r16two);
+        var r16three = results16.find(function(r) { return String(r.type).toLowerCase() === 'three'; });
+        fillSlot('r16_3d_', r16three);
+        if (r16two && r16two.publishedAt) {
+          var lbl2 = (resultSource === 'yesterday') ? 'ពីម្សិលមិញ' : 'ថ្ងៃនេះ';
+          $('date16').innerHTML = '<span class="date-badge">📅 ' + lbl2 + ': ' + esc(r16two.publishedAt) + '</span>';
+        } else {
+          $('date16').innerHTML = '';
+        }
+      } else {
+        badge16.textContent = '⏳ រង់ចាំ';
+        badge16.className = 'badge badge-waiting';
+        resetSlot('r16_');
+        resetSlot('r16_3d_');
+        $('date16').innerHTML = '';
+      }
+
+      var statusEl = $('resultStatusText');
+      if (h >= 0 && h < 12) {
+        if (show16) { statusEl.textContent = '✅ លទ្ធផល 16:00 ម្សិលមិញ'; statusEl.className = 'value'; }
+        else if (show12) { statusEl.textContent = '✅ លទ្ធផល 12:00 ម្សិលមិញ'; statusEl.className = 'value'; }
+        else { statusEl.textContent = '⏳ រង់ចាំ 12:00 ថ្ងៃនេះ'; statusEl.className = 'value pending'; }
+      } else if (h >= 12 && h < 16) {
+        if (show12) { statusEl.textContent = '✅ លទ្ធផល 12:00 ចេញហើយ!'; statusEl.className = 'value'; }
+        else { statusEl.textContent = '⏳ រង់ចាំ 12:00...'; statusEl.className = 'value pending'; }
+      } else {
+        if (show16) { statusEl.textContent = '✅ លទ្ធផល 16:00 ចេញហើយ!'; statusEl.className = 'value'; }
+        else { statusEl.textContent = '⏳ រង់ចាំ 16:00...'; statusEl.className = 'value pending'; }
+      }
+    }
+
+    /* ============================================================
+       RENDER HISTORY TABLE
+       ============================================================ */
+    function renderHistoryTable() {
+      var tbody = $('historyBody');
+      var fullBody = $('fullHistoryBody');
+
+      if (cachedResults.length === 0) {
+        var msg = '<tr><td colspan="5" style="color:#6c757d; padding:12px; font-weight:600;">មិនមានប្រវត្តិ</td></tr>';
+        if (tbody) tbody.innerHTML = msg;
+        if (fullBody) fullBody.innerHTML = msg;
+        return;
+      }
+
+      var now = new Date();
+      var today = new Date(now);
+      var yesterday = new Date(now);
+      yesterday.setDate(yesterday.getDate() - 1);
+      var todayFormats = buildDateFormats(today);
+      var yesterdayFormats = buildDateFormats(yesterday);
+
+      var grouped = {};
+      for (var i = 0; i < cachedResults.length; i++) {
+        var r = cachedResults[i];
+        var d = String(r.date || '').trim();
+        var t = String(r.time || '').trim();
+        var key = d + '|' + t;
+        if (!grouped[key]) {
+          grouped[key] = { date: d, time: t, two: null, three: null, publishedAt: '', isToday: false, isYesterday: false };
+        }
+        if (r.type === 'two') grouped[key].two = r;
+        if (r.type === 'three') grouped[key].three = r;
+        if (r.publishedAt) grouped[key].publishedAt = r.publishedAt;
+        if (todayFormats.indexOf(d) !== -1) grouped[key].isToday = true;
+        if (yesterdayFormats.indexOf(d) !== -1) grouped[key].isYesterday = true;
+      }
+
+      var arr = [];
+      for (var k in grouped) {
+        if (grouped.hasOwnProperty(k)) arr.push(grouped[k]);
+      }
+      arr.sort(function(a, b) {
+        if (b.date !== a.date) return b.date.localeCompare(a.date);
+        return (b.time || '').localeCompare(a.time || '');
+      });
+
+      var html = '';
+      for (var j = 0; j < arr.length; j++) {
+        var g = arr[j];
+        var fmt = function(r) {
+          if (!r || !r.results) return '<span style="color:#dc3545;">⏳ រង់ចាំ</span>';
+          return '<b style="color:#28a745;">A:' + r.results.A + ' B:' + r.results.B + ' C:' + r.results.C + ' D:' + r.results.D + ' E:' + r.results.E + '</b>';
+        };
+        var rowStyle = '', badge = '';
+        if (g.isToday) {
+          rowStyle = 'background:#f0fdf4; border-left:4px solid #28a745;';
+          badge = ' <span style="background:#28a745; color:#fff; padding:2px 6px; border-radius:8px; font-size:9px; font-weight:800;">✅ ថ្ងៃនេះ</span>';
+        } else if (g.isYesterday) {
+          rowStyle = 'background:linear-gradient(90deg,#fff9c4,#fff3cd); border-left:4px solid #ffc107;';
+          badge = ' <span style="background:#ffc107; color:#000; padding:2px 6px; border-radius:8px; font-size:9px; font-weight:800;">🟡 ម្សិលមិញ</span>';
+        }
+        html += '<tr style="' + rowStyle + '">' +
+          '<td><strong>' + esc(g.date) + '</strong>' + badge + '</td>' +
+          '<td>' + esc(g.time) + '</td>' +
+          '<td>' + fmt(g.two) + '</td>' +
+          '<td>' + fmt(g.three) + '</td>' +
+          '<td><span style="font-size:10px; color:#005fa3; font-weight:700;">' + esc(g.publishedAt || '-') + '</span></td>' +
+        '</tr>';
+      }
+
+      if (html === '') {
+        html = '<tr><td colspan="5" style="color:#6c757d; padding:12px; font-weight:600;">មិនមានប្រវត្តិ</td></tr>';
+      }
+      if (tbody) tbody.innerHTML = html;
+      if (fullBody) fullBody.innerHTML = html;
+    }
+
+    /* ============================================================
+       CLOCK
+       ============================================================ */
+    function updateClock() {
+      var now = new Date();
+      $('widgetTime').textContent = now.toLocaleTimeString('km-KH', { hour12: false });
+      $('widgetDate').textContent = now.toLocaleDateString('km-KH', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+
+      var h = now.getHours();
+      var target = 12, label = '🕛 12:00';
+      if (h >= 12 && h < 16) { target = 16; label = '🕓 16:00'; }
+      else if (h >= 16) { target = 36; label = '🕛 12:00 រំលងយប់'; }
+
+      var t = new Date(now);
+      if (target === 36) { t.setDate(t.getDate() + 1); t.setHours(12, 0, 0, 0); }
+      else t.setHours(target, 0, 0, 0);
+
+      var diff = Math.floor((t - now) / 1000);
+      var hrs = String(Math.floor(diff / 3600)).padStart(2, '0');
+      var mins = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
+      var secs = String(diff % 60).padStart(2, '0');
+      $('countdownDisplay').textContent = hrs + ':' + mins + ':' + secs;
+      $('nextTimeLabel').textContent = '🎯 ពេលបន្ទាប់៖ ' + label;
+
+      var sl = $('statusTimeLabel');
+      if (h < 12) { sl.textContent = '⏳ រង់ចាំ 12:00'; sl.style.color = '#dc3545'; }
+      else if (h >= 12 && h < 16) { sl.textContent = '⏳ រង់ចាំ 16:00'; sl.style.color = '#dc3545'; }
+      else { sl.textContent = '✅ លទ្ធផលថ្ងៃនេះចេញហើយ!'; sl.style.color = '#28a745'; }
+    }
+
+    /* ============================================================
+       INIT
+       ============================================================ */
+    function init() {
+      initTheme();
+      initParticles();
+
+      var saved = localStorage.getItem('lottery_user');
+      if (saved) {
+        try {
+          var user = JSON.parse(saved);
+          if (user && user.verified) {
+            currentUser = user;
+            currentUser.phone = fixPhoneNumber(user.phone);
+            enterApp();
+            return;
+          }
+        } catch (e) {}
+      }
+      $('registerModal').style.display = 'block';
+      $('floatingShapes').style.display = 'block';
+      $('mainApp').style.display = 'none';
+      showLoginStep();
+    }
+
+    /* ============================================================
+       FORM SUBMISSIONS
+       ============================================================ */
+    function setupFormHandlers() {
+      var directForm = $('directBetForm');
+      if (directForm) {
+        directForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var phone = fixPhoneNumber($('directPhone').value);
+          if (!phone) { showToast('សូមបំពេញលេខទូរស័ព្ទ!', 'warning'); return; }
+
+          var total = numbers.length * amount;
+          var btn = directForm.querySelector('button[type="submit"]');
+
+          if (currency === 'USD' && balanceUSD < total) {
+            showToast('សមតុល្យ USD មិនគ្រប់គ្រាន់!', 'error', '💰');
+            return;
+          }
+          if (currency === 'KHR' && balanceKHR < total) {
+            showToast('សមតុល្យ KHR មិនគ្រប់គ្រាន់!', 'error', '💰');
+            return;
+          }
+
+          btn.disabled = true;
+          btn.innerHTML = '<span class="anim-spin">⏳</span> កំពុងបញ្ជូន...';
+          showLoading(true);
+
+          fetch(WEB_APP_URL + '?action=getBalance&phone=' + encodeURIComponent(phone) + '&t=' + Date.now())
+            .then(function(r) { return r.json(); })
+            .then(function(bal) {
+              if (bal.ok) {
+                balanceUSD = parseFloat(bal.balanceUSD) || 0;
+                balanceKHR = parseFloat(bal.balanceKHR) || 0;
+                updateBalanceUI();
+              }
+
+              if (currency === 'USD' && balanceUSD < total) throw new Error('សមតុល្យ USD មិនគ្រប់គ្រាន់!');
+              if (currency === 'KHR' && balanceKHR < total) throw new Error('សមតុល្យ KHR មិនគ្រប់គ្រាន់!');
+
+              return fetch(WEB_APP_URL, {
+                method: 'POST',
+                body: JSON.stringify({
+                  action: 'placeDirectBet',
+                  phone: phone,
+                  userId: currentUser.userId,
+                  numbers: numbers,
+                  type: betType,
+                  amount: amount,
+                  currency: currency,
+                  total: total,
+                  drawTime: selectedTime
+                }),
+                headers: { 'Content-Type': 'text/plain' }
+              });
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+              btn.disabled = false;
+              btn.innerHTML = '<span class="anim-pulse">✅</span> បញ្ជាក់ការចាក់';
+              showLoading(false);
+
+              if (data.ok) {
+                showToast('ការចាក់ត្រូវបានទទួលយក!', 'success', '🎉');
+                closeModal('directBetModal');
+                resetBetForm();
+                fetchBalance(phone);
+                fetchUserBets();
+                directForm.reset();
+                $('directPhone').value = fixPhoneNumber(currentUser.phone);
+              } else {
+                showToast(data.error || 'មានបញ្ហា!', 'error');
+              }
+            })
+            .catch(function(err) {
+              console.error(err);
+              btn.disabled = false;
+              btn.innerHTML = '<span class="anim-pulse">✅</span> បញ្ជាក់ការចាក់';
+              showLoading(false);
+              showToast(err.message || 'មានបញ្ហាតភ្ជាប់!', 'error');
+            });
+        });
+      }
+
+      var depositForm = $('depositForm');
+      if (depositForm) {
+        depositForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var phone = fixPhoneNumber($('depPhone').value);
+          var fileInput = $('depScreenshot');
+
+          if (!phone || !fileInput.files[0]) {
+            showToast('សូមភ្ជាប់ភស្តុតាង!', 'warning');
+            return;
+          }
+
+          var total = numbers.length * amount;
+          var btn = depositForm.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.innerHTML = '<span class="anim-spin">⏳</span> កំពុងបញ្ជូន...';
+          showLoading(true);
+
+          var reader = new FileReader();
+          reader.readAsDataURL(fileInput.files[0]);
+          reader.onload = function() {
+            var base64 = reader.result.split(',')[1];
+
+            fetch(WEB_APP_URL, {
+              method: 'POST',
+              body: JSON.stringify({
+                action: 'placeBet',
+                phone: phone,
+                userId: currentUser.userId,
+                numbers: numbers,
+                type: betType,
+                amount: amount,
+                currency: currency,
+                total: total,
+                drawTime: selectedTime,
+                imageBase64: base64
+              }),
+              headers: { 'Content-Type': 'text/plain' }
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+              btn.disabled = false;
+              btn.innerHTML = '<span class="anim-rocket">🚀</span> បញ្ជាក់ការទូទាត់';
+              showLoading(false);
+
+              if (data.ok) {
+                showToast('ការចាក់ត្រូវបានទទួលយក!', 'success', '🎉');
+                closeModal('depositModal');
+                resetBetForm();
+                fetchUserBets();
+                depositForm.reset();
+                $('depPhone').value = fixPhoneNumber(currentUser.phone);
+                $('depSubmitBtn').disabled = true;
+                $('depSubmitBtn').classList.add('btn-submit-disabled');
+              } else {
+                showToast(data.error || 'មានបញ្ហា!', 'error');
+              }
+            })
+            .catch(function(err) {
+              console.error(err);
+              btn.disabled = false;
+              btn.innerHTML = '<span class="anim-rocket">🚀</span> បញ្ជាក់ការទូទាត់';
+              showLoading(false);
+              showToast('មានបញ្ហាតភ្ជាប់!', 'error');
+            });
+          };
+        });
+      }
+
+      var withdrawForm = $('withdrawForm');
+      if (withdrawForm) {
+        withdrawForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var phone = fixPhoneNumber($('wdPhone').value);
+          var qrInput = $('wdQrCode');
+
+          if (!phone || !qrInput.files[0]) {
+            showToast('សូមបំពេញរូបភាព QR Code!', 'warning');
+            return;
+          }
+          if (selectedWinIds.length === 0) {
+            showToast('មិនមានលេខឈ្នះ!', 'warning');
+            return;
+          }
+
+          var totalPayout = $('payoutDisplay').textContent;
+          var btn = withdrawForm.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.innerHTML = '<span class="anim-spin">⏳</span> កំពុងបញ្ជូន...';
+          showLoading(true);
+
+          var reader = new FileReader();
+          reader.readAsDataURL(qrInput.files[0]);
+          reader.onload = function() {
+            var base64 = reader.result.split(',')[1];
+
+            fetch(WEB_APP_URL, {
+              method: 'POST',
+              body: JSON.stringify({
+                action: 'requestWithdraw',
+                phone: phone,
+                userId: currentUser.userId,
+                numbers: 'ច្រើនលេខ',
+                reward: totalPayout,
+                betId: selectedWinIds.join(','),
+                imageBase64: base64
+              }),
+              headers: { 'Content-Type': 'text/plain' }
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+              btn.disabled = false;
+              btn.innerHTML = '<span class="anim-rocket">🚀</span> បញ្ជាក់ដកប្រាក់';
+              showLoading(false);
+
+              if (data.ok) {
+                showToast('ស្នើសុំដកប្រាក់ត្រូវបានទទួលយក!', 'success', '🎉');
+                closeModal('withdrawModal');
+                fetchUserBets();
+                withdrawForm.reset();
+                $('wdPhone').value = fixPhoneNumber(currentUser.phone);
+                selectedWinIds = [];
+              } else {
+                showToast('មានបញ្ហាក្នុងការបញ្ជូន!', 'error');
+              }
+            })
+            .catch(function(err) {
+              console.error(err);
+              btn.disabled = false;
+              btn.innerHTML = '<span class="anim-rocket">🚀</span> បញ្ជាក់ដកប្រាក់';
+              showLoading(false);
+              showToast('មានបញ្ហាតភ្ជាប់!', 'error');
+            });
+          };
+        });
+      }
+
+      var depPhone = $('depPhone');
+      if (depPhone) depPhone.addEventListener('input', checkOnlineFormValidity);
+      var depScreenshot = $('depScreenshot');
+      if (depScreenshot) depScreenshot.addEventListener('change', checkOnlineFormValidity);
+    }
+
+    function resetBetForm() {
+      numbers = [];
+      selectedLetter = '';
+      var circles = document.querySelectorAll('.letter-circle');
+      for (var i = 0; i < circles.length; i++) circles[i].classList.remove('active');
+      var inp = $('numInput');
+      if (inp) { inp.disabled = true; inp.value = ''; }
+      updateDisplay();
+      updateBalanceStatusBox();
+    }
+
+    /* ============================================================
+       START APP
+       ============================================================ */
+    function startApp() {
+      init();
+      setupFormHandlers();
+
+      var numInput = $('numInput');
+      if (numInput) numInput.addEventListener('input', autoAddNumbers);
+
+      var regCode = $('regCode');
+      if (regCode) {
+        regCode.addEventListener('input', function() { this.value = this.value.toUpperCase(); });
+        regCode.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') handleVerify();
+        });
+      }
+
+      var loginPin = $('loginPin');
+      if (loginPin) {
+        loginPin.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') handleLogin();
+        });
+      }
+
+      var regPin = $('regPin');
+      if (regPin) {
+        regPin.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') handleRegister();
+        });
+      }
+
+      // Window click — close modal
+      window.addEventListener('click', function(e) {
+        if (e.target.classList && e.target.classList.contains('modal') && e.target.id !== 'registerModal') {
+          e.target.style.display = 'none';
+        }
+      });
+
+      // ESC key — close modal
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          var modals = document.querySelectorAll('.modal');
+          for (var i = 0; i < modals.length; i++) {
+            if (modals[i].style.display === 'block' && modals[i].id !== 'registerModal') {
+              modals[i].style.display = 'none';
+            }
+          }
+        }
+      });
+    }
+
+    /* ============================================================
+       EXPOSE FUNCTIONS
+       ============================================================ */
+    window.N98 = {
+      handleRegister: handleRegister,
+      handleVerify: handleVerify,
+      handleLogin: handleLogin,
+      handleLogout: handleLogout,
+      showLoginStep: showLoginStep,
+      showRegisterStep: showRegisterStep,
+      showVerifyStep: showVerifyStep,
+      contactAdmin: contactAdmin,
+      openGroup: openGroup,
+      copyLink: copyLink,
+      showSection: showSection,
+      closeModal: closeModal,
+      setMode: setMode,
+      setTime: setTime,
+      setType: setType,
+      selectLetter: selectLetter,
+      removeNum: removeNum,
+      setAmount: setAmount,
+      updateAmount: updateAmount,
+      submitBet: submitBet,
+      handleAbaClick: handleAbaClick,
+      openWithdraw: openWithdraw,
+      markPaid: markPaid,
+      switchHistoryTab: switchHistoryTab,
+      toggleTheme: toggleTheme,
+      showToast: showToast
+    };
+
+    // Global aliases
+    window.handleRegister = handleRegister;
+    window.handleVerify = handleVerify;
+    window.handleLogin = handleLogin;
+    window.handleLogout = handleLogout;
+    window.showLoginStep = showLoginStep;
+    window.showRegisterStep = showRegisterStep;
+    window.showVerifyStep = showVerifyStep;
+    window.contactAdmin = contactAdmin;
+    window.openGroup = openGroup;
+    window.copyLink = copyLink;
+    window.showSection = showSection;
+    window.closeModal = closeModal;
+    window.setMode = setMode;
+    window.setTime = setTime;
+    window.setType = setType;
+    window.selectLetter = selectLetter;
+    window.removeNum = removeNum;
+    window.setAmount = setAmount;
+    window.updateAmount = updateAmount;
+    window.submitBet = submitBet;
+    window.handleAbaClick = handleAbaClick;
+    window.openWithdraw = openWithdraw;
+    window.markPaid = markPaid;
+    window.switchHistoryTab = switchHistoryTab;
+    window.toggleTheme = toggleTheme;
+    window.showToast = showToast;
+
+    // ✅ ចាប់ផ្តើមកម្មវិធី
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startApp);
+    } else {
+      startApp();
+    }
+
+  })();
+  </script>
+</body>
+</html>
